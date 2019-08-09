@@ -1,7 +1,7 @@
 ---
 templateKey: index-page
 title: tarot Manifest
-image: /img/home-jumbotron.jpg
+image: /img/download.jpeg
 links:
   - title: Die Große Arkana
     url: deck
