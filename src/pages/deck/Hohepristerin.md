@@ -1,12 +1,19 @@
 ---
-templateKey: 'deck-page'
-title: 'Hohepristerin'
+templateKey: deck-page
 id: 1
-arkana: "Große Arkana"
-color: "Feuer"
+title: Hohepristerin
+arkana: Große Arkana
 description: >-
   We’re proud to announce that we’ll be offering a small batch of Jamaica Blue
   Mountain coffee beans in our store next week.
+image: /img/flavor_wheel.jpg
+color: Feuer
+natural:
+  - ab
+  - cd
+upsidedown:
+  - afff
+  - de
 ---
 
 We expect the shipment of a limited quantity of green beans next Monday. We’ll be offering the roasted beans from Tuesday, but quantities are limited, so be quick.
