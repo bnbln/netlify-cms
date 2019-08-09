@@ -27,15 +27,16 @@ collections:
     slug: "{{slug}}"
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "deck-page"}
-      - {label: "#ID", name: "id", widget: "number"}
       - {label: "Name", name: "title", widget: "string"}
-      - {label: "Arkana", name: "arkana", widget: "select", options: ["Große Arkana", "Kleine Arkana"]}
-      - {label: "Description", name: "description", widget: "text"}
       - {label: "Image", name: "image", widget: image}
-      - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "#ID", name: "id", widget: "number"}
+      - {label: "Arkana", name: "arkana", widget: "select", options: ["Große Arkana", "Kleine Arkana"]}
       - {label: "Color", name: "color", widget: "select", options: ["Erde", "Wasser", "Feuer", "Luft"]}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Time", name: "time", widget: "string"}
       - {label: "Natural", name: "natural", widget: "list"}
       - {label: "Upsidedown", name: "upsidedown", widget: "list"}
+      - {label: "Body", name: "body", widget: "markdown"}
   - name: "pages"
     label: "Pages"
     files:
