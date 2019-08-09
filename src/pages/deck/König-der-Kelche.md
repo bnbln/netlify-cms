@@ -1,12 +1,18 @@
 ---
-templateKey: 'deck-page'
-title: 'König der Kelche'
+templateKey: deck-page
 id: 10
-arkana: "Kleine Arkana"
-color: "Wasser"
+title: König der Kelche
+arkana: Kleine Arkana
 description: >-
   We’re proud to announce that we’ll be offering a small batch of Jamaica Blue
   Mountain coffee beans in our store next week.
+image: /img/products-grid1.jpg
+color: Wasser
+natural:
+  - What you need to know before trying
+upsidedown:
+  - What you need to know before tryingdd
+  - ddd
 ---
 
 We expect the shipment of a limited quantity of green beans next Monday. We’ll be offering the roasted beans from Tuesday, but quantities are limited, so be quick.
