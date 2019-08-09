@@ -7,6 +7,9 @@ const IndexPagePreview = ({ entry, getAsset }) => {
 
   if (data) {
     return (
+      <div style={{
+        backgroundColor: "#000"
+      }}>
       <IndexPageTemplate
         image={data.image}
         title={data.title}
@@ -15,7 +18,8 @@ const IndexPagePreview = ({ entry, getAsset }) => {
         description={data.description}
         intro={data.intro || { blurbs: [] }}
         mainpitch={data.mainpitch || {}}
-      />
+        />
+      </div>
     )
   } else {
     return <div>Loading...</div>

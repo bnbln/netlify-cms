@@ -52,11 +52,11 @@ export const DeckPageTemplate = ({
           >
             <Grid item xs={8} sm={5} md={3}>
               {console.log(image)}
-              {/* <img src={image != null ? image : undefined} alt={null} style={{
+              <img src={image ? image : null} alt={null} style={{
                 width: "100%",
                 height: "auto",
                 maxHeight: "100%"
-              }}></img> */}
+              }}></img>
             </Grid>
 
             <Grid item xs={8} sm={5} md={3}>

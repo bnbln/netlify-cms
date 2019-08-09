@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
 import Grid from '@material-ui/core/Grid';
 import Hidden from '@material-ui/core/Hidden';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
 
 
 import Layout from '../components/Layout'
@@ -53,8 +55,16 @@ export const IndexPageTemplate = ({
       </Grid>
 
       <Grid item xs={12} style={{
+        backgroundImage: `url(${
+          !!image.childImageSharp ? image.childImageSharp.fluid.src : image
+          })`,
+        backgroundPosition: `top left`,
+        backgroundAttachment: `fixed`,
+        width: "100%",
+        height: "100vh"
+      }} />
+      <Grid item xs={12} style={{
         height: "100vh",
-        position: "relative",
         zIndex: 150,
         color: "white"
       }}>
@@ -63,24 +73,29 @@ export const IndexPageTemplate = ({
             padding: "10rem 0px"
           }}>
           <Grid item xs={10} md={7} >
-            <h1>Die Große Arkana</h1>
-            <h1>Die Kleine Arkana</h1>
-            <h1>Elemente</h1>
-            <h1>Legetechniken</h1>
-          </Grid>
-          <Grid item xs={12} style={{
-            backgroundImage: `url(${
-              !!image.childImageSharp ? image.childImageSharp.fluid.src : image
-              })`,
-            backgroundPosition: `top left`,
-            backgroundAttachment: `fixed`,
-            width: "100%",
-            height: "100vh"
-          }}>
+            <Button onClick={() => console.log(mainpitch.url)} >
+              <Typography variant="h2" gutterBottom>
+                {mainpitch.title}
+              </Typography>
+            </Button>
+            <Typography variant="h2" gutterBottom>
+              Die Kleine Arkana
+            </Typography>
+            <Typography variant="h2" gutterBottom>
+              Elemente
+            </Typography>
+            <Typography variant="h2" gutterBottom>
+              Legetechniken
+            </Typography>
 
           </Grid>
+        </Grid>
+      </Grid>
+
+      <Grid item xs={12}>
+        <Grid container>
           <Grid item xs={10}>
-            <h1 className="title">{mainpitch.title}</h1>
+            <h1 className="title"></h1>
             <h3 className="subtitle">{mainpitch.description}</h3>
             <h3 className="has-text-weight-semibold is-size-2">
               {heading}
