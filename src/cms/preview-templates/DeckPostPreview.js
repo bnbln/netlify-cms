@@ -1,17 +1,23 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { BlogPostTemplate } from '../../templates/deck-page'
+import { DeckPageTemplate } from '../../templates/deck-page'
 
 const DeckPostPreview = ({ entry, widgetFor }) => (
-  <BlogPostTemplate
+  <div style={{
+    backgroundColor: "black"
+  }}>
+  <DeckPageTemplate
     content={widgetFor('body')}
     description={entry.getIn(['data', 'description'])}
-    tags={entry.getIn(['data', 'tags'])}
+    image={entry.getIn(['data', 'image'])}
+    arkana={entry.getIn(['data', 'arkana'])}
     title={entry.getIn(['data', 'title'])}
-    style={{
-      backgroundColor: "orange"
-    }}
-  >{console.log("yuppi")}</BlogPostTemplate>
+    id={entry.getIn(['data', 'id'])}
+    
+   
+    >{console.log(entry.getIn(['data', 'id']))}</DeckPageTemplate>
+
+  </div>
 )
 
 DeckPostPreview.propTypes = {

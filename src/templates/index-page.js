@@ -1,8 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
+import Grid from '@material-ui/core/Grid';
+import Hidden from '@material-ui/core/Hidden';
+
 
 import Layout from '../components/Layout'
+import Logo from '../components/Logo'
+import Illustration from "../../static/img/Illustration_Cards.svg"
+
+
 import Features from '../components/Features'
 import BlogRoll from '../components/BlogRoll'
 
@@ -15,103 +22,77 @@ export const IndexPageTemplate = ({
   description,
   intro,
 }) => (
-  <div>
-    <div
-      className="full-width-image margin-top-0"
-      style={{
-        backgroundImage: `url(${
-          !!image.childImageSharp ? image.childImageSharp.fluid.src : image
-        })`,
-        backgroundPosition: `top left`,
-        backgroundAttachment: `fixed`,
-      }}
-    >
-      <div
-        style={{
-          display: 'flex',
-          height: '150px',
-          lineHeight: '1',
-          justifyContent: 'space-around',
-          alignItems: 'left',
-          flexDirection: 'column',
-        }}
-      >
-        <h1
-          className="has-text-weight-bold is-size-3-mobile is-size-2-tablet is-size-1-widescreen"
-          style={{
-            boxShadow:
-              'rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px',
-            backgroundColor: 'rgb(255, 68, 0)',
-            color: 'white',
-            lineHeight: '1',
-            padding: '0.25em',
-          }}
-        >
-          {title}
-        </h1>
-        <h3
-          className="has-text-weight-bold is-size-5-mobile is-size-5-tablet is-size-4-widescreen"
-          style={{
-            boxShadow:
-              'rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px',
-            backgroundColor: 'rgb(255, 68, 0)',
-            color: 'white',
-            lineHeight: '1',
-            padding: '0.25em',
-          }}
-        >
-          {subheading}
-        </h3>
-      </div>
-    </div>
-    <section className="section section--gradient">
-      <div className="container">
-        <div className="section">
-          <div className="columns">
-            <div className="column is-10 is-offset-1">
-              <div className="content">
-                <div className="content">
-                  <div className="tile">
-                    <h1 className="title">{mainpitch.title}</h1>
-                  </div>
-                  <div className="tile">
-                    <h3 className="subtitle">{mainpitch.description}</h3>
-                  </div>
-                </div>
-                <div className="columns">
-                  <div className="column is-12">
-                    <h3 className="has-text-weight-semibold is-size-2">
-                      {heading}
-                    </h3>
-                    <p>{description}</p>
-                  </div>
-                </div>
-                <Features gridItems={intro.blurbs} />
-                <div className="columns">
-                  <div className="column is-12 has-text-centered">
-                    <Link className="btn" to="/products">
-                      See all products
-                    </Link>
-                  </div>
-                </div>
-                <div className="column is-12">
-                  <h3 className="has-text-weight-semibold is-size-2">
-                    Latest stories
-                  </h3>
-                  <BlogRoll />
-                  <div className="column is-12 has-text-centered">
-                    <Link className="btn" to="/blog">
-                      Read more
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
+    <Grid container
+      direction="row"
+      justify="center"
+      alignItems="center" style={{
+        paddingRight: 0
+      }}>
+      <Grid item xs={12}>
+        <Grid container
+          direction="row"
+          justify="center"
+          alignItems="center" style={{
+            height: "100vh",
+            boxShadow: "-63px 30px 113px 70px black",
+            zIndex: 100,
+            position: "relative"
+          }}>
+          <Grid item xs={11} md={6} style={{ textAlign: "center" }}>
+            <Illustration style={{ maxWidth: "100%" }} />
+          </Grid>
+          <Grid item xs={11} sm={6} md={4} >
+
+            <Logo />
+            <h1>{title}</h1>
+            <b>{subheading}</b>
+            {/* <Search values={this.props.query.tarot.deck} /> */}
+
+          </Grid>
+        </Grid>
+      </Grid>
+
+      <Grid item xs={12} style={{
+        height: "100vh",
+        position: "relative",
+        zIndex: 150,
+        color: "white"
+      }}>
+        <Grid container justify="center"
+          alignItems="center" style={{
+            padding: "10rem 0px"
+          }}>
+          <Grid item xs={10} md={7} >
+            <h1>Die Große Arkana</h1>
+            <h1>Die Kleine Arkana</h1>
+            <h1>Elemente</h1>
+            <h1>Legetechniken</h1>
+          </Grid>
+          <Grid item xs={12} style={{
+            backgroundImage: `url(${
+              !!image.childImageSharp ? image.childImageSharp.fluid.src : image
+              })`,
+            backgroundPosition: `top left`,
+            backgroundAttachment: `fixed`,
+            width: "100%",
+            height: "100vh"
+          }}>
+
+          </Grid>
+          <Grid item xs={10}>
+            <h1 className="title">{mainpitch.title}</h1>
+            <h3 className="subtitle">{mainpitch.description}</h3>
+            <h3 className="has-text-weight-semibold is-size-2">
+              {heading}
+            </h3>
+            <p>{description}</p>
+            <Features gridItems={intro.blurbs} />
+            <BlogRoll />
+          </Grid>
+        </Grid>
+      </Grid>
+
+  </Grid>
 )
 
 IndexPageTemplate.propTypes = {

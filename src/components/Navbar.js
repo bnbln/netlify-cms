@@ -1,99 +1,93 @@
 import React from 'react'
-import { Link } from 'gatsby'
-import github from '../img/github-icon.svg'
-import logo from '../img/logo.svg'
+import { navigate } from "gatsby"
+
+import Hidden from '@material-ui/core/Hidden';
+import IconButton from '@material-ui/core/IconButton';
+import IconMenu from '@material-ui/icons/Sort';
+import IconSearch from '@material-ui/icons/Search';
+import IconPerson from '@material-ui/icons/Person';
+
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+
+const bgColor = "blue"
 
 const Navbar = class extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      active: false,
-      navBarActiveClass: '',
+      active: 0
     }
+    this.handleChange = this.handleChange.bind(this)
   }
+  componentDidMount() {
 
-  toggleHamburger = () => {
-    // toggle the active boolean in the state
-    this.setState(
-      {
-        active: !this.state.active,
-      },
-      // after state has been updated,
-      () => {
-        // set the class in state for the navbar accordingly
-        this.state.active
-          ? this.setState({
-              navBarActiveClass: 'is-active',
-            })
-          : this.setState({
-              navBarActiveClass: '',
-            })
-      }
-    )
   }
-
+  handleChange(e) {
+    console.log(e.currentTarget.tab)
+    this.setState({
+      active: e
+    })
+  }
   render() {
     return (
-      <nav
-        className="navbar is-transparent"
-        role="navigation"
-        aria-label="main-navigation"
-      >
-        <div className="container">
-          <div className="navbar-brand">
-            <Link to="/" className="navbar-item" title="Logo">
-              <img src={logo} alt="Kaldi" style={{ width: '88px' }} />
-            </Link>
-            {/* Hamburger menu */}
-            <div
-              className={`navbar-burger burger ${this.state.navBarActiveClass}`}
-              data-target="navMenu"
-              onClick={() => this.toggleHamburger()}
-            >
-              <span />
-              <span />
-              <span />
-            </div>
-          </div>
-          <div
-            id="navMenu"
-            className={`navbar-menu ${this.state.navBarActiveClass}`}
+      <div style={{
+        position: "relative",
+        zIndex: 500
+      }}>
+        <Hidden smUp>
+          <Tabs
+            value={this.state.active}
+            onChange={this.handleChange}
+            variant="fullWidth"
+            indicatorColor="primary"
+            textColor="primary"
+            aria-label="icon tabs example"
+            style={{
+              position: "fixed",
+              left: 0,
+              bottom: 0,
+              zIndex: 1000,
+              color: "white",
+              width: "100%",
+              backgroundColor: bgColor,
+              boxShadow: "rgb(0, 0, 0) 20px 0px 32px 0px",
+            }
+            }
           >
-            <div className="navbar-start has-text-centered">
-              <Link className="navbar-item" to="/deck">
-                Deck
-              </Link>
-              <Link className="navbar-item" to="/about">
-                About
-              </Link>
-              <Link className="navbar-item" to="/products">
-                Products
-              </Link>
-              <Link className="navbar-item" to="/blog">
-                Blog
-              </Link>
-              <Link className="navbar-item" to="/contact">
-                Contact
-              </Link>
-              <Link className="navbar-item" to="/contact/examples">
-                Form Examples
-              </Link>
-            </div>
-            <div className="navbar-end has-text-centered">
-              <a
-                className="navbar-item"
-                href="https://github.com/netlify-templates/gatsby-starter-netlify-cms"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span className="icon">
-                  <img src={github} alt="Github" />
-                </span>
-              </a>
-            </div>
+            <Tab icon={<IconMenu style={{ color: "#fff" }} />} aria-label="home" onClick={() => navigate("/")} />
+            <Tab icon={<IconSearch style={{ color: "#fff" }} />} aria-label="search" onClick={() => navigate("/suche/")} />
+            <Tab icon={<IconPerson style={{ color: "#fff" }} />} aria-label="person" />
+          </Tabs>
+        </Hidden>
+        <Hidden xsDown>
+          <div className="mainNavigationBar" style={{
+            height: "100vh",
+            width: "50px",
+            backgroundColor: bgColor,
+            // backgroundImage: "linear-gradient(-264deg, #42C7C1, #4573D6)",
+            boxShadow: "rgb(0, 0, 0) 20px 0px 32px 0px",
+            position: "fixed",
+            top: 0,
+            right: 0
+          }}>
+            <IconButton style={{ color: "#fff" }}
+              onClick={() => navigate("/")}
+            >
+              <IconMenu />
+            </IconButton>
+            <IconButton style={{ color: "#fff" }}
+              onClick={() => navigate("/suche")}
+            >
+              <IconSearch />
+            </IconButton>
+            <IconButton style={{ color: "#fff" }}>
+              <IconPerson />
+            </IconButton>
+
           </div>
-        </div>
-      </nav>
+        </Hidden>
+      </div>
     )
   }
 }

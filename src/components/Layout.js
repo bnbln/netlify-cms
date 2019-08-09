@@ -1,17 +1,38 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
+import Grid from '@material-ui/core/Grid';
+import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
+
+
+
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
 import './all.sass'
 import useSiteMetadata from './SiteMetadata'
 import { withPrefix } from "gatsby"
 
+const color = "#000"
+
+const theme = createMuiTheme({
+  typography: {
+    useNextVariants: true,
+  },
+  palette: {
+    primary: {
+      main: '#032333'
+    },
+    secondary: {
+      main: '#064260'
+    },
+  },
+});
+
 const TemplateWrapper = ({ children }) => {
   const { title, description } = useSiteMetadata()
   return (
-    <div>
+    <MuiThemeProvider theme={theme}>
       <Helmet>
-        <html lang="en" />
+        <html lang="de" />
         <title>{title}</title>
         <meta name="description" content={description} />
 
@@ -45,10 +66,23 @@ const TemplateWrapper = ({ children }) => {
         <meta property="og:url" content="/" />
         <meta property="og:image" content={`${withPrefix("/")}img/og-image.jpg`} />
       </Helmet>
-      <Navbar />
-      <div>{children}</div>
-      <Footer />
-    </div>
+      <Grid container
+        direction="row"
+        justify="center"
+        alignItems="center"
+        style={{
+          transition: "all 0.5s ease-in-out",
+          backgroundColor: color
+        }}>
+        <Grid item xs={12}>
+          {children}
+        </Grid>
+
+        <Navbar />
+
+      </Grid>
+      {/* <Footer /> */}
+    </MuiThemeProvider>
   )
 }
 
