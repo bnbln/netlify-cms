@@ -10,6 +10,8 @@ import Button from '@material-ui/core/Button';
 import Layout from '../components/Layout'
 import Logo from '../components/Logo'
 import Search from '../components/Search'
+import Slider from '../components/Slider'
+
 import Illustration from "../../static/img/Illustration_Cards.svg"
 
 
@@ -58,11 +60,29 @@ export const IndexPageTemplate = ({
         </Grid>
       </Grid>
 
-      <Grid item xs={12} style={{
-        backgroundColor: "#101025",
-        width: "100%",
-        height: "100vh"
-      }} />
+      <Hidden xsDown>
+        <Grid item xs={12} style={{
+        }}>
+          <Grid container justify="center"
+            alignItems="center" style={{
+              height: "100vh",
+              width: "100%",
+              backgroundColor: "#101025",
+              overflow: "hidden",
+              padding: 0,
+              position: "relative",
+              zIndex: 50
+
+            }}>
+
+            <Grid item xs={9}>
+              <Slider values={all} />
+            </Grid>
+          </Grid>
+        </Grid>
+      </Hidden>
+
+
       <Grid item xs={12} style={{
         height: "100vh",
         zIndex: 150,
@@ -92,7 +112,8 @@ export const IndexPageTemplate = ({
         width: "100%",
         height: "100vh"
       }} />
-      <Grid item xs={12}>
+
+      {/* <Grid item xs={12}>
         <Grid container justify="center"
           alignItems="center">
           <Grid item xs={10}>
@@ -105,7 +126,7 @@ export const IndexPageTemplate = ({
             <BlogRoll />
           </Grid>
         </Grid>
-      </Grid>
+      </Grid> */}
 
   </Grid>
 )

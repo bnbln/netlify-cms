@@ -23,6 +23,8 @@ export const DeckPageTemplate = ({
   image,
   arkana,
   title,
+  upsidedown,
+  natural,
   id,
   helmet,
 }) => {
@@ -47,7 +49,7 @@ export const DeckPageTemplate = ({
             spacing={5}
             style={{
               paddingTop: 40,
-              height: "100vh"
+              minHeight: "100vh"
             }}
           >
             <Grid item xs={8} sm={5} md={3}>
@@ -70,9 +72,6 @@ export const DeckPageTemplate = ({
                 {description}
               </Typography>
               <br />
-              {content}
-              {contentComponent}
-              <div dangerouslySetInnerHTML={{ __html: content }} />
               <Typography variant="body2" gutterBottom style={{
                 marginTop: 20
               }}>
@@ -83,8 +82,7 @@ export const DeckPageTemplate = ({
 
           </Grid>
         </Grid>
-
-        <Grid item xs={12}>
+        <Grid item xs={11}>
           <Grid container
             direction="row"
             justify="center"
@@ -92,12 +90,11 @@ export const DeckPageTemplate = ({
             spacing={5}
             style={{
               marginTop: 50,
-              minHeight: "80vh",
+              padding: "50px 0px",
             }}
           >
-
-            {/* {post.table.positive.length !== 0 ?
-              <Grid item xs={8} sm={5} md={3}>
+           {natural.length !== 0 ?
+              <Grid item xs={8} sm={5} md={4}>
                 <Typography variant="h5" gutterBottom>
                   <ListItemIcon>
                     <GoodIcon style={{ color: "white" }} />
@@ -105,7 +102,7 @@ export const DeckPageTemplate = ({
                   Natürliche Stellung
               </Typography>
                 <List component="nav" aria-label="positiv">
-                  {post.table.positive.map((item, i) =>
+                  {natural.map((item, i) =>
                     <ListItem style={{ borderTop: "0.2px solid white", backgroundColor: "#1e00ff" }}>
                       <ListItemText primary={item} />
                     </ListItem>
@@ -113,9 +110,8 @@ export const DeckPageTemplate = ({
                 </List>
               </Grid>
               : null}
-
-            {post.table.negative.length !== 0 ?
-              <Grid item xs={8} sm={5} md={3}>
+            {upsidedown.length !== 0 ?
+              <Grid item xs={8} sm={5} md={4}>
                 <Typography variant="h5" gutterBottom>
                   <ListItemIcon>
                     <BadIcon style={{ color: "white" }} />
@@ -123,15 +119,31 @@ export const DeckPageTemplate = ({
                   Umgekehrt
               </Typography>
                 <List component="nav" aria-label="positiv">
-                  {post.table.negative.map((item, i) =>
+                  {upsidedown.map((item, i) =>
                     <ListItem style={{ borderTop: "0.2px solid white", backgroundColor: "#1e00ff" }}>
                       <ListItemText primary={item} />
                     </ListItem>
                   )}
                 </List>
               </Grid>
-              : null} */}
+              : null}
+            </Grid>
+          </Grid>
 
+        <Grid item xs={8}>
+          <Grid container
+            direction="row"
+            justify="center"
+            alignItems="flex-start"
+            spacing={5}
+            style={{
+              marginTop: 50,
+              padding: "50px 0px",
+            }}
+          >
+            {/* {content} */}
+            {/* {contentComponent} */}
+            <div dangerouslySetInnerHTML={{ __html: content }} />
           </Grid>
         </Grid>
 
@@ -161,6 +173,8 @@ const DeckPage = ({ data }) => {
         image={post.frontmatter.image.publicURL != null ? post.frontmatter.image.publicURL : null }
         arkana={post.frontmatter.arkana}
         title={post.frontmatter.title}
+        natural={post.frontmatter.natural}
+        upsidedown={post.frontmatter.upsidedown}
         id={post.frontmatter.id}
 
         helmet={
@@ -194,6 +208,8 @@ export const pageQuery = graphql`
         frontmatter {
           id
           title
+          upsidedown
+          natural
           arkana
           templateKey
           description
