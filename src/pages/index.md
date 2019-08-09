@@ -2,9 +2,11 @@
 templateKey: index-page
 title: tarot Manifest
 image: /img/home-jumbotron.jpg
-mainpitch:
-  title: Die Große Arkana
-  url: arkana
+links:
+  - title: Die Große Arkana
+    url: deck
+  - title: Die Kleine Arkana
+    url: deck
 heading: Great coffee with a conscience
 subheading: Support sustainable farming while enjoying a cup
 description: >-
