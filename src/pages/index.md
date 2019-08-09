@@ -1,6 +1,6 @@
 ---
 templateKey: index-page
-title: tarot Manifest
+title: Tarot Manifest
 image: /img/download.jpeg
 links:
   - title: Die Große Arkana
