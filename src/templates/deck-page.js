@@ -50,7 +50,6 @@ export const DeckPageTemplate = ({
             }}
           >
             <Grid item xs={10} sm={5} md={3}>
-              {console.log(image)}
               <img src={image ? image : null} alt={null} style={{
                 width: "100%",
                 height: "auto",
@@ -137,10 +136,13 @@ export const DeckPageTemplate = ({
               marginTop: 50,
               padding: "50px 0px 200px 0px",
             }}
-          >
-            {/* {content} */}
-            {/* {contentComponent} */}
+        >
+          {console.log(content)}
+          {typeof content != 'object' ? 
             <div dangerouslySetInnerHTML={{ __html: content }} />
+            : content}
+           
+            
           </Grid>
         </Grid>
 
@@ -161,7 +163,6 @@ const DeckPage = ({ data }) => {
 
   return (
     <Layout>
-      {console.log(post)}
       <DeckPageTemplate
         content={post.html}
         contentComponent={HTMLContent}

@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { DeckPageTemplate } from '../../templates/deck-page'
+import Layout from "../../components/Layout"
 
 const DeckPostPreview = ({ entry, widgetFor }) => (
   <div style={{
