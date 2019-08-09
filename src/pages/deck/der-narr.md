@@ -4,7 +4,7 @@ id: 0
 title: Der Narr
 arkana: Große Arkana
 description: Stur
-image: /img/blog-index.jpg
+image: /img/0-der-narr.png
 color: Erde
 natural:
   - 'no'
