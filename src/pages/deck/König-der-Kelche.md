@@ -6,7 +6,7 @@ arkana: Kleine Arkana
 description: >-
   We’re proud to announce that we’ll be offering a small batch of Jamaica Blue
   Mountain coffee beans in our store next week.
-image: /img/products-grid1.jpg
+image: /img/könig-der-kelche.png
 color: Wasser
 natural:
   - What you need to know before trying
