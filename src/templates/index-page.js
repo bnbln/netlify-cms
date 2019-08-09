@@ -73,11 +73,12 @@ export const IndexPageTemplate = ({
             padding: "10rem 0px"
           }}>
           <Grid item xs={10} md={7} >
-            <Button onClick={() => console.log(mainpitch.url)} >
+            {/* mainpitch.url */}
+            <Link to={"./deck/"} style={{ color: "white" }}>
               <Typography variant="h2" gutterBottom>
                 {mainpitch.title}
               </Typography>
-            </Button>
+            </Link>
             <Typography variant="h2" gutterBottom>
               Die Kleine Arkana
             </Typography>
@@ -164,7 +165,7 @@ export const pageQuery = graphql`
         }
         heading
         subheading
-        mainpitch {
+        links {
           title
           url
         }
