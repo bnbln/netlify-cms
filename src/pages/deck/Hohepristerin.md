@@ -6,7 +6,7 @@ arkana: Große Arkana
 description: >-
   We’re proud to announce that we’ll be offering a small batch of Jamaica Blue
   Mountain coffee beans in our store next week.
-image: /img/flavor_wheel.jpg
+image: /img/2-die-hohepriesterin.png
 color: Feuer
 natural:
   - ab
