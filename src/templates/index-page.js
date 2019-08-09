@@ -9,6 +9,7 @@ import Button from '@material-ui/core/Button';
 
 import Layout from '../components/Layout'
 import Logo from '../components/Logo'
+import Search from '../components/Search'
 import Illustration from "../../static/img/Illustration_Cards.svg"
 
 
@@ -23,6 +24,7 @@ export const IndexPageTemplate = ({
   links,
   description,
   intro,
+  all
 }) => (
     <Grid container
       direction="row"
@@ -46,20 +48,18 @@ export const IndexPageTemplate = ({
           <Grid item xs={11} sm={6} md={4} >
 
             <Logo />
-            <h1>{title}</h1>
-            <b>{subheading}</b>
-            {/* <Search values={this.props.query.tarot.deck} /> */}
+            <div style={{display: "none"}}>
+              <h1>{title}</h1>
+              <b>{subheading}</b>
+            </div>
+            <Search values={all} />
 
           </Grid>
         </Grid>
       </Grid>
 
       <Grid item xs={12} style={{
-        backgroundImage: `url(${
-          !!image.childImageSharp ? image.childImageSharp.fluid.src : image
-          })`,
-        backgroundPosition: `top left`,
-        backgroundAttachment: `fixed`,
+        backgroundColor: "#101025",
         width: "100%",
         height: "100vh"
       }} />
@@ -83,7 +83,15 @@ export const IndexPageTemplate = ({
           </Grid>
         </Grid>
       </Grid>
-
+      <Grid item xs={12} style={{
+        backgroundImage: `url(${
+          !!image.childImageSharp ? image.childImageSharp.fluid.src : image
+          })`,
+        backgroundPosition: `top left`,
+        backgroundAttachment: `fixed`,
+        width: "100%",
+        height: "100vh"
+      }} />
       <Grid item xs={12}>
         <Grid container justify="center"
           alignItems="center">
@@ -119,7 +127,7 @@ const IndexPage = ({ data }) => {
 
   return (
     <Layout>
-      {console.log(frontmatter)}
+
       <IndexPageTemplate
         image={frontmatter.image}
         title={frontmatter.title}
@@ -128,6 +136,7 @@ const IndexPage = ({ data }) => {
         subheading={frontmatter.subheading}
         description={frontmatter.description}
         intro={frontmatter.intro}
+        all={data.allMarkdownRemark.edges}
       />
     </Layout>
   )
@@ -178,5 +187,25 @@ export const pageQuery = graphql`
         }
       }
     }
+      allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "deck-page"}}}) {
+    edges {
+      node {
+        frontmatter {
+          title
+          color
+          image {
+              childImageSharp {
+                fluid(maxWidth: 240, quality: 64) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+        }
+        fields {
+          slug
+        }
+      }
+    }
+  }
   }
 `

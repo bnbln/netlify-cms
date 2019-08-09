@@ -56,7 +56,7 @@ const Navbar = class extends React.Component {
             }
           >
             <Tab icon={<IconMenu style={{ color: "#fff" }} />} aria-label="home" onClick={() => navigate("/")} />
-            <Tab icon={<IconSearch style={{ color: "#fff" }} />} aria-label="search" onClick={() => navigate("/suche/")} />
+            <Tab icon={<IconSearch style={{ color: "#fff" }} />} aria-label="search" onClick={() => navigate("/search/")} />
             <Tab icon={<IconPerson style={{ color: "#fff" }} />} aria-label="person" />
           </Tabs>
         </Hidden>
@@ -77,7 +77,7 @@ const Navbar = class extends React.Component {
               <IconMenu />
             </IconButton>
             <IconButton style={{ color: "#fff" }}
-              onClick={() => navigate("/suche")}
+              onClick={() => navigate("/search/")}
             >
               <IconSearch />
             </IconButton>
