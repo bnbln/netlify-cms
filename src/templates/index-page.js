@@ -166,7 +166,7 @@ export const pageQuery = graphql`
         subheading
         mainpitch {
           title
-          description
+          url
         }
         description
         intro {
