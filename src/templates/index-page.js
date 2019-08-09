@@ -127,6 +127,7 @@ const IndexPage = ({ data }) => {
 
   return (
     <Layout>
+      {console.log(frontmatter)}
       <IndexPageTemplate
         image={frontmatter.image}
         title={frontmatter.title}
@@ -163,7 +164,7 @@ export const pageQuery = graphql`
         }
         heading
         subheading
-  
+ 
         description
         intro {
           blurbs {
