@@ -26,21 +26,18 @@ export const DeckPageTemplate = ({
   upsidedown,
   natural,
   id,
+  color,
   helmet,
 }) => {
   const PostContent = contentComponent || Content
 
   return (
-    <section className="section">
-      {helmet || ''}
-
-      {console.log(image)}
       <Grid container
         direction="row"
         justify="center"
         alignItems="center"
         style={{ color: "white", width: "100%", overflow: "hidden" }}>
-
+        {helmet || ''}
         <Grid item xs={12}>
           <Grid container
             direction="row"
@@ -52,7 +49,7 @@ export const DeckPageTemplate = ({
               minHeight: "100vh"
             }}
           >
-            <Grid item xs={8} sm={5} md={3}>
+            <Grid item xs={10} sm={5} md={3}>
               {console.log(image)}
               <img src={image ? image : null} alt={null} style={{
                 width: "100%",
@@ -61,9 +58,9 @@ export const DeckPageTemplate = ({
               }}></img>
             </Grid>
 
-            <Grid item xs={8} sm={5} md={3}>
+            <Grid item xs={10} sm={5} md={3}>
               <Typography variant="overline" display="block" gutterBottom>
-                {id} | {arkana}
+              {id} | {arkana} | {color}
               </Typography>
               <Typography variant="h2" gutterBottom>
                 {title}
@@ -94,7 +91,7 @@ export const DeckPageTemplate = ({
             }}
           >
            {natural.length !== 0 ?
-              <Grid item xs={8} sm={5} md={4}>
+              <Grid item xs={11} sm={5} md={4}>
                 <Typography variant="h5" gutterBottom>
                   <ListItemIcon>
                     <GoodIcon style={{ color: "white" }} />
@@ -111,7 +108,7 @@ export const DeckPageTemplate = ({
               </Grid>
               : null}
             {upsidedown.length !== 0 ?
-              <Grid item xs={8} sm={5} md={4}>
+              <Grid item xs={11} sm={5} md={4}>
                 <Typography variant="h5" gutterBottom>
                   <ListItemIcon>
                     <BadIcon style={{ color: "white" }} />
@@ -130,7 +127,7 @@ export const DeckPageTemplate = ({
             </Grid>
           </Grid>
 
-        <Grid item xs={8}>
+        <Grid item xs={9}>
           <Grid container
             direction="row"
             justify="center"
@@ -138,7 +135,7 @@ export const DeckPageTemplate = ({
             spacing={5}
             style={{
               marginTop: 50,
-              padding: "50px 0px",
+              padding: "50px 0px 200px 0px",
             }}
           >
             {/* {content} */}
@@ -148,7 +145,6 @@ export const DeckPageTemplate = ({
         </Grid>
 
       </Grid> 
-    </section>
   )
 }
 
@@ -175,6 +171,7 @@ const DeckPage = ({ data }) => {
         title={post.frontmatter.title}
         natural={post.frontmatter.natural}
         upsidedown={post.frontmatter.upsidedown}
+        color={post.frontmatter.color}
         id={post.frontmatter.id}
 
         helmet={
@@ -211,6 +208,7 @@ export const pageQuery = graphql`
           upsidedown
           natural
           arkana
+          color
           templateKey
           description
           image {

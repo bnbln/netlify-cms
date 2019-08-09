@@ -95,7 +95,7 @@ export const IndexPageTemplate = ({
           <Grid item xs={10} md={7} >
             {links.map((item, i) =>
               <Link to={"./"+item.url+"/"} style={{ color: "white" }}>
-                <Typography variant="h2" gutterBottom>
+                <Typography variant="h3" gutterBottom>
                   {item.title}
                 </Typography>
               </Link>
