@@ -20,7 +20,7 @@ export const IndexPageTemplate = ({
   title,
   heading,
   subheading,
-  mainpitch,
+  links,
   description,
   intro,
 }) => (
@@ -73,28 +73,20 @@ export const IndexPageTemplate = ({
             padding: "10rem 0px"
           }}>
           <Grid item xs={10} md={7} >
-            {/* mainpitch.url */}
-            {/* <Link to={"./deck/"} style={{ color: "white" }}>
-              <Typography variant="h2" gutterBottom>
-                {mainpitch.title}
-              </Typography>
-            </Link> */}
-            <Typography variant="h2" gutterBottom>
-              Die Kleine Arkana
-            </Typography>
-            <Typography variant="h2" gutterBottom>
-              Elemente
-            </Typography>
-            <Typography variant="h2" gutterBottom>
-              Legetechniken
-            </Typography>
-
+            {links.map((item, i) =>
+              <Link to={"./"+item.url+"/"} style={{ color: "white" }}>
+                <Typography variant="h2" gutterBottom>
+                  {item.title}
+                </Typography>
+              </Link>
+            )}
           </Grid>
         </Grid>
       </Grid>
 
       <Grid item xs={12}>
-        <Grid container>
+        <Grid container justify="center"
+          alignItems="center">
           <Grid item xs={10}>
             <h1 className="title"></h1>
             <h3 className="has-text-weight-semibold is-size-2">
@@ -131,6 +123,7 @@ const IndexPage = ({ data }) => {
       <IndexPageTemplate
         image={frontmatter.image}
         title={frontmatter.title}
+        links={frontmatter.links}
         heading={frontmatter.heading}
         subheading={frontmatter.subheading}
         description={frontmatter.description}
@@ -164,7 +157,10 @@ export const pageQuery = graphql`
         }
         heading
         subheading
- 
+        links {
+                    title
+                    url
+                  }
         description
         intro {
           blurbs {
