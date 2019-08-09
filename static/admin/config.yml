@@ -20,7 +20,22 @@ collections:
       - {label: "Featured Image", name: "featuredimage", widget: image}
       - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Tags", name: "tags", widget: "list"}
-
+  - name: "deck"
+    label: "Deck"
+    folder: "src/pages/deck"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "deck-page"}
+      - {label: "#ID", name: "id", widget: "number"}
+      - {label: "Name", name: "title", widget: "string"}
+      - {label: "Arkana", name: "arkana", widget: "select", options: ["Große Arkana", "Kleine Arkana"]}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Image", name: "image", widget: image}
+      - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Color", name: "color", widget: "select", options: ["Erde", "Wasser", "Feuer", "Luft"]}
+      - {label: "Natural", name: "natural", widget: "list"}
+      - {label: "Upsidedown", name: "upsidedown", widget: "list"}
   - name: "pages"
     label: "Pages"
     files:
@@ -58,3 +73,10 @@ collections:
           - {label: Testimonials, name: testimonials, widget: list, fields: [{label: Quote, name: quote, widget: string}, {label: Author, name: author, widget: string}]}
           - {label: Full_image, name: full_image, widget: image}
           - {label: Pricing, name: pricing, widget: object, fields: [{label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: string}, {label: Plans, name: plans, widget: list, fields: [{label: Plan, name: plan, widget: string}, {label: Price, name: price, widget: string}, {label: Description, name: description, widget: string}, {label: Items, name: items, widget: list}]}]}
+  - label: "Feuer"
+    name: "fire"
+    folder: "_deck"
+    filter: {field: "color", value: "Feuer"}
+    fields:
+      - {label: "Color", name: "color", widget: "select", options: ["Erde", "Wasser", "Feuer", "Luft"]}
+      - {label: "Name", name: "title", widget: "string"}
