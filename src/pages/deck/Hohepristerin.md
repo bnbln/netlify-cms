@@ -1,13 +1,14 @@
 ---
 templateKey: deck-page
+title: Hohepriesterin
+image: /img/2-die-hohepriesterin.png
 id: 1
-title: Hohepristerin
 arkana: Große Arkana
+color: Feuer
 description: >-
   We’re proud to announce that we’ll be offering a small batch of Jamaica Blue
   Mountain coffee beans in our store next week.
-image: /img/2-die-hohepriesterin.png
-color: Feuer
+time: XX
 natural:
   - ab
   - cd
