@@ -4,7 +4,6 @@ import { Link, graphql } from 'gatsby'
 import Grid from '@material-ui/core/Grid';
 import Hidden from '@material-ui/core/Hidden';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
 
 
 import Layout from '../components/Layout'
@@ -15,8 +14,8 @@ import Slider from '../components/Slider'
 import Illustration from "../../static/img/Illustration_Cards.svg"
 
 
-import Features from '../components/Features'
-import BlogRoll from '../components/BlogRoll'
+// import Features from '../components/Features'
+// import BlogRoll from '../components/BlogRoll'
 
 export const IndexPageTemplate = ({
   image,
