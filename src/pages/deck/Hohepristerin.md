@@ -5,9 +5,7 @@ image: /img/2-die-hohepriesterin.png
 id: 1
 arkana: Große Arkana
 color: Feuer
-description: >-
-  We’re proud to announce that we’ll be offering a small batch of Jamaica Blue
-  Mountain coffee beans in our store next week.
+description: test
 short:
   common: >-
     Neue Lösungen durch intuitive Einsicht. Verborgene Einflüsse zu Hause.
