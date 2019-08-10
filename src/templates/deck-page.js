@@ -27,6 +27,8 @@ export const DeckPageTemplate = ({
   natural,
   id,
   color,
+  time,
+  short,
   helmet,
 }) => {
   const PostContent = contentComponent || Content
@@ -67,11 +69,26 @@ export const DeckPageTemplate = ({
               <Typography variant="subtitle1" gutterBottom>
                 {description}
               </Typography>
-              <br />
+            <br />
+            {console.log(short && short.common ? short.common : null)}
+            {short && short.common ? 
+            <Typography variant="body2" gutterBottom>
+                {short.common}
+            </Typography> : null}
+            {short && short.love ?
+              <Typography variant="body2" gutterBottom>
+                <b>Liebe: </b>{short.love}
+              </Typography> : null}
+            {short && short.job ?
+              <Typography variant="body2" gutterBottom>
+                <b>Beruf: </b>{short.job}
+              </Typography> : null}
+              <br/>
+
               <Typography variant="body2" gutterBottom style={{
                 marginTop: 20
               }}>
-                <b>Zeit: </b>{null}
+                <b>Zeit: </b>{time}
               </Typography>
             </Grid>
 
@@ -167,14 +184,15 @@ const DeckPage = ({ data }) => {
         content={post.html}
         contentComponent={HTMLContent}
         description={post.frontmatter.description}
-        image={post.frontmatter.image.publicURL != null ? post.frontmatter.image.publicURL : null }
+        image={!!post.frontmatter.image.childImageSharp ? post.frontmatter.image.childImageSharp.fluid.src : post.frontmatter.image }
         arkana={post.frontmatter.arkana}
         title={post.frontmatter.title}
         natural={post.frontmatter.natural}
         upsidedown={post.frontmatter.upsidedown}
         color={post.frontmatter.color}
         id={post.frontmatter.id}
-
+        time={post.frontmatter.time}
+        short={post.frontmatter.short}
         helmet={
           <Helmet titleTemplate="%s | Tarot">
             <title>{`${post.frontmatter.title}`}</title>
@@ -212,9 +230,19 @@ export const pageQuery = graphql`
           color
           templateKey
           description
-          image {
-            publicURL
+          time
+          short {
+            common
+            job
+            love
           }
+          image {
+          childImageSharp {
+            fluid(maxWidth: 2048, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
         } 
     }
   }

@@ -18,9 +18,11 @@ const DeckPostPreview = ({ entry, widgetFor }) => (
       upsidedown={entry.getIn(['data', 'upsidedown'])}
       natural={entry.getIn(['data', 'natural'])}
       color={entry.getIn(['data', 'color'])}
+      time={entry.getIn(['data', 'time'])}
+      short={entry.getIn(['data', 'short'])}
 
    
-    >{console.log(entry.getIn(['data', 'natural']))}</DeckPageTemplate>
+    >{console.log(entry.getIn(['data', 'short']))}</DeckPageTemplate>
 
   </div>
 )
