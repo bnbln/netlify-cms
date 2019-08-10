@@ -8,7 +8,7 @@ arkana: Große Arkana
 color: Feuer
 description: >-
   Initiative, Entschlusskraft, Gestaltungskraft, Geschicklichkeit,
-  Meisterschaft, Wille, Tatkraft
+  Meisterschaft, Wille, Tatkraft, Bereitschaft zum Risiko
 short:
   common: >-
     Wille, Tatkraft, Geschicklichkeit und Beredsamkeit. Initiative und
