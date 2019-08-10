@@ -4,6 +4,7 @@ backend:
 
 media_folder: static/img
 public_folder: /img
+publish_mode: editorial_workflow
 
 collections:
   - name: "blog"
@@ -28,15 +29,17 @@ collections:
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "deck-page"}
       - {label: "Name", name: "title", widget: "string"}
-      - {label: "Image", name: "image", widget: image}
+      - {label: "Bild", name: "image", widget: image, required: false}
       - {label: "#ID", name: "id", widget: "number"}
+      - {label: "Zahlenwert", name: "number", widget: "number", required: false}
       - {label: "Arkana", name: "arkana", widget: "select", options: ["Große Arkana", "Kleine Arkana"]}
-      - {label: "Color", name: "color", widget: "select", options: ["Erde", "Wasser", "Feuer", "Luft"]}
-      - {label: "Description", name: "description", widget: "text"}
-      - {label: "Time", name: "time", widget: "string"}
-      - {label: "Natural", name: "natural", widget: "list"}
-      - {label: "Upsidedown", name: "upsidedown", widget: "list"}
-      - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Elemente", name: "color", widget: "select", options: ["Erde", "Wasser", "Feuer", "Luft"]}
+      - {label: "Beschreibung", name: "description", widget: "text"}
+      - {label: "Zusammenfassung", name: short, widget: "object", fields: [ {label: "Allgemein" , name: common, widget: "text", required: false}, {label: "Liebe" , name: love, widget: "text", required: false}, {label: "Beruf" , name: job, widget: "text", required: false}]}
+      - {label: "Zeit", name: "time", widget: "string", required: false}
+      - {label: "Natürliche Stellung", name: "natural", widget: "list"}
+      - {label: "Umgekehrt", name: "upsidedown", widget: "list"}
+      - {label: "Inhalt", name: "body", widget: "markdown"}
   - name: "pages"
     label: "Pages"
     files:

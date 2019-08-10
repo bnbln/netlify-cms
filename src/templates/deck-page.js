@@ -89,7 +89,7 @@ export const DeckPageTemplate = ({
               padding: "50px 0px",
             }}
           >
-           {natural.length !== 0 ?
+          {natural && natural.length ?
               <Grid item xs={11} sm={5} md={4}>
                 <Typography variant="h5" gutterBottom>
                   <ListItemIcon>
@@ -106,7 +106,7 @@ export const DeckPageTemplate = ({
                 </List>
               </Grid>
               : null}
-            {upsidedown.length !== 0 ?
+          {upsidedown && upsidedown.length ?
               <Grid item xs={11} sm={5} md={4}>
                 <Typography variant="h5" gutterBottom>
                   <ListItemIcon>
