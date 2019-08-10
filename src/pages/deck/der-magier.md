@@ -16,7 +16,9 @@ short:
     und zu nutzen. Organisationstalent und kommunikative Fähigkeiten.Zeit zu
     handeln, entscheiden seinen Weg zu gehen und dabei die eigenen Fähigkeiten
     nutzen, neue Phase beginnt, Pläne umsetzen, Erfolg
-  job: 'Viel Geschick und Talente, Meisterschaft, entschlossen'
+  job: >-
+    Viel Geschick und Talente, Meisterschaft, entschlossen, Organisationstalent
+    und kommunikative Fähigkeiten
   love: 'Verzaubern, Anziehungskraft, positiv gestalten'
 time: 1 Tag - 1 Woche
 natural:
