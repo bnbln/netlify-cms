@@ -46,4 +46,10 @@ upsidedown:
 ---
 ## Mythologie
 
-Hermes - Gott der Weisheit und Magie
+Hermes - Gott der Weisheit und Magie,
+
+Thoth - Gott der Magie und des Schreibens
+
+Odin - der Wanderer und Erfinder von Poesie und Runen
+
+Alle Götter, die weniger Erzeuger des Lebens sind als vielmehr dessen Planer und Ordner.
