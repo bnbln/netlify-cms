@@ -6,7 +6,9 @@ id: 1
 number: 9
 arkana: Große Arkana
 color: Feuer
-description: 'Initiative, Entschlusskraft, Gestaltungskraft, Geschicklichkeit, Meisterschaft'
+description: >-
+  Initiative, Entschlusskraft, Gestaltungskraft, Geschicklichkeit,
+  Meisterschaft, Wille, Tatkraft
 short:
   common: >-
     Wille, Tatkraft, Geschicklichkeit und Beredsamkeit. Initiative und
