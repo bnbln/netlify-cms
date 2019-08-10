@@ -8,13 +8,21 @@ color: Feuer
 description: >-
   We’re proud to announce that we’ll be offering a small batch of Jamaica Blue
   Mountain coffee beans in our store next week.
+short:
+  common: >-
+    Neue Lösungen durch intuitive Einsicht. Verborgene Einflüsse zu Hause.
+    Rätsel und Geheimnisse. Verborgene psychische Einflüsse auf die persönliche
+    Lebenssituation.
+  job: Verborgene Einflüsse am Arbeitsplatz
+  love: Der Einfuss der Frau.
 time: XX
 natural:
   - ab
   - cd
 upsidedown:
-  - afff
-  - de
+  - Überheblichkeit
+  - Oberflächliches Wissen
+  - ''
 ---
 
 We expect the shipment of a limited quantity of green beans next Monday. We’ll be offering the roasted beans from Tuesday, but quantities are limited, so be quick.
