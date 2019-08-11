@@ -21,6 +21,8 @@ export const DeckPageTemplate = ({
   description,
   image,
   arkana,
+  planets,
+  zodiac,
   title,
   upsidedown,
   natural,
@@ -63,9 +65,9 @@ export const DeckPageTemplate = ({
               <Typography variant="overline" display="block" gutterBottom>
               {id}
               {arkana ? "| " + arkana : null}
-              {color && color !== "" ? "| " + color : null} 
-              {/* {zodiac && zodiac !== "" ? "| " + color : null}
-              {planets && planets !== "" ? "| " + color : null} */}
+              {color && color !== "" ? " | " + color : null} 
+              {zodiac && zodiac !== "" ? " | " + zodiac : null}
+              {planets && planets !== "" ? " | " + planets : null}
               </Typography>
               <Typography variant="h2" gutterBottom>
                 {title}
@@ -74,10 +76,6 @@ export const DeckPageTemplate = ({
                 {description}
               </Typography>
             <br />
-            {/* {short && short != null ?
-              short.map(i => console.log("short: ", i))
-              
-            : null} */}
             {console.log("short", short)}
             {short && short.common ? 
             <Typography variant="body2" gutterBottom>
@@ -192,6 +190,8 @@ const DeckPage = ({ data }) => {
         description={post.frontmatter.description}
         image={!!post.frontmatter.image.childImageSharp ? post.frontmatter.image.childImageSharp.fluid.src : post.frontmatter.image }
         arkana={post.frontmatter.arkana}
+        planets={post.frontmatter.planets}
+        zodiac={post.frontmatter.zodiac}
         title={post.frontmatter.title}
         natural={post.frontmatter.natural}
         upsidedown={post.frontmatter.upsidedown}
@@ -233,6 +233,8 @@ export const pageQuery = graphql`
           upsidedown
           natural
           arkana
+          planets
+          zodiac
           color
           templateKey
           description
