@@ -33,6 +33,7 @@ collections:
       - {label: "#ID", name: "id", widget: "number"}
       - {label: "Zahlenwert", name: "number", widget: "number", required: false}
       - {label: "Arkana", name: "arkana", widget: "select", options: ["Große Arkana", "Kleine Arkana"]}
+      - {label: "condition", name: "condition", widget: "number", required: false, condition: {type: fieldValue, field: arkana, oneOf: ["Große Arkana"]}}
       - {label: "Elemente", name: "color", widget: "select", options: ["Erde", "Wasser", "Feuer", "Luft"]}
       - {label: "Beschreibung", name: "description", widget: "text"}
       - {label: "Zusammenfassung", name: short, widget: "object", fields: [ {label: "Allgemein" , name: common, widget: "text", required: false}, {label: "Liebe" , name: love, widget: "text", required: false}, {label: "Beruf" , name: job, widget: "text", required: false}]}

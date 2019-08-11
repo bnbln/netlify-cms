@@ -104,7 +104,8 @@ export const DeckPageTemplate = ({
               marginTop: 50,
               padding: "50px 0px",
             }}
-          >
+        >
+          {console.log("natural", natural)}
           {natural && natural.length ?
               <Grid item xs={11} sm={5} md={4}>
                 <Typography variant="h5" gutterBottom>
