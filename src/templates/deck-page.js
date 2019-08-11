@@ -58,9 +58,14 @@ export const DeckPageTemplate = ({
               }}></img>
             </Grid>
 
-            <Grid item xs={10} sm={5} md={3}>
+          <Grid item xs={10} sm={5} md={3}>
+            {console.log(color ? "true" : "false")}
               <Typography variant="overline" display="block" gutterBottom>
-              {id} | {arkana} | {color}
+              {id}
+              {arkana ? "| " + arkana : null}
+              {color && color !== "" ? "| " + color : null} 
+              {/* {zodiac && zodiac !== "" ? "| " + color : null}
+              {planets && planets !== "" ? "| " + color : null} */}
               </Typography>
               <Typography variant="h2" gutterBottom>
                 {title}
@@ -87,12 +92,13 @@ export const DeckPageTemplate = ({
                 <b>Beruf: </b>{short.job}
               </Typography> : null}
               <br/>
-
+            {time ? 
               <Typography variant="body2" gutterBottom style={{
                 marginTop: 20
               }}>
                 <b>Zeit: </b>{time}
               </Typography>
+              : null}
             </Grid>
 
 
