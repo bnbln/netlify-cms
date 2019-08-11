@@ -6,7 +6,9 @@ id: 1
 number: 9
 arkana: Große Arkana
 color: Feuer
-description: 'Initiative, Entschlusskraft, Gestaltungskraft, Geschicklichkeit, Meisterschaft'
+description: >-
+  Initiative, Entschlusskraft, Gestaltungskraft, Geschicklichkeit,
+  Meisterschaft, Wille, Tatkraft, Bereitschaft zum Risiko
 short:
   common: >-
     Wille, Tatkraft, Geschicklichkeit und Beredsamkeit. Initiative und
@@ -14,7 +16,9 @@ short:
     und zu nutzen. Organisationstalent und kommunikative Fähigkeiten.Zeit zu
     handeln, entscheiden seinen Weg zu gehen und dabei die eigenen Fähigkeiten
     nutzen, neue Phase beginnt, Pläne umsetzen, Erfolg
-  job: 'Viel Geschick und Talente, Meisterschaft, entschlossen'
+  job: >-
+    Viel Geschick und Talente, Meisterschaft, entschlossen, Organisationstalent
+    und kommunikative Fähigkeiten
   love: 'Verzaubern, Anziehungskraft, positiv gestalten'
 time: 1 Tag - 1 Woche
 natural:
@@ -44,4 +48,10 @@ upsidedown:
 ---
 ## Mythologie
 
-Hermes - Gott der Weisheit und Magie
+Hermes - Gott der Weisheit und Magie,
+
+Thoth - Gott der Magie und des Schreibens
+
+Odin - der Wanderer und Erfinder von Poesie und Runen
+
+Alle Götter, die weniger Erzeuger des Lebens sind als vielmehr dessen Planer und Ordner.
