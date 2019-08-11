@@ -9,6 +9,7 @@ color: Feuer
 description: 'Zeitweilige Macht, Autorität, Willenskraft'
 natural:
   - Selbstkontrolle
+  - Weisheiten oder Mächtige Personen
 upsidedown:
   - Verlust or Mangel an Ehrgeiz
   - Unreife
