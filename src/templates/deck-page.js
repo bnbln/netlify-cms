@@ -64,7 +64,7 @@ export const DeckPageTemplate = ({
             {console.log(color ? "true" : "false")}
               <Typography variant="overline" display="block" gutterBottom>
               {id}
-              {arkana ? "| " + arkana : null}
+              {arkana ? " | " + arkana : null}
               {color && color !== "" ? " | " + color : null} 
               {zodiac && zodiac !== "" ? " | " + zodiac : null}
               {planets && planets !== "" ? " | " + planets : null}
