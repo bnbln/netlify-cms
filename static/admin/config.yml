@@ -35,7 +35,7 @@ collections:
       - {label: "Arkana", name: "arkana", widget: "select", options: ["Große Arkana", "Kleine Arkana"]}
       - {label: "Elemente", name: "color", widget: "select", required: false, options: ["Erde", "Wasser", "Feuer", "Luft"]}
       - {label: "Sternzeichen", name: "zodiac", widget: "select", required: false, options: ["Widder", "Stier", "Zwillinge", "Krebs", "Löwe", "Jungfrau", "Waage", "Skorpion", "Schütze", "Steinbock", "Wassermann", "Fische"]}
-      - {label: "Planeten", name: "planets", widget: "select", options: ["Sonne", "Mond", "Merkur", "Venus", "Mars", "Jupiter", "Saturn", "Uranus", "Neptun", "Pluto"]}
+      - {label: "Planeten", name: "planets", required: false, widget: "select", options: ["Sonne", "Mond", "Merkur", "Venus", "Mars", "Jupiter", "Saturn", "Uranus", "Neptun", "Pluto"]}
       - {label: "Beschreibung", name: "description", widget: "text"}
       - {label: "Zusammenfassung", name: short, widget: "object", fields: [ {label: "Allgemein" , name: common, widget: "text", required: false}, {label: "Liebe" , name: love, widget: "text", required: false}, {label: "Beruf" , name: job, widget: "text", required: false}]}
       - {label: "Zeit", name: "time", widget: "string", required: false}
