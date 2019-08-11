@@ -5,7 +5,7 @@ image: /img/1-der-magier.png
 id: 1
 number: 9
 arkana: Große Arkana
-color: Feuer
+planets: Merkur
 description: >-
   Initiative, Entschlusskraft, Gestaltungskraft, Geschicklichkeit,
   Meisterschaft, Wille, Tatkraft, Bereitschaft zum Risiko
