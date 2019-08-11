@@ -1,6 +1,6 @@
 ---
 templateKey: deck-page
-title: Hohepriesterin
+title: Die Hohepriesterin
 image: /img/2-die-hohepriesterin.png
 id: 1
 arkana: Große Arkana
