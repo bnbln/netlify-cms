@@ -14,7 +14,7 @@ upsidedown:
   - Verlust or Mangel an Ehrgeiz
   - Unreife
 ---
-Mythologie:
+## Mythologie
 
 Athene - Beschützerin des Staates
 
