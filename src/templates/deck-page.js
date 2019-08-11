@@ -69,7 +69,11 @@ export const DeckPageTemplate = ({
                 {description}
               </Typography>
             <br />
-            {console.log(short && short.common ? short.common : null)}
+            {/* {short && short != null ?
+              short.map(i => console.log("short: ", i))
+              
+            : null} */}
+            {console.log("short", short)}
             {short && short.common ? 
             <Typography variant="body2" gutterBottom>
                 {short.common}
@@ -105,8 +109,8 @@ export const DeckPageTemplate = ({
               padding: "50px 0px",
             }}
         >
-          {console.log("natural", natural)}
-          {natural && natural.length ?
+          {/* {console.log("natural", natural.map( i => i))} */}
+          {natural && natural != undefined ?
               <Grid item xs={11} sm={5} md={4}>
                 <Typography variant="h5" gutterBottom>
                   <ListItemIcon>
@@ -123,7 +127,7 @@ export const DeckPageTemplate = ({
                 </List>
               </Grid>
               : null}
-          {upsidedown && upsidedown.length ?
+          {upsidedown && upsidedown != undefined ?
               <Grid item xs={11} sm={5} md={4}>
                 <Typography variant="h5" gutterBottom>
                   <ListItemIcon>

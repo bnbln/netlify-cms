@@ -50,6 +50,13 @@ class DeckPostPreview extends React.Component{
   render() {
     const { entry, widgetFor } = this.props;
     const data = entry.getIn(['data']).toJS()
+    // console.log(this.props.widgetsFor('short').getIn(['data', 'common']))
+    const short = {
+      common: this.props.widgetsFor('short').getIn(['data', 'common']),
+      love: this.props.widgetsFor('short').getIn(['data', 'love']),
+      job: this.props.widgetsFor('short').getIn(['data', 'job'])
+    }
+    
 
     if (data) {
       return (
@@ -66,7 +73,6 @@ class DeckPostPreview extends React.Component{
                 <Grid container style={{
                   backgroundColor: "black"
                 }}>
-                  {console.log(widgetFor('body'))}
                   <DeckPageTemplate
                     content={widgetFor('body')}
                     description={entry.getIn(['data', 'description'])}
@@ -78,10 +84,12 @@ class DeckPostPreview extends React.Component{
                     natural={entry.getIn(['data', 'natural'])}
                     color={entry.getIn(['data', 'color'])}
                     time={entry.getIn(['data', 'time'])}
-                    short={entry.getIn(['data', 'short'])}
+                    short={short}
 
 
-                  >{console.log("data: ", entry.getIn(['data', 'natural']))}</DeckPageTemplate>
+                  >
+                    {/* {console.log("data: ", entry.getIn(['data', 'natural']))} */}
+                  </DeckPageTemplate>
 
                 </Grid>
               </ThemeProvider>

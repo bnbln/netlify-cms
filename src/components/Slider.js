@@ -29,7 +29,6 @@ class Slider extends Component {
   }
 
   render() {
-    console.log(this.props.values)
     return (
       <Grid container justify="flex-end" spacing={3} style={{
         height: "130vh",
@@ -43,7 +42,6 @@ class Slider extends Component {
             <Grid container direction="column" spacing={3}>
               {item.map((item, i) =>
                 <Grid item key={"div-" + item.node.fields.slug} xs={12}>
-                  {console.log(item.node.fields.slug)}
                   <Fade /*in={this.state.loaded} */ in={true}
                     timeout={i * 400}
                     onClick={() => navigate(item.node.fields.slug + "/")}
