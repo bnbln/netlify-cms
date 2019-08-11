@@ -14,12 +14,9 @@ upsidedown:
   - Verlust or Mangel an Ehrgeiz
   - Unreife
 ---
-## Mythologie
+# Mythologie
 
-Athene - Beschützerin des Staates
-
-Minerva -Kriegsgöttin
-
-Tyr - Gott von Mut, Tapferkeit und Here im Krieg
-
-Mars - als Kriegsgott
+* Athene - Beschützerin des Staates
+* Minerva -Kriegsgöttin
+* Tyr - Gott von Mut, Tapferkeit und Here im Krieg
+* Mars - als Kriegsgott
