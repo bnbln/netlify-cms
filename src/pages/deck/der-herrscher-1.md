@@ -5,7 +5,7 @@ image: /img/4-der-herrscher.png
 id: 4
 number: 12
 arkana: Große Arkana
-color: Feuer
+zodiac: Widder
 description: 'Zeitweilige Macht, Autorität, Willenskraft'
 natural:
   - Selbstkontrolle
