@@ -5,7 +5,7 @@ import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 
 
 
-import Footer from '../components/Footer'
+// import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
 import './all.sass'
 import useSiteMetadata from './SiteMetadata'

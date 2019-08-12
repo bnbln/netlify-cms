@@ -4,7 +4,6 @@ import Helmet from 'react-helmet'
 import { Link, graphql } from 'gatsby'
 import Layout from '../../components/Layout'
 import Grid from '@material-ui/core/Grid';
-import Hidden from '@material-ui/core/Hidden';
 import Typography from '@material-ui/core/Typography';
 
 const TagsPage = ({
@@ -55,6 +54,7 @@ const TagsPage = ({
                       <Grid item xs={6} sm={4} md={3} lg={2} xl={1}>
                         <Link to={card.fields.slug}>
                           <img
+                            alt={card.frontmatter.title}
                             style={{
                               width: "100%",
                               marginBottom: -8

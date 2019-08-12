@@ -15,7 +15,7 @@ const TagsPage = ({
     <Layout>
       {console.log(group)}
       <section className="section">
-        <Helmet title={`Tags | ${title}`} />
+        <Helmet title={`Elemente | ${title}`} />
         <div className="container content">
           <div className="columns">
             <div

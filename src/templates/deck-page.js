@@ -53,7 +53,7 @@ export const DeckPageTemplate = ({
             }}
           >
             <Grid item xs={10} sm={5} md={3}>
-              <img src={image ? image : null} alt={null} style={{
+            <img alt={title} src={image ? image : null} style={{
                 width: "100%",
                 height: "auto",
                 maxHeight: "100%"
@@ -114,7 +114,7 @@ export const DeckPageTemplate = ({
             }}
         >
           {/* {console.log("natural", natural.map( i => i))} */}
-          {natural && natural != undefined ?
+          {natural && natural !== undefined ?
               <Grid item xs={11} sm={5} md={4}>
                 <Typography variant="h5" gutterBottom>
                   <ListItemIcon>
@@ -124,14 +124,14 @@ export const DeckPageTemplate = ({
               </Typography>
                 <List component="nav" aria-label="positiv">
                   {natural.map((item, i) =>
-                    <ListItem style={{ borderTop: "0.2px solid white", backgroundColor: "#1e00ff" }}>
+                    <ListItem key={"natural-"+i} style={{ borderTop: "0.2px solid white", backgroundColor: "#1e00ff" }}>
                       <ListItemText primary={item} />
                     </ListItem>
                   )}
                 </List>
               </Grid>
               : null}
-          {upsidedown && upsidedown != undefined ?
+          {upsidedown && upsidedown !== undefined ?
               <Grid item xs={11} sm={5} md={4}>
                 <Typography variant="h5" gutterBottom>
                   <ListItemIcon>
@@ -141,7 +141,7 @@ export const DeckPageTemplate = ({
               </Typography>
                 <List component="nav" aria-label="positiv">
                   {upsidedown.map((item, i) =>
-                    <ListItem style={{ borderTop: "0.2px solid white", backgroundColor: "#1e00ff" }}>
+                    <ListItem key={"upsidedown-" + i} style={{ borderTop: "0.2px solid white", backgroundColor: "#1e00ff" }}>
                       <ListItemText primary={item} />
                     </ListItem>
                   )}
