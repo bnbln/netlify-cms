@@ -62,7 +62,7 @@ export const DeckPageTemplate = ({
         left: 0
       }}>
         <img src={image ? image : null} alt={title} style={{
-          filter: "blur(80px) brightness(1.99)saturate(2.3) invert(1)",
+          filter: "blur( " + window.innerWidth +  "px) brightness(1.99)saturate(2.3) invert(1)",
           transform: "scale(2)",
           transformOrigin: "bottom",
           position: "absolute",
@@ -70,7 +70,7 @@ export const DeckPageTemplate = ({
           width: "200%",
           maxHeight: "200vh",
           opacity: 0.8,
-          top: "-50%",
+          top: "-10vw",
           left: 0
         }} />
       </div>
