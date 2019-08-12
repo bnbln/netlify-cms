@@ -2,7 +2,7 @@
 templateKey: deck-page
 title: Die Hohepriesterin
 image: /img/2-die-hohepriesterin.png
-id: 1
+id: 2
 arkana: Große Arkana
 color: Feuer
 description: >-
