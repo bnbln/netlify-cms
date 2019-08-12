@@ -10,7 +10,11 @@ import IconPerson from '@material-ui/icons/Person';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 
-const bgColor = "blue"
+import DeckIcon from "@material-ui/icons/HowToVote"
+import CardIcon from "@material-ui/icons/CropPortrait"
+
+
+const bgColor = "#431758"
 
 const Navbar = class extends React.Component {
   constructor(props) {
@@ -50,7 +54,7 @@ const Navbar = class extends React.Component {
               zIndex: 1000,
               color: "white",
               width: "100%",
-              backgroundColor: bgColor,
+              backgroundImage: "linear-gradient(286deg, #000000, "+bgColor+")",
               boxShadow: "rgb(0, 0, 0) 20px 0px 32px 0px",
             }
             }
@@ -64,8 +68,8 @@ const Navbar = class extends React.Component {
           <div className="mainNavigationBar" style={{
             height: "100vh",
             width: "50px",
-            backgroundColor: bgColor,
-            // backgroundImage: "linear-gradient(-264deg, #42C7C1, #4573D6)",
+            // backgroundColor: bgColor,
+            backgroundImage: "linear-gradient(-286deg, #000000, " + bgColor + ")",
             boxShadow: "rgb(0, 0, 0) 20px 0px 32px 0px",
             position: "fixed",
             top: 0,
@@ -75,6 +79,11 @@ const Navbar = class extends React.Component {
               onClick={() => navigate("/")}
             >
               <IconMenu />
+            </IconButton>
+            <IconButton style={{ color: "#fff" }}
+              onClick={() => navigate("/deck/")}
+            >
+              <CardIcon />
             </IconButton>
             <IconButton style={{ color: "#fff" }}
               onClick={() => navigate("/search/")}

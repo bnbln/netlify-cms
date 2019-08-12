@@ -4,6 +4,8 @@ import { Link, graphql } from 'gatsby'
 import Grid from '@material-ui/core/Grid';
 import Hidden from '@material-ui/core/Hidden';
 import Typography from '@material-ui/core/Typography';
+import { withPrefix } from "gatsby"
+
 
 
 import Layout from '../components/Layout'
@@ -39,12 +41,13 @@ export const IndexPageTemplate = ({
           justify="center"
           alignItems="center" style={{
             height: "100vh",
-            boxShadow: "-63px 30px 113px 70px black",
+            boxShadow: "#000000f0 0px -9px 63px 50px",
             zIndex: 100,
-            position: "relative"
+            position: "relative",
+            backgroundImage: "url(img/pattern.png)"
           }}>
           <Grid item xs={11} md={6} style={{ textAlign: "center" }}>
-            <Illustration style={{ maxWidth: "100%" }} />
+            <Illustration style={{ maxWidth: "100%", mixBlendMode: "lighten" }} />
           </Grid>
           <Grid item xs={11} sm={6} md={4} >
 
@@ -84,8 +87,9 @@ export const IndexPageTemplate = ({
 
       <Grid item xs={12} style={{
         height: "100vh",
-        zIndex: 150,
-        color: "white"
+        zIndex: 50,
+        color: "white",
+        backgroundImage: "url(img/pattern.png)"
       }}>
         <Grid container justify="center"
           alignItems="center" style={{

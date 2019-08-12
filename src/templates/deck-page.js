@@ -6,6 +6,7 @@ import Layout from '../components/Layout'
 import Content, { HTMLContent } from '../components/Content'
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
+import Divider from '@material-ui/core/Divider';
 
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -16,11 +17,15 @@ import BadIcon from '@material-ui/icons/ThumbDownAlt';
 import TimeIcon from "@material-ui/icons/AccessTime"
 import LoveIcon from "@material-ui/icons/Favorite"
 import JobIcon from "@material-ui/icons/Work"
-import { relative } from 'path';
+// import { relative } from 'path';
 
-// import DeckIcon from "@material-ui/icons/HowToVote"
-// import CardIcon from "@material-ui/icons/CropPortrait"
+const h = 227;
+const s = 65;
+const l = 23;
 
+const bgColor = "hsl("+h+", "+s+"%, "+l+"%)"
+const lightColor = "hsl(" + h + ", " + s + "%, " + (l + 5) + "%)"
+const darkColor = "hsl(" + h + ", " + s + "%, " + (l - 5) + "%)"
 
 
 export const DeckPageTemplate = ({
@@ -47,7 +52,7 @@ export const DeckPageTemplate = ({
         direction="row"
         justify="center"
         alignItems="center"
-        style={{ color: "white", width: "100%", overflow: "hidden" }}>
+      style={{ color: "white", width: "100%", overflow: "hidden", backgroundImage: "url(img/pattern.png)" }}>
       {helmet || ''}
       <div style={{
         width: "100%",
@@ -97,7 +102,7 @@ export const DeckPageTemplate = ({
               {zodiac && zodiac !== "" ? " | " + zodiac : null}
               {planets && planets !== "" ? " | " + planets : null}
               </Typography>
-              <Typography variant="h2" gutterBottom>
+            <Typography variant="h2" gutterBottom style={{ letterSpacing: -1.3}}>
                 {title}
               </Typography>
               <Typography variant="h6" gutterBottom>
@@ -110,11 +115,11 @@ export const DeckPageTemplate = ({
                 justify="flex-start"
                 alignItems="center"
                 spacing={2}>
-                <Grid item>
+                <Grid item xs={2} md={1}>
                   <TimeIcon />
                 </Grid>
-                <Grid item >
-                  <Typography variant="body2" gutterBottom >
+                <Grid item xs={10} md={11}>
+                  <Typography variant="body2">
                     {time}
                   </Typography>
                 </Grid>
@@ -133,11 +138,11 @@ export const DeckPageTemplate = ({
                 justify="flex-start"
                 alignItems="center"
                 spacing={2}>
-                <Grid item xs={1}>
+                <Grid item xs={2} md={1}>
                   <LoveIcon />
                 </Grid>
-                <Grid item xs={11}>
-                  <Typography variant="body2" gutterBottom>
+                <Grid item xs={10} md={11}>
+                  <Typography variant="body2">
                     {short.love}
                   </Typography>
                 </Grid>
@@ -149,11 +154,11 @@ export const DeckPageTemplate = ({
                 justify="flex-start"
                 alignItems="center"
                 spacing={2}>
-                <Grid item xs={1}>
+                <Grid item xs={2} md={1}>
                   <JobIcon />
                 </Grid>
-                <Grid item xs={11}>
-                  <Typography variant="body2" gutterBottom>
+                <Grid item xs={10} md={11} >
+                  <Typography variant="body2">
                     {short.job}
                   </Typography>
                 </Grid>
@@ -178,15 +183,12 @@ export const DeckPageTemplate = ({
           {/* {console.log("natural", natural.map( i => i))} */}
           {natural && natural !== undefined ?
               <Grid item xs={11} sm={6} md={4}>
-                <Typography variant="h5" gutterBottom>
-                  <ListItemIcon>
-                    <GoodIcon style={{ color: "white" }} />
-                  </ListItemIcon>
+              <Typography variant="h5" gutterBottom align="center">
                   Natürliche Stellung
               </Typography>
                 <List component="nav" aria-label="positiv">
                   {natural.map((item, i) =>
-                    <ListItem key={"natural-"+i} style={{ borderTop: "0.2px solid white", backgroundColor: "#1e00ff" }}>
+                    <ListItem key={"natural-" + i} style={{ boxShadow: "#000000d4 0px -12px 20px -20px inset", backgroundImage: "linear-gradient(-20deg, " +  lightColor+ ", " + bgColor + ")" }}>
                       <ListItemText primary={item} />
                     </ListItem>
                   )}
@@ -195,15 +197,12 @@ export const DeckPageTemplate = ({
               : null}
           {upsidedown && upsidedown !== undefined ?
               <Grid item xs={11} sm={6} md={4}>
-                <Typography variant="h5" gutterBottom>
-                  <ListItemIcon>
-                    <BadIcon style={{ color: "white" }} />
-                  </ListItemIcon>
+                <Typography variant="h5" gutterBottom align="center">
                   Umgekehrt
               </Typography>
                 <List component="nav" aria-label="positiv">
                   {upsidedown.map((item, i) =>
-                    <ListItem key={"upsidedown-" + i} style={{ borderTop: "0.2px solid white", backgroundColor: "#1e00ff" }}>
+                    <ListItem key={"upsidedown-" + i} style={{ boxShadow: "#000000d4 0px -12px 20px -20px inset", backgroundImage: "linear-gradient(-20deg, " + darkColor + ", " + bgColor + ")"}}>
                       <ListItemText primary={item} />
                     </ListItem>
                   )}
@@ -213,7 +212,7 @@ export const DeckPageTemplate = ({
             </Grid>
           </Grid>
 
-      <Grid item xs={10} sm={8} md={6} xl={5} style={{ zIndex: 1 }}>
+      <Grid item xs={10} md={7} xl={5} style={{ zIndex: 1 }}>
           <Grid container
             direction="row"
             justify="center"
