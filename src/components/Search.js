@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid';
 import Zoom from '@material-ui/core/Zoom';
-import { graphql } from 'gatsby'
+import { graphql, StaticQuery } from 'gatsby'
+import PropTypes from "prop-types"
 import { navigate } from "gatsby"
 
 
@@ -164,32 +165,46 @@ class Search extends Component {
   }
 }
 
-
-export default Search
-
-
-export const searchQuery = graphql`
-  query SearchQuery {
-allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "deck-page"}}}, sort: {fields: frontmatter___id}) {
-    edges {
-      node {
-        frontmatter {
-          title
-          id
-          color
-          image {
-              childImageSharp {
-                fluid(maxWidth: 240, quality: 64) {
-                  ...GatsbyImageSharpFluid
+export default props => (
+  <StaticQuery
+    query={graphql`
+      query SearchQuery {
+        allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "deck-page"}}}, sort: {fields: frontmatter___id}) {
+            edges {
+              node {
+                frontmatter {
+                  title
+                  id
+                  color
+                  image {
+                      childImageSharp {
+                        fluid(maxWidth: 240, quality: 64) {
+                          ...GatsbyImageSharpFluid
+                        }
+                      }
+                    }
+                }
+                fields {
+                  slug
                 }
               }
             }
+          }
         }
-        fields {
-          slug
-        }
-      }
-    }
-  }
-  }
-`
+    `}
+    render={data => <Search values={data} {...props} />}
+  />
+)
+Search.propTypes = {
+  values: PropTypes.shape({
+    allMarkdownRemark: PropTypes.shape({
+      edges: PropTypes.shape({
+        node: PropTypes.shape({
+          frontmatter: PropTypes.shape({
+            title: PropTypes.string.isRequired,
+          }).isRequired
+        }).isRequired,
+      }).isRequired,
+    }).isRequired,
+  }).isRequired,
+}

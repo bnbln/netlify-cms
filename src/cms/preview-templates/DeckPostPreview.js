@@ -1,11 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { DeckPageTemplate } from '../../templates/deck-page'
-import Layout from "../../components/Layout"
 import Grid from '@material-ui/core/Grid';
 
-
-import { install } from '@material-ui/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { createMuiTheme } from '@material-ui/core/styles';
 
