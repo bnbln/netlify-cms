@@ -45,7 +45,7 @@ class Slider extends Component {
         width: "100%",
         overflow: "hidden"
       }}>
-        {[this.props.values.slice(0, 49), this.props.values.slice(0, 29), this.props.values.slice(0, 69), this.props.values.slice(0, 10)].map((item, index) =>
+        {[this.props.values.slice(0, 49), this.props.values.slice(3, 29), this.props.values.slice(5, 69), this.props.values.slice(0, 10)].map((item, index) =>
           <Grid item key={"Grid-" + index} className={"animationcontainer-" + index} xs={3} style={{
             transform: "translateY(" + (-380 + (60 * (index + 1)) + (-this.state.scroll / (index + 1))) + "px)",
           }}>
