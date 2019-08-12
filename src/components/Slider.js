@@ -28,6 +28,16 @@ class Slider extends Component {
     });
   }
 
+  componentWillUnmount() {
+    window.removeEventListener('scroll', (e) => {
+      this.scroll(e)
+    }, true);
+    window.removeEventListener('resize', (e) => {
+      this.scroll(e)
+    }, true
+    );
+  }
+
   render() {
     return (
       <Grid container justify="flex-end" spacing={3} style={{

@@ -53,7 +53,7 @@ export const IndexPageTemplate = ({
               <h1>{title}</h1>
               <b>{subheading}</b>
             </div>
-            <Search values={all} />
+            <Search/>
 
           </Grid>
         </Grid>
@@ -93,7 +93,7 @@ export const IndexPageTemplate = ({
           }}>
           <Grid item xs={10} md={7} >
             {links.map((item, i) =>
-              <Link key={"links-"+i} to={"./"+item.url+"/"} style={{ color: "white" }}>
+              <Link key={"links-"+i} to={"/"+item.url+"/"} style={{ color: "white" }}>
                 <Typography variant="h3" gutterBottom>
                   {item.title}
                 </Typography>

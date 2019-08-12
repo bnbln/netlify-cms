@@ -43,8 +43,9 @@ class Search extends Component {
 
   render() {
     console.log(this.props.values)
+
     return (
-      <div>
+      <div style={{ position: "relative"}}>
         <input
           type="search"
           placeholder="Karte suchen"
@@ -53,7 +54,7 @@ class Search extends Component {
           onFocus={this.onFocus}
           onBlur={this.onBlur}
           onChange={(event) => this.handleChange(event)}
-          autocomplete="off"
+          autoComplete="off"
           style={{
             width: "calc(100% - 14px)",
             font: "100 16px monospace",
@@ -63,11 +64,13 @@ class Search extends Component {
             color: "#fff",
             padding: 7,
             outlineWidth: 0,
-            WebkitAppearance: "button-bevel"
+            WebkitAppearance: "button-bevel",
+            
           }}></input>
         {this.state.query !== "" ?
           <Grid container justify="flex-start" alignItems="center" style={{
             marginTop: 20,
+            position: "absolute",
             width: "100%",
             borderRadius: 5,
             overflowY: "scroll",
@@ -116,6 +119,7 @@ class Search extends Component {
           this.state.focus === true ?
             <Grid container justify="flex-start" alignItems="center" style={{
               marginTop: 20,
+              position: "absolute",
               width: "100%",
               borderRadius: 5,
               overflowY: "scroll",
@@ -192,19 +196,9 @@ export default props => (
           }
         }
     `}
-    render={data => <Search values={data} {...props} />}
+    render={values => <Search values={values.allMarkdownRemark.edges} />}
   />
 )
 Search.propTypes = {
-  values: PropTypes.shape({
-    allMarkdownRemark: PropTypes.shape({
-      edges: PropTypes.shape({
-        node: PropTypes.shape({
-          frontmatter: PropTypes.shape({
-            title: PropTypes.string.isRequired,
-          }).isRequired
-        }).isRequired,
-      }).isRequired,
-    }).isRequired,
-  }).isRequired,
+  values: PropTypes.array.isRequired,
 }
