@@ -7,7 +7,7 @@ number: 12
 arkana: Große Arkana
 color: Luft
 zodiac: Jungfrau
-description: Klugheit
+description: 'Klugheit, Rückzug, Ruhe, Selbstfindung, innere Kraft, abschalten'
 natural:
   - Klugheit
   - Planen & Vorausdenken
