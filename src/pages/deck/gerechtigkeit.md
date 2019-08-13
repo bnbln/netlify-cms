@@ -7,6 +7,8 @@ number: 12
 arkana: Große Arkana
 zodiac: Waage
 description: 'Rechtliche Schritte unternehmen. Verträge. Abmachungen. '
+short:
+  job: 'Fairness, sachlich beurteilen, selbstverantwortlich'
 natural:
   - Gerechtigkeit
   - gut überlegte Entscheidung
