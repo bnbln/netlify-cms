@@ -8,6 +8,11 @@ arkana: Große Arkana
 color: Luft
 zodiac: Jungfrau
 description: 'Klugheit, Rückzug, Ruhe, Selbstfindung, innere Kraft, abschalten'
+short:
+  job: 'Seinen eigenen Weg finden, innere Kraft, sich zurückziehen, ruhige Phase'
+  love: >-
+    Alleinsein, sich distanzieren, ruhige Phase, unauffällig sein =
+    Mauerblümchen, Altes loslassen -  Neues finden
 natural:
   - Klugheit
   - Planen & Vorausdenken
@@ -16,6 +21,8 @@ natural:
 upsidedown:
   - Verweigerung von Rat & Hilfe
   - Grundloses Misstrauen
+  - Rückzug
+  - Isolation
 ---
 Mythologie:
 
