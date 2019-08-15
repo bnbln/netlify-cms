@@ -16,7 +16,7 @@ import GoodIcon from '@material-ui/icons/ThumbUpAlt';
 import BadIcon from '@material-ui/icons/ThumbDownAlt';
 import TimeIcon from "@material-ui/icons/AccessTime"
 import LoveIcon from "@material-ui/icons/Favorite"
-import JobIcon from "@material-ui/icons/Work"
+import JobIcon from "@material-ui/icons/Business"
 // import { relative } from 'path';
 
 const h = 227;
