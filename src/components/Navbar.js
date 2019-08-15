@@ -1,5 +1,6 @@
 import React from 'react'
 import { navigate } from "gatsby"
+import Grid from '@material-ui/core/Grid';
 
 import Hidden from '@material-ui/core/Hidden';
 import IconButton from '@material-ui/core/IconButton';
@@ -54,14 +55,15 @@ const Navbar = class extends React.Component {
               zIndex: 1000,
               color: "white",
               width: "100%",
-              // backgroundImage: "linear-gradient(286deg, #000000, "+bgColor+")",
+              height: 65,
+              backgroundImage: "linear-gradient(286deg, #000000, #000000)",
               boxShadow: "rgb(0, 0, 0) 20px 0px 32px 0px",
             }
             }
           >
             <Tab icon={<IconMenu style={{ color: "#fff" }} />} aria-label="home" onClick={() => navigate("/")} />
             <Tab icon={<IconSearch style={{ color: "#fff" }} />} aria-label="search" onClick={() => navigate("/search/")} />
-            <Tab icon={<IconPerson style={{ color: "#fff" }} />} aria-label="person" onClick={() => navigate("/admin/")}/>
+            <Tab icon={<IconPerson style={{ color: "#fff" }} />} aria-label="person" onClick={() => navigate("/admin/")} />
           </Tabs>
         </Hidden>
         <Hidden xsDown>
@@ -72,28 +74,43 @@ const Navbar = class extends React.Component {
             // backgroundImage: "linear-gradient(-286deg, #000000, " + bgColor + ")",
             boxShadow: "rgb(0, 0, 0) 20px 0px 32px 0px",
             position: "fixed",
-            top: 0,
-            right: 0
-          }}>
-            <IconButton style={{ color: "#fff" }}
-              onClick={() => navigate("/")}
-            >
-              <IconMenu />
-            </IconButton>
-            <IconButton style={{ color: "#fff" }}
-              onClick={() => navigate("/deck/")}
-            >
-              <CardIcon />
-            </IconButton>
-            <IconButton style={{ color: "#fff" }}
-              onClick={() => navigate("/search/")}
-            >
-              <IconSearch />
-            </IconButton>
+            backgroundXolor: "#0009",
+            backgroundBlendMode: "multiply",
+          top: 0,
+          right: 0
+        }}>
+            <Grid container alignItems="space-between" style={{
+              height: "100%"
+            }}>
+              <Grid item>
+                <IconButton style={{ color: "#fff" }}
+                  onClick={() => navigate("/")}
+                >
+                  <IconMenu />
+                </IconButton>
+                <IconButton style={{ color: "#fff" }}
+                  onClick={() => navigate("/deck/")}
+                >
+                  <CardIcon />
+                </IconButton>
+                <IconButton style={{ color: "#fff" }}
+                  onClick={() => navigate("/search/")}
+                >
+                  <IconSearch />
+                </IconButton>
+              </Grid>
+              <Grid item>
+                
+
+              </Grid>
+              {/* <Grid item alignContent="center">
             <IconButton style={{ color: "#fff" }}
               onClick={() => navigate("/admin/")}>
               <IconPerson />
             </IconButton>
+              </Grid> */}
+            </Grid>
+
 
           </div>
         </Hidden>

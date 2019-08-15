@@ -51,10 +51,6 @@ export const IndexPageTemplate = ({
             }}>
             <Grid item xs={11} md={4} style={{ textAlign: "center" }}>
               <Lottie data={logo} />
-              <div style={{ display: "none" }}>
-                <h1>{title}</h1>
-                <b>{subheading}</b>
-              </div>
               <Search />
             </Grid>
           </Grid>
@@ -75,10 +71,10 @@ export const IndexPageTemplate = ({
             <Lottie data={logo} />
           </Grid>
           <Grid item xs={11} sm={6} md={4} >
-            <div style={{display: "none"}}>
+            {/* <div style={{display: "none"}}>
               <h1>{title}</h1>
               <b>{subheading}</b>
-            </div>
+            </div> */}
             <Search/>
           </Grid>
         </Grid>
