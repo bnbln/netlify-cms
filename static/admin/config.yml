@@ -15,7 +15,7 @@ collections:
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "deck-page"}
       - {label: "Name", name: "title", widget: "string"}
-      - {label: "Bild", name: "image", widget: image, required: false}
+      - {label: "Bild", name: "image", widget: image, required: true}
       - {label: "#ID", name: "id", widget: "number"}
       - {label: "Zahlenwert", name: "number", widget: "number", required: false}
       - {label: "Arkana", name: "arkana", widget: "select", options: ["Große Arkana", "Kleine Arkana"]}
