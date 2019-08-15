@@ -6,14 +6,10 @@ import Layout from '../components/Layout'
 import Content, { HTMLContent } from '../components/Content'
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
 
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import GoodIcon from '@material-ui/icons/ThumbUpAlt';
-import BadIcon from '@material-ui/icons/ThumbDownAlt';
 import TimeIcon from "@material-ui/icons/AccessTime"
 import LoveIcon from "@material-ui/icons/Favorite"
 import JobIcon from "@material-ui/icons/Business"
@@ -59,7 +55,8 @@ export const DeckPageTemplate = ({
         height: "100%",
         position: "absolute",
         top: 0,
-        left: 0
+        left: 0,
+        overflow: "hidden"
       }}>
         <img src={image} alt={title} style={{
           filter: "blur( 80px) brightness(1.99)saturate(2.3) invert(1)",

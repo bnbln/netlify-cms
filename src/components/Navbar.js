@@ -11,11 +11,10 @@ import IconPerson from '@material-ui/icons/Person';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 
-import DeckIcon from "@material-ui/icons/HowToVote"
 import CardIcon from "@material-ui/icons/CropPortrait"
 
 
-const bgColor = "#431758"
+// const bgColor = "#431758"
 
 const Navbar = class extends React.Component {
   constructor(props) {

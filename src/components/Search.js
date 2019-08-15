@@ -65,7 +65,6 @@ class Search extends Component {
             padding: 7,
             outlineWidth: 0,
             WebkitAppearance: "button-bevel",
-            textAlign: "center"
           }}></input>
         {this.state.query !== "" ?
           <Grid container justify="flex-start" alignItems="center" style={{

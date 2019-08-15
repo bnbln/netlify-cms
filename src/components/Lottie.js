@@ -23,14 +23,16 @@ class Lottie extends Component {
         },
         loop: false,
         autoplay: true,
-        animationData: this.props.data
+        animationData: this.props.data ? this.props.data : null
       });
     }, 1000)
 
   }
 
   componentWillUnmount() {
-    this.state.isMounted = false
+    this.setState({
+      isMounted: false
+    })
   }
 
   render() {
