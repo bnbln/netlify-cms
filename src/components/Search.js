@@ -99,15 +99,16 @@ class Search extends Component {
                           borderRadius: 5,
                           minHeight: 1,
                           width: "100%",
-                          paddingTop: "150%"
+                          paddingTop: "150%",
+                          
                         }} />
                       </Grid>
-                      <Grid item xs={9}>
+                      <Grid item xs={9} style={{ textAlign: "left"}}>
                         <p style={{
                           fontSize: 20,
                           fontWeight: 100
                         }}>{item.node.frontmatter.title}</p>
-                        <p>{item.node.frontmatter.color}</p>
+                        <p>{item.node.frontmatter.color} {item.node.frontmatter.zodiac} {item.node.frontmatter.planets}</p>
                       </Grid>
                     </Grid>
                   </Grid>
@@ -160,12 +161,12 @@ class Search extends Component {
                         }
                         
                       </Grid>
-                      <Grid item xs={9}>
+                      <Grid item xs={9} style={{ textAlign: "left" }}>
                         <p style={{
                           fontSize: 20,
                           fontWeight: 100
                         }}>{item.node.frontmatter.title}</p>
-                        <p>{item.node.frontmatter.color}</p>
+                        <p>{item.node.frontmatter.color} {item.node.frontmatter.zodiac} {item.node.frontmatter.planets}</p>
                       </Grid>
                     </Grid>
                   </Grid>
@@ -190,6 +191,9 @@ export default props => (
                   title
                   id
                   color
+                  arkana
+                  zodiac
+                  planets
                   image {
                       childImageSharp {
                         fluid(maxWidth: 100, quality: 64) {
