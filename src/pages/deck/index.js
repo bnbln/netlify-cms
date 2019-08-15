@@ -7,6 +7,9 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 
 
+import Lottie from '../../components/Lottie'
+import narr from "../../components/narro.json";
+
 const TagsPage = ({
   data: {
     allMarkdownRemark: { group },
@@ -25,6 +28,10 @@ const TagsPage = ({
           marginTop: 50
         }}>
         <Grid item xs={10}>
+          < Lottie data = {
+            narr
+          }
+          />
           <Grid container
             direction="row"
             justify="center"
@@ -38,6 +45,7 @@ const TagsPage = ({
             <Typography variant="h1" gutterBottom align="center">
               Deck
             </Typography>
+            
             <div>
               {group.map(tag => (
                 <div key={tag.fieldValue} style={{

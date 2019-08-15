@@ -6,14 +6,15 @@ import Hidden from '@material-ui/core/Hidden';
 import Typography from '@material-ui/core/Typography';
 import { withPrefix } from "gatsby"
 
-
-
+import Lottie from '../components/Lottie'
 import Layout from '../components/Layout'
 import Logo from '../components/Logo'
 import Search from '../components/Search'
 import Slider from '../components/Slider'
 
 import Illustration from "../../static/img/Illustration_Cards.svg"
+import logo from "../components/logo.json";
+
 
 
 // import Features from '../components/Features'
@@ -46,12 +47,13 @@ export const IndexPageTemplate = ({
             position: "relative",
             backgroundImage: "url(img/pattern.png)"
           }}>
-          <Grid item xs={11} md={6} style={{ textAlign: "center" }}>
-            <Illustration style={{ maxWidth: "100%", mixBlendMode: "lighten" }} />
+          <Grid item xs={11} md={4} style={{ textAlign: "center" }}>
+            <Lottie data={logo} />
+            {/* <Illustration style={{ maxWidth: "100%", mixBlendMode: "lighten" }} /> */}
           </Grid>
           <Grid item xs={11} sm={6} md={4} >
 
-            <Logo />
+            {/* <Logo /> */}
             <div style={{display: "none"}}>
               <h1>{title}</h1>
               <b>{subheading}</b>

@@ -60,7 +60,7 @@ class Slider extends Component {
                       style={{
 
                         background: "white",
-                        backgroundImage: "url("+item.node.frontmatter.image.childImageSharp.fluid.src+")",
+                        backgroundImage: "url(" + item.node.frontmatter.image ? item.node.frontmatter.image.childImageSharp.fluid.src : null + ")",
                         backgroundSize: "contain",
                         backgroundPosition: "center",
                         backgroundRepeat: "no-repeat",
@@ -70,7 +70,25 @@ class Slider extends Component {
                         cursor: "pointer"
 
                       }}>
-                      <img src={item.node.frontmatter.image.childImageSharp.fluid.src} alt={item.name} style={{ width: 1, height: 1, display: "none" }} onLoad={() => this.setState({ loaded: true })} />
+                      < img src = {
+                        item.node.frontmatter.image ? item.node.frontmatter.image.childImageSharp.fluid.src : null
+                      }
+                      alt = {
+                        item.name
+                      }
+                      style = {
+                        {
+                          width: 1,
+                          height: 1,
+                          display: "none"
+                        }
+                      }
+                      onLoad = {
+                        () => this.setState({
+                          loaded: true
+                        })
+                      }
+                      />
                     </div>
                   </Fade>
                 </Grid>
