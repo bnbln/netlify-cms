@@ -91,7 +91,7 @@ class Search extends Component {
                       <Grid item xs={2}>
                         <div key={"row-" + i} style={{
                           backgroundImage: `url(${
-                            !!item.node.frontmatter.image.childImageSharp ? item.node.frontmatter.image.childImageSharp.fluid.src : item.node.frontmatter.image
+                            item.node.frontmatter.image !== null ? item.node.frontmatter.image.childImageSharp.fluid.src : item.node.frontmatter.image
                             })`,
                           backgroundColor: "white",
                           backgroundSize: "contain",
@@ -136,19 +136,29 @@ class Search extends Component {
                 >
                   <Grid item xs={12}>
                     <Grid container spacing={3} justify="center" alignItems="center">
+                      {console.log("image:", item.node.frontmatter.image)}
                       <Grid item xs={2}>
-                        <div key={"row-" + i} style={{
-                          backgroundImage: `url(${
-                            !!item.node.frontmatter.image.childImageSharp ? item.node.frontmatter.image.childImageSharp.fluid.src : item.node.frontmatter.image
-                            })`,
-                          backgroundColor: "white",
-                          backgroundSize: "contain",
-                          backgroundPosition: "center",
-                          borderRadius: 5,
-                          minHeight: 1,
-                          width: "100%",
-                          paddingTop: "150%"
-                        }} />
+                        {
+                          item.node.frontmatter.image !== null ?
+                            < div key = {
+                              "row-" + i
+                            }
+                            style = {
+                              {
+                                backgroundImage: `url(${item.node.frontmatter.image.childImageSharp.fluid.src})`,
+                                backgroundColor: "white",
+                                backgroundSize: "contain",
+                                backgroundPosition: "center",
+                                borderRadius: 5,
+                                minHeight: 1,
+                                width: "100%",
+                                paddingTop: "150%"
+                              }
+                            }
+                            />
+                            : null
+                        }
+                        
                       </Grid>
                       <Grid item xs={9}>
                         <p style={{
@@ -182,7 +192,7 @@ export default props => (
                   color
                   image {
                       childImageSharp {
-                        fluid(maxWidth: 240, quality: 64) {
+                        fluid(maxWidth: 100, quality: 64) {
                           ...GatsbyImageSharpFluid
                         }
                       }

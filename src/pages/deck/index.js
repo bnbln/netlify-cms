@@ -60,7 +60,7 @@ const TagsPage = ({
                               width: "100%",
                               marginBottom: -8
                             }}
-                            src={!!card.frontmatter.image.childImageSharp ? card.frontmatter.image.childImageSharp.fluid.src : card.frontmatter.image}
+                            src={card.frontmatter.image !== null ? card.frontmatter.image.childImageSharp.fluid.src : card.frontmatter.image}
                           ></img>
                         </Link>
                       </Grid>
@@ -95,7 +95,7 @@ export const tagPageQuery = graphql`
           title
           image {
           childImageSharp {
-            fluid(maxWidth: 2048, quality: 100) {
+            fluid(maxWidth: 400, quality: 100) {
               ...GatsbyImageSharpFluid
             }
           }

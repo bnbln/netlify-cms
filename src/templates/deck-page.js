@@ -52,7 +52,7 @@ export const DeckPageTemplate = ({
         direction="row"
         justify="center"
         alignItems="center"
-      style={{ color: "white", width: "100%", overflow: "hidden", backgroundImage: "url(img/pattern.png)" }}>
+      style={{ color: "white", width: "100%", overflow: "hidden" }}>
       {helmet || ''}
       <div style={{
         width: "100%",
@@ -61,7 +61,7 @@ export const DeckPageTemplate = ({
         top: 0,
         left: 0
       }}>
-        <img src={image ? image : null} alt={title} style={{
+        <img src={image} alt={title} style={{
           filter: "blur( 80px) brightness(1.99)saturate(2.3) invert(1)",
           transform: "scale(2)",
           transformOrigin: "bottom",
@@ -86,7 +86,7 @@ export const DeckPageTemplate = ({
             }}
         >
             <Grid item xs={8} sm={5} md={3}>
-            <img alt={title} src={image ? image : null} style={{
+            <img alt={title} src={image} style={{
                 width: "100%",
                 height: "auto",
                 maxHeight: "100%"
@@ -252,7 +252,7 @@ const DeckPage = ({ data }) => {
         content={post.html}
         contentComponent={HTMLContent}
         description={post.frontmatter.description}
-        image={!!post.frontmatter.image.childImageSharp ? post.frontmatter.image.childImageSharp.fluid.src : post.frontmatter.image }
+        image={post.frontmatter.image ? post.frontmatter.image.childImageSharp.fluid.src : post.frontmatter.image }
         arkana={post.frontmatter.arkana}
         planets={post.frontmatter.planets}
         zodiac={post.frontmatter.zodiac}
@@ -310,7 +310,7 @@ export const pageQuery = graphql`
           }
           image {
           childImageSharp {
-            fluid(maxWidth: 2048, quality: 100) {
+            fluid(maxWidth: 400, quality: 100) {
               ...GatsbyImageSharpFluid
             }
           }
