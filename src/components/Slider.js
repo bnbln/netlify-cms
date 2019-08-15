@@ -7,7 +7,6 @@ import {
 import PropTypes from "prop-types"
 
 import Grid from '@material-ui/core/Grid';
-import Fade from '@material-ui/core/Fade';
 
 class Slider extends Component {
   constructor(props) {

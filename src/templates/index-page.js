@@ -4,16 +4,13 @@ import { Link, graphql } from 'gatsby'
 import Grid from '@material-ui/core/Grid';
 import Hidden from '@material-ui/core/Hidden';
 import Typography from '@material-ui/core/Typography';
-import { withPrefix } from "gatsby"
 
 import Lottie from '../components/Lottie'
 import Layout from '../components/Layout'
-import Logo from '../components/Logo'
 import Search from '../components/Search'
 import Slider from '../components/Slider'
 
 
-import Illustration from "../../static/img/Illustration_Cards.svg"
 import logo from "../components/logo.json";
 
 
