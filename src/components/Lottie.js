@@ -15,7 +15,7 @@ class Lottie extends Component {
         container: document.getElementById('animationContainer1'), // the dom element that will contain the animation
         renderer: 'svg',
         rendererSettings: {
-          preserveAspectRatio: "xMinYMid slice",
+          // preserveAspectRatio: "xMinYMid slice",
 
           clearCanvas: false,
           progressiveLoad: false, // Boolean, only svg renderer, loads dom elements when needed. Might speed up initialization for large number of elements.
