@@ -56,7 +56,7 @@ class Slider extends Component {
                     <div
                       style={{
                         background: "white",
-                        backgroundImage: "url("+item.node.frontmatter.image.childImageSharp.fluid.src+")",
+                        backgroundImage: "url(" + item.node.frontmatter.image.childImageSharp.fluid.src + ")",
                         backgroundSize: "contain",
                         backgroundPosition: "center",
                         backgroundRepeat: "no-repeat",
