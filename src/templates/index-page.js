@@ -95,7 +95,7 @@ export const IndexPageTemplate = ({
             }}>
 
             <Grid item xs={9}>
-              <Slider values={all} />
+              <Slider />
             </Grid>
           </Grid>
         </Grid>

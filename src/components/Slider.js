@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
-import { navigate } from "gatsby"
+import {
+  navigate,
+  graphql,
+  StaticQuery
+} from "gatsby";
+import PropTypes from "prop-types"
 
 import Grid from '@material-ui/core/Grid';
 import Fade from '@material-ui/core/Fade';
@@ -52,7 +57,7 @@ class Slider extends Component {
             <Grid container direction="column" spacing={3}>
               {item.map((item, i) =>
                 item.node.frontmatter.image !== null ?
-                <Grid item key={"div-" + item.node.fields.slug} xs={12} onClick={() => navigate(item.node.fields.slug + "/")}>
+                  <Grid item key={"div-" + item.node.fields.slug} xs={12} onClick={() => navigate(item.node.fields.slug + "/")}>
                     <div
                       style={{
                         background: "white",
@@ -67,7 +72,7 @@ class Slider extends Component {
                       <img src={item.node.frontmatter.image.childImageSharp.fluid.src} alt={item.name} style={{ width: "100%", height: "auto", opacity: 0 }} onLoad={() => this.setState({ loaded: true })} />
                     </div>
                   </Grid>
-                  :null
+                  : null
               )}
             </Grid>
           </Grid>
@@ -76,4 +81,37 @@ class Slider extends Component {
     )
   }
 }
-export default Slider;
+
+export default props => (
+  <StaticQuery
+    query={graphql`
+      query SliderQuery {
+        allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "deck-page"}}}, sort: {fields: frontmatter___id}) {
+            edges {
+              node {
+                frontmatter {
+                  title
+                  id
+                  color
+                  image {
+                      childImageSharp {
+                        fluid(maxWidth: 400, quality: 100) {
+                          ...GatsbyImageSharpFluid
+                        }
+                      }
+                    }
+                }
+                fields {
+                  slug
+                }
+              }
+            }
+          }
+        }
+    `}
+    render={values => <Slider values={values.allMarkdownRemark.edges} />}
+  />
+)
+Slider.propTypes = {
+  values: PropTypes.array.isRequired,
+}
