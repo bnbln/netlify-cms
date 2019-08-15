@@ -11,7 +11,7 @@ $body-color: #333
 $black: #2b2523
 
 .navbar .navbar-menu
-  box-shadow:none !important
+  box-shadow:none
 
 .content .taglist
   list-style: none
@@ -146,7 +146,8 @@ $menu-label-color: $white-ter
   font-family: "Roboto", sans-serif;
   margin: 0px;
   padding: 0px;
-  color: "#000"
+  color: "#000";
+  overflow-wrap: break-word
 
 html
   background: #000
@@ -172,6 +173,19 @@ input:focus
     outline: white auto 0px;
 
 
+.backgroundBlur 
+  filter: blur(75px) brightness(3)saturate(1.3) invert(1) 
+  transform: scale(2) 
+  transform-origin: bottom 
+  position: absolute 
+  z-index: 0 
+  width: 200% 
+  max-height: 200vh
+  opacity: 0.8
+  left: 0px
+  @media only screen and (max-width: 600px) 
+    filter: blur(30px) brightness(1.99)saturate(1.3) invert(1)
+
 h1
   font-size: 3.75rem;
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
@@ -179,7 +193,8 @@ h1
   line-height: 1;
   letter-spacing: -0.00833em;
   margin: 50px 0px 20px 0px;
-  max-width: 70%
+  @media only screen and (max-width: 600px)
+    font-size: 3rem
 h2
   font-size: 3rem;
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
@@ -187,7 +202,8 @@ h2
   line-height: 1.04;
   letter-spacing: 0em;
   margin: 50px 0px 20px 0px;
-  max-width: 70%
+  @media only screen and (max-width: 600px)
+    font-size: 2.65rem;
 p
   margin-bottom: 10px
   strong
@@ -223,5 +239,6 @@ ul
 input[type="search"]
   font-size: 16px
   text-align: left
-  @media only screen and (max-width: 500px)
+  @media only screen and (max-width: 600px)
     text-align: center
+

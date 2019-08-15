@@ -41,7 +41,7 @@ export const IndexPageTemplate = ({
             justify="center"
             alignItems="flex-start"
             style={{
-              height: "100vh",
+              minHeight: "100vh",
               boxShadow: "#000000f0 0px -9px 63px 50px",
               zIndex: 100,
               position: "relative"
@@ -58,8 +58,8 @@ export const IndexPageTemplate = ({
           direction="row"
           justify="center"
           alignItems="center"
-          style={{
-            height: "100vh",
+            style={{
+            minHeight: "100vh",
             boxShadow: "#000000f0 0px -9px 63px 50px",
             zIndex: 100,
             position: "relative"

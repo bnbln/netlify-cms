@@ -52,23 +52,14 @@ export const DeckPageTemplate = ({
       {helmet || ''}
       <div style={{
         width: "100%",
-        height: "100%",
+        height: "150%",
         position: "absolute",
         top: 0,
         left: 0,
         overflow: "hidden"
       }}>
-        <img src={image} alt={title} style={{
-          filter: "blur( 80px) brightness(1.99)saturate(2.3) invert(1)",
-          transform: "scale(2)",
-          transformOrigin: "bottom",
-          position: "absolute",
-          zIndex: 0,
-          width: "200%",
-          maxHeight: "200vh",
-          opacity: 0.8,
-          top: "-10vw",
-          left: 0
+        <img src={image} alt={title} className="backgroundBlur" style={{
+         
         }} />
       </div>
         <Grid item xs={12} style={{zIndex: 1}}>
