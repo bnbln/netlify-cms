@@ -65,7 +65,7 @@ class Search extends Component {
             padding: 7,
             outlineWidth: 0,
             WebkitAppearance: "button-bevel",
-            
+            textAlign: "center"
           }}></input>
         {this.state.query !== "" ?
           <Grid container justify="flex-start" alignItems="center" style={{
@@ -76,7 +76,8 @@ class Search extends Component {
             overflowY: "scroll",
             overflowX: "hidden",
             scrollbarColor: "light",
-            maxHeight: "400px"
+            maxHeight: "400px",
+            textAlign: "left"
           }}>
             {this.props.values.map((item, i) =>
               item.node.frontmatter.title.toUpperCase().includes(this.state.query.toUpperCase()) ?

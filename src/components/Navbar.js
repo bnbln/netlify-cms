@@ -54,7 +54,7 @@ const Navbar = class extends React.Component {
               zIndex: 1000,
               color: "white",
               width: "100%",
-              backgroundImage: "linear-gradient(286deg, #000000, "+bgColor+")",
+              // backgroundImage: "linear-gradient(286deg, #000000, "+bgColor+")",
               boxShadow: "rgb(0, 0, 0) 20px 0px 32px 0px",
             }
             }
@@ -69,7 +69,7 @@ const Navbar = class extends React.Component {
             height: "100vh",
             width: "50px",
             // backgroundColor: bgColor,
-            backgroundImage: "linear-gradient(-286deg, #000000, " + bgColor + ")",
+            // backgroundImage: "linear-gradient(-286deg, #000000, " + bgColor + ")",
             boxShadow: "rgb(0, 0, 0) 20px 0px 32px 0px",
             position: "fixed",
             top: 0,

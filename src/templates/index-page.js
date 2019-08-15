@@ -12,6 +12,7 @@ import Logo from '../components/Logo'
 import Search from '../components/Search'
 import Slider from '../components/Slider'
 
+
 import Illustration from "../../static/img/Illustration_Cards.svg"
 import logo from "../components/logo.json";
 
@@ -37,10 +38,34 @@ export const IndexPageTemplate = ({
         paddingRight: 0
       }}>
       <Grid item xs={12}>
-        <Grid container
+        <Hidden smUp>
+          <Grid container
+            direction="row"
+            justify="center"
+            alignItems="flex-start"
+            style={{
+              height: "100vh",
+              boxShadow: "#000000f0 0px -9px 63px 50px",
+              zIndex: 100,
+              position: "relative"
+            }}>
+            <Grid item xs={11} md={4} style={{ textAlign: "center" }}>
+              <Lottie data={logo} />
+              <div style={{ display: "none" }}>
+                <h1>{title}</h1>
+                <b>{subheading}</b>
+              </div>
+              <Search />
+            </Grid>
+          </Grid>
+        </Hidden>
+
+        <Hidden xsDown >
+          <Grid container
           direction="row"
           justify="center"
-          alignItems="center" style={{
+          alignItems="center"
+          style={{
             height: "100vh",
             boxShadow: "#000000f0 0px -9px 63px 50px",
             zIndex: 100,
@@ -48,22 +73,17 @@ export const IndexPageTemplate = ({
           }}>
           <Grid item xs={11} md={4} style={{ textAlign: "center" }}>
             <Lottie data={logo} />
-            {/* <Illustration style={{ maxWidth: "100%", mixBlendMode: "lighten" }} /> */}
           </Grid>
           <Grid item xs={11} sm={6} md={4} >
-
-            {/* <Logo /> */}
             <div style={{display: "none"}}>
               <h1>{title}</h1>
               <b>{subheading}</b>
             </div>
             <Search/>
-
           </Grid>
         </Grid>
+        </Hidden>
       </Grid>
-
-      <Hidden xsDown>
         <Grid item xs={12} style={{
         }}>
           <Grid container justify="center"
@@ -83,7 +103,6 @@ export const IndexPageTemplate = ({
             </Grid>
           </Grid>
         </Grid>
-      </Hidden>
 
 
       <Grid item xs={12} style={{
