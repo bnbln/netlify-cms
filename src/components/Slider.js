@@ -51,14 +51,10 @@ class Slider extends Component {
           }}>
             <Grid container direction="column" spacing={3}>
               {item.map((item, i) =>
-                <Grid item key={"div-" + item.node.fields.slug} xs={12}>
-                  <Fade /*in={this.state.loaded} */ in={true}
-                    timeout={i * 400}
-                    onClick={() => navigate(item.node.fields.slug + "/")}
-                  >
+                item.node.frontmatter.image !== null ?
+                <Grid item key={"div-" + item.node.fields.slug} xs={12} onClick={() => navigate(item.node.fields.slug + "/")}>
                     <div
                       style={{
-
                         background: "white",
                         backgroundImage: "url("+item.node.frontmatter.image.childImageSharp.fluid.src+")",
                         backgroundSize: "contain",
@@ -66,14 +62,12 @@ class Slider extends Component {
                         backgroundRepeat: "no-repeat",
                         borderRadius: 7,
                         width: "100%",
-                        paddingBottom: "170%",
                         cursor: "pointer"
-
                       }}>
-                      <img src={item.node.frontmatter.image.childImageSharp.fluid.src} alt={item.name} style={{ width: 1, height: 1, display: "none" }} onLoad={() => this.setState({ loaded: true })} />
+                      <img src={item.node.frontmatter.image.childImageSharp.fluid.src} alt={item.name} style={{ width: "100%", height: "auto", opacity: 0 }} onLoad={() => this.setState({ loaded: true })} />
                     </div>
-                  </Fade>
-                </Grid>
+                  </Grid>
+                  :null
               )}
             </Grid>
           </Grid>

@@ -43,8 +43,7 @@ export const IndexPageTemplate = ({
             height: "100vh",
             boxShadow: "#000000f0 0px -9px 63px 50px",
             zIndex: 100,
-            position: "relative",
-            backgroundImage: "url(img/pattern.png)"
+            position: "relative"
           }}>
           <Grid item xs={11} md={6} style={{ textAlign: "center" }}>
             <Illustration style={{ maxWidth: "100%", mixBlendMode: "lighten" }} />
@@ -88,8 +87,7 @@ export const IndexPageTemplate = ({
       <Grid item xs={12} style={{
         height: "100vh",
         zIndex: 50,
-        color: "white",
-        backgroundImage: "url(img/pattern.png)"
+        color: "white"
       }}>
         <Grid container justify="center"
           alignItems="center" style={{
