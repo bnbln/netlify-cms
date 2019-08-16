@@ -11,7 +11,6 @@ import './all.sass'
 import useSiteMetadata from './SiteMetadata'
 import { withPrefix } from "gatsby"
 
-const bgcolor = "#fff"
 
 const theme = createMuiTheme({
   typography: {

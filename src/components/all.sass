@@ -38,13 +38,25 @@ a
 
 .panelShadow
   box-shadow: #000000f0 0px 0px 63px -20px
+  min-height: 100vh
   @media (prefers-color-scheme: dark)
     box-shadow: #000000f0 0px -9px 33px 50px
+  @media only screen and (max-width: 600px)
+    min-height: 50vh
+  &.withSecondaryBackgroundColor
+    height: 100vh
+    box-shadow: none
+    @media only screen and (max-width: 600px)
+      height: 50vh
 
 .mainNavigationBar
   background-color: $light
+  box-shadow: rgb(0, 0, 0) 0px 0px 40px -10px
+  @media only screen and (max-width: 600px)
+    box-shadow: black 0px 16px 30px -10px
   @media (prefers-color-scheme: dark)
     background-color: $secondary-dark
+    box-shadow: rgb(0, 0, 0) 0px 10px 60px -5px
 
 .tarotSearch
   input[type="search"] 
@@ -95,6 +107,11 @@ a
       .textContainer p
         text-align: left
         color: $dark
+
+#animationContainer1
+  margin-top: 0px
+  @media only screen and (max-width: 600px) 
+    margin-top: 50px
 
 
 svg path

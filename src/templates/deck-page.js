@@ -15,14 +15,6 @@ import LoveIcon from "@material-ui/icons/Favorite"
 import JobIcon from "@material-ui/icons/Business"
 // import { relative } from 'path';
 
-const h = 227;
-const s = 65;
-const l = 23;
-
-const bgColor = "hsl("+h+", "+s+"%, "+l+"%)"
-const lightColor = "hsl(" + h + ", " + s + "%, " + (l + 5) + "%)"
-const darkColor = "hsl(" + h + ", " + s + "%, " + (l - 5) + "%)"
-
 
 export const DeckPageTemplate = ({
   content,
