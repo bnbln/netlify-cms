@@ -146,35 +146,89 @@ $menu-label-color: $white-ter
   font-family: "Roboto", sans-serif;
   margin: 0px;
   padding: 0px;
-  color: "#000";
   overflow-wrap: break-word
+  color: black 
+  @media (prefers-color-scheme: dark)
+    color: white
 
 html
   background: #000
 
 
-.listItem
-  background-color: #fff;
-  cursor: pointer;
-  border-bottom: 0.3px solid #eceded;
-  transition: all 1s ease-in-out
-
-.listItem:last-child
-  border-bottom: 0px solid #a0acbb
-
-
-
-.listItem:hover
-  background-color: #eceded
+.tarotSearch
+  input[type="search"] 
+    font-size: 16px 
+    text-align: left 
+    width: calc(100% - 14px)
+    font: 100 16px monospace
+    background: none
+    border-width: 0px
+    border-bottom-width: 0px
+    padding: 7px
+    outline-width: 0px
+    -webkit-appearance: button-bevel
+    @media only screen and (max-width: 600px) 
+      text-align: center
+  .queryList
+    margin-top: 20
+    position: absolute
+    width: 100%
+    border-radius: 5px
+    overflow-y: scroll
+    overflow-x: hidden
+    scrollbar-color: light
+    max-height: 400px
+    text-align: left
+    box-shadow: -2px 0px 10px -10px black
+    .listItem
+      background-color: white
+      cursor: pointer
+      border-bottom: 0.3px solid #eceded
+      transition: all 1s ease-in-out
+      padding: 15px 0px
+      &:last-child
+        border-bottom: 0px solid #a0acbb
+      &:hover
+        background-color: #eceded
+      .imageContainer
+        background-color: white
+        background-size: contain
+        background-position: center
+        border-radius: 5px
+        min-height: 1px
+        width: 100%
+        padding-top: 150%
+      .textContainer p
+        text-align: left
+        color: black
 
 
 input:focus 
     outline-offset: 0px;
     outline: white auto 0px;
+svg path
+  fill: black
+  stroke: black
+  @media (prefers-color-scheme: dark)
+    fill: white
+    stroke: white
 
-
+.withColor
+  color: black  
+  @media (prefers-color-scheme: dark) 
+    color: white
+.withBackgroundColor
+  background-color: white
+  color: black
+  @media (prefers-color-scheme: dark)
+    background-color: black
+    color: white
+.withSecondaryBackgroundColor
+  background-color: rgba(215, 219, 213, 1)
+  @media (prefers-color-scheme: dark)
+    background-color: rgba(215, 219, 213, 0.4)
 .backgroundBlur 
-  filter: blur(75px) brightness(3)saturate(1.3) invert(1) 
+  filter: blur(60px) brightness(3)saturate(1.3) invert(0) 
   transform: scale(2) 
   transform-origin: bottom 
   position: absolute 
@@ -183,8 +237,12 @@ input:focus
   max-height: 200vh
   opacity: 0.8
   left: 0px
+  @media (prefers-color-scheme: dark)
+    filter: blur(60px) brightness(3)saturate(1.3) invert(1)
   @media only screen and (max-width: 600px) 
-    filter: blur(30px) brightness(1.99)saturate(1.3) invert(1)
+    filter: blur(30px) brightness(1.99)saturate(1.3) invert(0)
+    @media (prefers-color-scheme: dark)
+      filter: blur(30px) brightness(1.99)saturate(1.3) invert(1)
 
 h1
   font-size: 3.75rem;
@@ -236,9 +294,5 @@ ul
     padding: 15px;
 
 
-input[type="search"]
-  font-size: 16px
-  text-align: left
-  @media only screen and (max-width: 600px)
-    text-align: center
+
 

@@ -5,10 +5,11 @@ import {
   StaticQuery
 } from "gatsby";
 import PropTypes from "prop-types"
-
 import Grid from '@material-ui/core/Grid';
 
 class Slider extends Component {
+  _isMounted = false;
+
   constructor(props) {
     super(props)
     this.state = {
@@ -18,12 +19,16 @@ class Slider extends Component {
   }
 
   componentDidMount() {
-    window.addEventListener('scroll', (e) => {
-      this.scroll(e)
-    });
-    window.addEventListener('resize', (e) => {
-      this.scroll(e)
-    });
+    this._isMounted = true;
+    if (this._isMounted) {
+        window.addEventListener('scroll', (e) => {
+          this.scroll(e)
+        });
+        window.addEventListener('resize', (e) => {
+          this.scroll(e)
+        }); 
+    }
+
   }
 
   scroll(e) {
@@ -33,13 +38,7 @@ class Slider extends Component {
   }
 
   componentWillUnmount() {
-    window.removeEventListener('scroll', (e) => {
-      this.scroll(e)
-    }, true);
-    window.removeEventListener('resize', (e) => {
-      this.scroll(e)
-    }, true
-    );
+    this._isMounted = false;
   }
 
   render() {

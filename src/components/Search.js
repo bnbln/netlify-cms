@@ -45,7 +45,7 @@ class Search extends Component {
     console.log(this.props.values)
 
     return (
-      <div style={{ position: "relative"}}>
+      <div style={{ position: "relative" }} className="tarotSearch">
         <input
           type="search"
           placeholder="Karte suchen"
@@ -55,55 +55,27 @@ class Search extends Component {
           onBlur={this.onBlur}
           onChange={(event) => this.handleChange(event)}
           autoComplete="off"
-          style={{
-            width: "calc(100% - 14px)",
-            font: "100 16px monospace",
-            background: "none",
-            borderWidth: 0,
-            borderBottomWidth: 0,
-            color: "#fff",
-            padding: 7,
-            outlineWidth: 0,
-            WebkitAppearance: "button-bevel",
-          }}></input>
+          className="withColor" />
         {this.state.query !== "" ?
-          <Grid container justify="flex-start" alignItems="center" style={{
-            marginTop: 20,
-            position: "absolute",
-            width: "100%",
-            borderRadius: 5,
-            overflowY: "scroll",
-            overflowX: "hidden",
-            scrollbarColor: "light",
-            maxHeight: "400px",
-            textAlign: "left"
-          }}>
+          <Grid container
+            justify="flex-start"
+            alignItems="center"
+            className="queryList" >
             {this.props.values.map((item, i) =>
               item.node.frontmatter.title.toUpperCase().includes(this.state.query.toUpperCase()) ?
-                <Zoom in={true} key={i} className="listItem" style={{
-                  transitionDelay: i + '0ms',
-                  padding: "15px 0px",
-                }}
-                  onClick={() => navigate("/" + item.node.fields.slug + "/")}
-                >
+                <Zoom in={true} key={i} className="listItem"
+                  style={{ transitionDelay: i + '0ms' }}
+                  onClick={() => navigate("/" + item.node.fields.slug + "/")}>
                   <Grid item xs={12}>
                     <Grid container spacing={3} justify="center" alignItems="center">
                       <Grid item xs={2}>
-                        <div key={"row-" + i} style={{
+                        <div key={"row-" + i} className="imageContainer" style={{
                           backgroundImage: `url(${
                             item.node.frontmatter.image !== null ? item.node.frontmatter.image.childImageSharp.fluid.src : item.node.frontmatter.image
-                            })`,
-                          backgroundColor: "white",
-                          backgroundSize: "contain",
-                          backgroundPosition: "center",
-                          borderRadius: 5,
-                          minHeight: 1,
-                          width: "100%",
-                          paddingTop: "150%",
-                          
+                            })`
                         }} />
                       </Grid>
-                      <Grid item xs={9} style={{ textAlign: "left"}}>
+                      <Grid item xs={9} className="textContainer">
                         <p style={{
                           fontSize: 20,
                           fontWeight: 100
@@ -118,50 +90,20 @@ class Search extends Component {
           </Grid>
           :
           this.state.focus === true ?
-            <Grid container justify="flex-start" alignItems="center" style={{
-              marginTop: 20,
-              position: "absolute",
-              width: "100%",
-              borderRadius: 5,
-              overflowY: "scroll",
-              overflowX: "hidden",
-              scrollbarColor: "light",
-              maxHeight: "400px"
-            }}>
+            <Grid container justify="flex-start" alignItems="center" className="queryList" >
               {this.props.values.map((item, i) =>
-                <Zoom in={true} key={i} className="listItem" style={{
-                  transitionDelay: i + '0ms',
-                  padding: "15px 0px",
-                }}
-                  onClick={() => navigate("/" + item.node.fields.slug + "/")}
-                >
+                <Zoom in={true} key={i} className="listItem" style={{ transitionDelay: i + '0ms' }}
+                  onClick={() => navigate("/" + item.node.fields.slug + "/")}>
                   <Grid item xs={12}>
                     <Grid container spacing={3} justify="center" alignItems="center">
-                      {console.log("image:", item.node.frontmatter.image)}
                       <Grid item xs={2}>
-                        {
-                          item.node.frontmatter.image !== null ?
-                            < div key = {
-                              "row-" + i
-                            }
-                            style = {
-                              {
-                                backgroundImage: `url(${item.node.frontmatter.image.childImageSharp.fluid.src})`,
-                                backgroundColor: "white",
-                                backgroundSize: "contain",
-                                backgroundPosition: "center",
-                                borderRadius: 5,
-                                minHeight: 1,
-                                width: "100%",
-                                paddingTop: "150%"
-                              }
-                            }
+                        {item.node.frontmatter.image !== null ?
+                            <div key={"row-" + i} className="imageContainer"
+                            style={{ backgroundImage: `url(${item.node.frontmatter.image.childImageSharp.fluid.src})` }}
                             />
-                            : null
-                        }
-                        
+                        : null}
                       </Grid>
-                      <Grid item xs={9} style={{ textAlign: "left" }}>
+                      <Grid item xs={9} className="textContainer" >
                         <p style={{
                           fontSize: 20,
                           fontWeight: 100
@@ -172,7 +114,7 @@ class Search extends Component {
                   </Grid>
                 </Zoom>
               )}
-              </Grid>
+            </Grid>
             : null
         }
       </div>
