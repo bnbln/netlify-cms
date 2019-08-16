@@ -46,7 +46,7 @@ const TagsPage = ({
 export default TagsPage
 
 export const tagPageQuery = graphql`
-  query ArkanaQuery {
+  query SystemQuery {
     site {
       siteMetadata {
         title
