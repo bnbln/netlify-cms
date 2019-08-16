@@ -50,17 +50,8 @@ export const DeckPageTemplate = ({
         alignItems="center"
       style={{ color: "white", width: "100%", overflow: "hidden" }}>
       {helmet || ''}
-      <div style={{
-        width: "100%",
-        height: "150%",
-        position: "absolute",
-        top: 0,
-        left: 0,
-        overflow: "hidden"
-      }}>
-        <img src={image} alt={title} className="backgroundBlur" style={{
-         
-        }} />
+      <div className="backgroundBlur">
+        <img src={image} alt={title} />
       </div>
         <Grid item xs={12} style={{zIndex: 1}}>
           <Grid container
@@ -174,9 +165,9 @@ export const DeckPageTemplate = ({
               <Typography variant="h5" gutterBottom align="center">
                   Natürliche Stellung
               </Typography>
-                <List component="nav" aria-label="positiv">
+              <List component="ul" aria-label="positiv" className="proList">
                   {natural.map((item, i) =>
-                    <ListItem key={"natural-" + i} style={{ boxShadow: "#000000d4 0px -12px 20px -20px inset", backgroundImage: "linear-gradient(-20deg, " +  lightColor+ ", " + bgColor + ")" }}>
+                    <ListItem key={"natural-" + i}>
                       <ListItemText primary={item} />
                     </ListItem>
                   )}
@@ -188,9 +179,9 @@ export const DeckPageTemplate = ({
                 <Typography variant="h5" gutterBottom align="center">
                   Umgekehrt
               </Typography>
-                <List component="nav" aria-label="positiv">
+              <List component="ul" aria-label="positiv" className="conList">
                   {upsidedown.map((item, i) =>
-                    <ListItem key={"upsidedown-" + i} style={{ boxShadow: "#000000d4 0px -12px 20px -20px inset", backgroundImage: "linear-gradient(-20deg, " + darkColor + ", " + bgColor + ")"}}>
+                    <ListItem key={"upsidedown-" + i}>
                       <ListItemText primary={item} />
                     </ListItem>
                   )}

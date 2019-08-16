@@ -12,8 +12,10 @@ const SearchPage = () =>(
         alignItems="center" style={{
           height: "100vh"
         }}>
-        <Grid item xs={8} md={4}>
-          <Search />
+      <Grid item xs={10} md={4}>
+        <h1 style={{textAlign: "center"}}>Suche</h1>
+        <Search />
+        <div style={{height: "20vh"}} />
         </Grid>
         </Grid>
     </Layout>

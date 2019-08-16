@@ -46,8 +46,8 @@ const Navbar = class extends React.Component {
             variant="fullWidth"
             indicatorColor="primary"
             textColor="primary"
-          className="withBackgroundColor"
             aria-label="icon tabs example"
+            className="mainNavigationBar"
             style={{
               position: "fixed",
               left: 0,
@@ -72,9 +72,8 @@ const Navbar = class extends React.Component {
             // backgroundImage: "linear-gradient(-286deg, #000000, " + bgColor + ")",
             boxShadow: "rgb(0, 0, 0) 20px 0px 32px 0px",
             position: "fixed",
-            backgroundXolor: "#0009",
-            backgroundBlendMode: "multiply",
-          top: 0,
+            mixBlendMode: "multiply",
+          top: -0,
           right: 0
         }}>
             <Grid container justify="space-between" style={{

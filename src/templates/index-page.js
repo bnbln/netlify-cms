@@ -41,9 +41,9 @@ export const IndexPageTemplate = ({
             direction="row"
             justify="center"
             alignItems="flex-start"
+            className="panelShadow"
             style={{
               minHeight: "100vh",
-              boxShadow: "#000000f0 0px -9px 63px 50px",
               zIndex: 100,
               position: "relative"
             }}>
@@ -58,10 +58,10 @@ export const IndexPageTemplate = ({
           <Grid container
           direction="row"
           justify="center"
-          alignItems="center"
+            alignItems="center"
+            className="panelShadow"
             style={{
             minHeight: "100vh",
-            boxShadow: "#000000f0 0px -9px 63px 50px",
             zIndex: 100,
             position: "relative"
           }}>
