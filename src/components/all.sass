@@ -1,143 +1,21 @@
-@import "~bulma/sass/utilities/initial-variables"
-
-// Config vars
-// Kaldi logo brand color: #FD461E
-$kaldi-red: #D64000
-$kaldi-red-invert: #fff
-
-$primary: $kaldi-red
-$primary-invert: $kaldi-red-invert
-$body-color: #333
 $black: #2b2523
-
-.navbar .navbar-menu
-  box-shadow:none
-
-.content .taglist
-  list-style: none
-  margin-bottom: 0
-  margin-left: 0
-  margin-right: 1.5rem
-  margin-top: 1.5rem
-  display: flex
-  flex-wrap: wrap
-  justify-content: left
-  align-items: center
-  li
-    padding: 0 2rem 1rem 0
-    margin-bottom: 1.5rem
-    margin-top: 0
-
-// Helper Classes
-.full-width-image-container
-  width: 100vw
-  height: 400px
-  position: relative
-  left: 50%
-  right: 50%
-  margin: 2em -50vw
-  background-size: cover
-  background-position: bottom
-  display: flex
-  justify-content: center
-  align-items: center
-
-.full-width-image
-    width: 100vw
-    height: 400px
-    background-size: cover
-    background-position: bottom
-    display: flex
-    justify-content: center
-    align-items: center
-
-.btn
-    display: inline-block
-    padding: 12px 16px 10px
-    font-size: 18px
-    font-size: 1rem
-    line-height: 1.25
-    background-color: #fff
-    border-radius: .25rem
-    text-decoration: none
-    font-weight: 700
-    color: #CC3700
-    text-align: center
-    -webkit-box-shadow: inset 0 0 0 2px #CC3700
-    box-shadow: inset 0 0 0 2px #f40
-    -webkit-transition: all .15s ease
-    transition: all .15s ease
-
-.margin-top-0
-  margin-top: 0 !important
-
-.navbar-item .icon
-  color: $primary
-// Override for use of svg's from https://simpleicons.org/
-.icon svg
-  width: 1.5rem
-  height: 1.5rem
-  fill: currentColor
-.navbar-brand .navbar-item.logo
-  padding: 0 1rem
-footer.footer
-  padding: 3rem 0rem 0rem
-  background-color: transparent
-
-//Menu overrides
-$menu-item-color: $white-ter
-$menu-item-hover-color: $black !important
-$menu-item-hover-background-color: $black
-$menu-item-active-color: $kaldi-red-invert
-$menu-item-active-background-color:	$kaldi-red-invert
-$menu-list-border-left: 1px solid $kaldi-red-invert
-$menu-label-color: $white-ter
+$white: #fff
+$gray: #eceded
 
 
-.menu-label
-  font-size: 1em !important
-  text-align: left
-.menu-list
-  list-style: none !important
-  text-align: left
-.social
-  padding: 2em
-.social a
-    padding: .5em .5em .3em .5em
-    border-radius: 1em
-    background-color: $white-ter
-    margin: .5em
-    width: 1em
-    height: 1em
-    vertical-align: middle
-    display: inline
+$dark: #000
+$primary-dark: darken(#a08ba7, 20%)
+$secondary-dark: darken(#a08ba7, 40%)
 
-// blog roll
-.blog-list-item.is-featured
-  background-color: #d6400033;
-.blog-list-item header
-  display: flex;
-  margin-bottom: 1em;
-.blog-list-item .featured-thumbnail
-  flex-basis: 35%;
-  margin: 0 1.5em 0 0;
+$light: #edece8
+$primary-light: #4f5f495c 
+$secondary-light: darken(#4f5f495c, 40%)
 
 
-@import "~bulma"
 
 
-// responsiveness
-+tablet-only
-  .blog-list-item .featured-thumbnail
-    flex-basis: 50%;
 
-+mobile
-  .blog-list-item header
-    display: block
-  .blog-list-item .featured-thumbnail
-    text-align: center;
-    max-width: 70%;
-    margin: 0 0 1em;
+$body-color: #333
 
 
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700');
@@ -147,19 +25,32 @@ $menu-label-color: $white-ter
   margin: 0px;
   padding: 0px;
   overflow-wrap: break-word
-  color: black 
+  color: $black 
   @media (prefers-color-scheme: dark)
-    color: white
+    color: $white
 
 html
-  background: #000
+  background: $light
+  @media (prefers-color-scheme: dark) 
+    background: $dark
+a
+  text-decoration: none
 
+.panelShadow
+  box-shadow: #000000f0 0px 0px 63px -20px
+  @media (prefers-color-scheme: dark)
+    box-shadow: #000000f0 0px -9px 33px 50px
+
+.mainNavigationBar
+  background-color: $light
+  @media (prefers-color-scheme: dark)
+    background-color: $secondary-dark
 
 .tarotSearch
   input[type="search"] 
     font-size: 16px 
     text-align: left 
-    width: calc(100% - 14px)
+    width: 100%
     font: 100 16px monospace
     background: none
     border-width: 0px
@@ -167,6 +58,9 @@ html
     padding: 7px
     outline-width: 0px
     -webkit-appearance: button-bevel
+    &:focus 
+      outline-offset: 0px
+      outline: $light auto 0px
     @media only screen and (max-width: 600px) 
       text-align: center
   .queryList
@@ -179,19 +73,19 @@ html
     scrollbar-color: light
     max-height: 400px
     text-align: left
-    box-shadow: -2px 0px 10px -10px black
+    box-shadow: -2px 0px 10px -10px $dark
     .listItem
-      background-color: white
+      background-color: $white
       cursor: pointer
-      border-bottom: 0.3px solid #eceded
+      border-bottom: 0.3px solid $gray
       transition: all 1s ease-in-out
       padding: 15px 0px
       &:last-child
-        border-bottom: 0px solid #a0acbb
+        border-bottom: 0px solid $gray
       &:hover
-        background-color: #eceded
+        background-color: $gray
       .imageContainer
-        background-color: white
+        background-color: $white
         background-size: contain
         background-position: center
         border-radius: 5px
@@ -200,50 +94,73 @@ html
         padding-top: 150%
       .textContainer p
         text-align: left
-        color: black
+        color: $dark
 
 
-input:focus 
-    outline-offset: 0px;
-    outline: white auto 0px;
 svg path
-  fill: black
-  stroke: black
+  fill: $dark
+  stroke: $dark
   @media (prefers-color-scheme: dark)
-    fill: white
-    stroke: white
+    fill: $light
+    stroke: $light
 
 .withColor
-  color: black  
+  color: $black  
   @media (prefers-color-scheme: dark) 
-    color: white
+    color: $white
 .withBackgroundColor
-  background-color: white
-  color: black
+  background-color: $light
+  color: $black
   @media (prefers-color-scheme: dark)
-    background-color: black
-    color: white
+    background-color: $dark
+    color: $white
 .withSecondaryBackgroundColor
-  background-color: rgba(215, 219, 213, 1)
+  background-color: $primary-light
   @media (prefers-color-scheme: dark)
-    background-color: rgba(215, 219, 213, 0.4)
-.backgroundBlur 
-  filter: blur(60px) brightness(3)saturate(1.3) invert(0) 
-  transform: scale(2) 
-  transform-origin: bottom 
-  position: absolute 
-  z-index: 0 
-  width: 200% 
-  max-height: 200vh
-  opacity: 0.8
-  left: 0px
-  @media (prefers-color-scheme: dark)
-    filter: blur(60px) brightness(3)saturate(1.3) invert(1)
-  @media only screen and (max-width: 600px) 
-    filter: blur(30px) brightness(1.99)saturate(1.3) invert(0)
-    @media (prefers-color-scheme: dark)
-      filter: blur(30px) brightness(1.99)saturate(1.3) invert(1)
+    background-color: $primary-dark
 
+.backgroundBlur
+  width: 100%
+  height: 100vh
+  position: absolute
+  top: 0px
+  left: 0px
+  overflow: hidden
+  filter: blur(60px) brightness(3)saturate(1.3) invert(0)
+  mix-blend-mode: darken
+  @media (prefers-color-scheme: dark) 
+    filter: blur(60px) brightness(3)saturate(1.3) invert(1) 
+    mix-blend-mode: lighten 
+  @media only screen and (max-width: 600px) 
+    filter: blur(30px) brightness(1.99)saturate(1.3) invert(0) 
+    @media (prefers-color-scheme: dark) 
+      filter: blur(30px) brightness(1.99)saturate(1.3) invert(1)
+  img
+    transform: scale(2) 
+    transform-origin: bottom 
+    position: absolute 
+    z-index: 0 
+    width: 200% 
+    max-height: 200vh
+    opacity: 0.8
+    left: 0px
+
+.proList
+  li
+    box-shadow: #000000d4 0px -12px 20px -20px inset
+    background-image: linear-gradient(-20deg, $primary-light, $secondary-light)
+    @media (prefers-color-scheme: dark)
+      background-image: linear-gradient(-20deg, $primary-dark, $secondary-dark)
+    span 
+      color: $white
+.conList
+  li
+    box-shadow: #000000d4 0px -12px 20px -20px inset 
+    background-image: linear-gradient(-20deg, darken($primary-light, 10%), $secondary-light)
+    @media (prefers-color-scheme: dark) 
+      background-image: linear-gradient(-20deg, $primary-dark, $secondary-dark)
+    span
+      color: $white
 h1
   font-size: 3.75rem;
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
@@ -265,20 +182,20 @@ h2
 p
   margin-bottom: 10px
   strong
-    color: white 
+    color: $black 
   code
-    background-color: white;
-    color: black;
+    background-color: $dark;
+    color: $white;
   blockquote
     position: relative;
     padding-left: 1em;
-    border-left: 0.2em solid lighten($black, 40%);
+    border-left: 0.2em solid lighten($dark, 40%);
     font-family: 'Roboto', serif;
     font-weight: 100;
     &:before, &:after 
         content: '\201C';
         font-family: 'Roboto';
-        color: lighten($black, 40%);
+        color: lighten($dark, 40%);
     &:after 
       content: '\201D';
 a
@@ -290,6 +207,8 @@ ul
   margin-left: 20px;
   padding-right: 140px;
   margin-bottom: 20px;
+  @media only screen and (max-width: 600px)
+    padding-right: 0px
   li
     padding: 15px;
 
