@@ -5,6 +5,7 @@ image: /img/2-stäbe.png
 id: 56
 number: 3
 arkana: Kleine Arkana
+color: Feuer
 description: >-
   Autorität und Reichtum, durch harte Arbeit verdient. Projekte, die durch
   Willenskraft zur Blüte gelangt sind. Wohlstand. Eigentum. Vorteile durch die
