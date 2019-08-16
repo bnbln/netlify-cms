@@ -7,11 +7,14 @@ import IconButton from '@material-ui/core/IconButton';
 import IconMenu from '@material-ui/icons/Sort';
 import IconSearch from '@material-ui/icons/Search';
 import IconPerson from '@material-ui/icons/Person';
+import IconHome from '@material-ui/icons/Home';
 
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 
 import CardIcon from "@material-ui/icons/CropPortrait"
+
+import Search from "./Search"
 
 
 // const bgColor = "#431758"
@@ -20,9 +23,11 @@ const Navbar = class extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      active: 0
+      active: 0,
+      menu: false
     }
     this.handleChange = this.handleChange.bind(this)
+    this.handleMenu = this.handleMenu.bind(this)
   }
   componentDidMount() {
 
@@ -31,6 +36,11 @@ const Navbar = class extends React.Component {
     console.log(e.currentTarget.tab)
     this.setState({
       active: e
+    })
+  }
+  handleMenu(e) {
+    this.setState({
+      menu: !e
     })
   }
   render() {
@@ -60,13 +70,15 @@ const Navbar = class extends React.Component {
           >
             <Tab icon={<IconMenu style={{ color: "#fff" }} />} aria-label="home" onClick={() => navigate("/")} />
             <Tab icon={<IconSearch style={{ color: "#fff" }} />} aria-label="search" onClick={() => navigate("/search/")} />
-            <Tab icon={<IconPerson style={{ color: "#fff" }} />} aria-label="person" onClick={() => navigate("/admin/")} />
+            <Tab icon={<CardIcon style={{ color: "#fff" }} />} aria-label="deck" onClick={() => navigate("/deck/")} />
+
+            {/* <Tab icon={<IconPerson style={{ color: "#fff" }} />} aria-label="person" href="https://tarot-manifest.netlify.com/admin" /> */}
           </Tabs>
         </Hidden>
         <Hidden xsDown>
           <div className="mainNavigationBar" style={{
             height: "100vh",
-            width: "50px",
+            width: this.state.menu !== true ? "50px" : "40%" ,
             // backgroundColor: bgColor,
             // backgroundImage: "linear-gradient(-286deg, #000000, " + bgColor + ")",
             boxShadow: "rgb(0, 0, 0) 20px 0px 32px 0px",
@@ -74,39 +86,56 @@ const Navbar = class extends React.Component {
             mixBlendMode: "multiply",
           top: -0,
           right: 0
-        }}>
-            <Grid container justify="space-between" style={{
+          }}>
+            <Grid container justify="flex-start" style={{
               height: "100%"
             }}>
-              <Grid item>
-                <IconButton style={{ color: "#fff" }}
-                  onClick={() => navigate("/")}
-                >
-                  <IconMenu />
-                </IconButton>
-                <IconButton style={{ color: "#fff" }}
-                  onClick={() => navigate("/deck/")}
-                >
-                  <CardIcon />
-                </IconButton>
-                <IconButton style={{ color: "#fff" }}
-                  onClick={() => navigate("/search/")}
-                >
-                  <IconSearch />
-                </IconButton>
-              </Grid>
-              <Grid item>
-                
+              <Grid item xs={2} >
+                <Grid container justify="space-between" direction="column" style={{
+                  height: "100%"
+                }}>
+                  <Grid item xs={1}>
+                    <IconButton style={{ color: "#fff" }}
+                      onClick={() => navigate("/")}
+                    >
+                      <IconHome />
+                    </IconButton>
 
+                    <IconButton style={{ color: "#fff" }}
+                      onClick={() => navigate("/deck/")}
+                    >
+                      <CardIcon />
+                    </IconButton>
+                    <IconButton style={{ color: "#fff" }}
+                      // onClick={() => navigate("/search/")}
+                      onClick={() => this.handleMenu(this.state.menu)}
+                    >
+                      <IconSearch />
+                    </IconButton>
+                  </Grid>
+                  <Grid item xs={1}>
+                    <IconButton style={{ color: "#fff" }}
+                      href="https://tarot-manifest.netlify.com/admin">
+                      <IconPerson />
+                    </IconButton>
+                    <IconButton style={{ color: "#fff" }}
+                      onClick={() => this.handleMenu(this.state.menu)}
+                    >
+                      <IconMenu />
+                    </IconButton>
+
+                  </Grid>
+                  </Grid>
               </Grid>
-              {/* <Grid item alignContent="center">
-            <IconButton style={{ color: "#fff" }}
-              onClick={() => navigate("/admin/")}>
-              <IconPerson />
-            </IconButton>
-              </Grid> */}
+              {this.state.menu !== false ?
+                <Grid item xs={9} >
+                  <h2>Suche</h2>
+                  <Search />
+                </Grid>
+                : null
+              }
             </Grid>
-
+          
 
           </div>
         </Hidden>
