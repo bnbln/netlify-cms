@@ -43,7 +43,6 @@ export const IndexPageTemplate = ({
             alignItems="flex-start"
             className="panelShadow"
             style={{
-              minHeight: "100vh",
               zIndex: 100,
               position: "relative"
             }}>
@@ -61,7 +60,6 @@ export const IndexPageTemplate = ({
             alignItems="center"
             className="panelShadow"
             style={{
-            minHeight: "100vh",
             zIndex: 100,
             position: "relative"
           }}>
@@ -81,9 +79,8 @@ export const IndexPageTemplate = ({
         <Grid item xs={12} style={{
         }}>
         <Grid container justify="center"
-          className="withSecondaryBackgroundColor"
+          className="withSecondaryBackgroundColor panelShadow"
             alignItems="center" style={{
-              height: "100vh",
               width: "100%",
               overflow: "hidden",
               padding: 0,
@@ -100,9 +97,8 @@ export const IndexPageTemplate = ({
 
 
       <Grid item xs={12}
-        className="withColor"
+        className="withColor panelShadow"
         style={{
-        minHeight: "100vh",
         zIndex: 50,
       }}>
         <Grid container justify="center"
@@ -120,14 +116,15 @@ export const IndexPageTemplate = ({
           </Grid>
         </Grid>
       </Grid>
-      <Grid item xs={12} style={{
+      <Grid item xs={12}
+        className="withSecondaryBackgroundColor panelShadow"
+        style={{
         backgroundImage: `url(${
           !!image.childImageSharp ? image.childImageSharp.fluid.src : image
           })`,
         backgroundPosition: `top left`,
-        backgroundAttachment: `fixed`,
-        width: "100%",
-        height: "100vh"
+          backgroundAttachment: `fixed`,
+        backgroundSize: "cover"
       }} />
 
       {/* <Grid item xs={12}>

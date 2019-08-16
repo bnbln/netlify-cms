@@ -55,7 +55,6 @@ const Navbar = class extends React.Component {
               zIndex: 1000,
               width: "100%",
               height: 65,
-              boxShadow: "rgb(0, 0, 0) 0px 0px 40px -10px",
             }
             }
           >
