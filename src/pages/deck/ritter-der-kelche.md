@@ -2,7 +2,7 @@
 templateKey: deck-page
 title: Ritter der Kelche
 image: /img/ritter--der-kelche.png
-id: 99
+id: 47
 number: 3
 arkana: Kleine Arkana
 color: Wasser
