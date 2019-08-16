@@ -58,9 +58,7 @@ class IndexPagePreview extends React.Component {
               <ThemeProvider theme={theme}>
                 {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
                 <CssBaseline />
-                <Grid container style={{
-                  backgroundColor: "black"
-                }}>
+                <Grid container className="withBackgroundColor">
                     <IndexPageTemplate
                       image={data.image}
                       title={data.title}
