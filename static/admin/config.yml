@@ -42,6 +42,14 @@ collections:
       - {label: "Featured Image", name: "featuredimage", widget: image}
       - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Tags", name: "tags", widget: "list"}
+  - name: "systems"
+    label: "Legesysteme"
+    folder: "src/pages/system"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "system-page"}
+      - {label: "Title", name: "title", widget: "string"}     
   - name: "pages"
     label: "Pages"
     files:

@@ -60,7 +60,7 @@ const TagsPage = ({
                     {tag.fieldValue === "Kleine Arkana" ?
                       elementsQuery(tag.nodes).map((item, i) => 
                         item.length !== 0 ?
-                          <Grid item xs={12}>
+                          <Grid item xs={12} id={item[0].frontmatter.color}>
                             <Link to={`/colors/${kebabCase(item[0].frontmatter.color)}/`} style={{ display: "block" }}>
                             <Typography variant="h6" gutterBottom align="center">
                               {item[0].frontmatter.color}
