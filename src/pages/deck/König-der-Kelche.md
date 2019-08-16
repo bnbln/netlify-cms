@@ -2,7 +2,7 @@
 templateKey: deck-page
 title: König der Kelche
 image: /img/könig-der-kelche.png
-id: 10
+id: 49
 arkana: Kleine Arkana
 color: Wasser
 description: >-
