@@ -70,7 +70,9 @@ const Navbar = class extends React.Component {
           >
             <Tab icon={<IconMenu style={{ color: "#fff" }} />} aria-label="home" onClick={() => navigate("/")} />
             <Tab icon={<IconSearch style={{ color: "#fff" }} />} aria-label="search" onClick={() => navigate("/search/")} />
-            <Tab icon={<IconPerson style={{ color: "#fff" }} />} aria-label="person" onClick={() => navigate("/admin/")} />
+            <Tab icon={<CardIcon style={{ color: "#fff" }} />} aria-label="deck" onClick={() => navigate("/deck/")} />
+
+            {/* <Tab icon={<IconPerson style={{ color: "#fff" }} />} aria-label="person" href="https://tarot-manifest.netlify.com/admin" /> */}
           </Tabs>
         </Hidden>
         <Hidden xsDown>
