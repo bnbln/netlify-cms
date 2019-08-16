@@ -46,17 +46,16 @@ const Navbar = class extends React.Component {
             variant="fullWidth"
             indicatorColor="primary"
             textColor="primary"
+          className="withBackgroundColor"
             aria-label="icon tabs example"
             style={{
               position: "fixed",
               left: 0,
               bottom: 0,
               zIndex: 1000,
-              color: "white",
               width: "100%",
               height: 65,
-              backgroundImage: "linear-gradient(286deg, #000000, #000000)",
-              boxShadow: "rgb(0, 0, 0) 20px 0px 32px 0px",
+              boxShadow: "rgb(0, 0, 0) 0px 0px 40px -10px",
             }
             }
           >
@@ -78,7 +77,7 @@ const Navbar = class extends React.Component {
           top: 0,
           right: 0
         }}>
-            <Grid container alignItems="space-between" style={{
+            <Grid container justify="space-between" style={{
               height: "100%"
             }}>
               <Grid item>

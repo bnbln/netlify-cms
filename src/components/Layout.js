@@ -11,7 +11,7 @@ import './all.sass'
 import useSiteMetadata from './SiteMetadata'
 import { withPrefix } from "gatsby"
 
-const color = "#000"
+const bgcolor = "#fff"
 
 const theme = createMuiTheme({
   typography: {
@@ -70,9 +70,9 @@ const TemplateWrapper = ({ children }) => {
         direction="row"
         justify="center"
         alignItems="center"
+        className="withBackgroundColor"
         style={{
           transition: "all 0.5s ease-in-out",
-          backgroundColor: color
         }}>
         <Grid item xs={12}>
           {children}

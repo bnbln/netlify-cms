@@ -18,6 +18,7 @@ import logo from "../components/logo.json";
 // import Features from '../components/Features'
 // import BlogRoll from '../components/BlogRoll'
 
+
 export const IndexPageTemplate = ({
   image,
   title,
@@ -26,7 +27,7 @@ export const IndexPageTemplate = ({
   links,
   description,
   intro,
-  all
+  all,
 }) => (
     <Grid container
       direction="row"
@@ -79,11 +80,11 @@ export const IndexPageTemplate = ({
       </Grid>
         <Grid item xs={12} style={{
         }}>
-          <Grid container justify="center"
+        <Grid container justify="center"
+          className="withSecondaryBackgroundColor"
             alignItems="center" style={{
               height: "100vh",
               width: "100%",
-              backgroundColor: "#101025",
               overflow: "hidden",
               padding: 0,
               position: "relative",
@@ -98,10 +99,11 @@ export const IndexPageTemplate = ({
         </Grid>
 
 
-      <Grid item xs={12} style={{
-        height: "100vh",
+      <Grid item xs={12}
+        className="withColor"
+        style={{
+        minHeight: "100vh",
         zIndex: 50,
-        color: "white"
       }}>
         <Grid container justify="center"
           alignItems="center" style={{
@@ -109,7 +111,7 @@ export const IndexPageTemplate = ({
           }}>
           <Grid item xs={10} md={7} >
             {links.map((item, i) =>
-              <Link key={"links-"+i} to={"/"+item.url+"/"} style={{ color: "white" }}>
+              <Link key={"links-" + i} to={"/" + item.url + "/"} className="withColor">
                 <Typography variant="h3" gutterBottom>
                   {item.title}
                 </Typography>
@@ -157,6 +159,7 @@ IndexPageTemplate.propTypes = {
     blurbs: PropTypes.array,
   }),
 }
+
 
 const IndexPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark

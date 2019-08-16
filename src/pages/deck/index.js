@@ -29,10 +29,7 @@ const TagsPage = ({
             direction="row"
             justify="center"
             alignItems="center" style={{
-              height: "100vh",
-              boxShadow: "-63px 30px 113px 70px black",
-              zIndex: 100,
-              color: "white",
+              // boxShadow: "-63px 30px 113px 70px black",
               position: "relative",
             }}>
             <Typography variant="h1" gutterBottom align="center">
@@ -52,7 +49,7 @@ const TagsPage = ({
                   <Grid container justify="center"
                     alignItems="center" spacing={2}>
                     {tag.nodes.map(card => (
-                      <Grid item xs={6} sm={4} md={3} lg={2} xl={1}>
+                      <Grid key={card.fields.slug} item xs={6} sm={4} md={3} lg={2} xl={1}>
                         <Link to={card.fields.slug}>
                           <img
                             alt={card.frontmatter.title}
