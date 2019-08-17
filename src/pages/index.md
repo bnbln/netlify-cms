@@ -10,7 +10,7 @@ links:
   - title: Elemente
     url: colors
   - title: Legetechniken
-    url: deck
+    url: system
 heading: Great coffee with a conscience
 subheading: Support sustainable farming while enjoying a cup
 description: >-
