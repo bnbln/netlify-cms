@@ -9,14 +9,15 @@ import Typography from '@material-ui/core/Typography';
 
 const TagsPage = ({
   data: {
-    allMarkdownRemark: { group },
+    allMarkdownRemark: { edges },
     site: {
       siteMetadata: { title },
     },
   },
 }) => (
     <Layout>
-      <Helmet title={`Deck | ${title}`} />
+      {console.log(edges)}
+      <Helmet title={`Legesysteme | ${title}`} />
       <Grid container
         direction="row"
         justify="center"
@@ -33,7 +34,7 @@ const TagsPage = ({
               position: "relative",
             }}>
             <Typography variant="h1" gutterBottom align="center">
-              Deck
+              Legesysteme
             </Typography>
             
 
@@ -52,22 +53,11 @@ export const tagPageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "deck-page"}}}, sort: {fields: frontmatter___id}) {
-    group(field: frontmatter___arkana) {
-      fieldValue
-      totalCount
-      nodes {
+  allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "system-page"}}}, sort: {fields: frontmatter___id}) {
+    edges {
+      node {
         frontmatter {
-          templateKey
           title
-          color
-          image {
-          childImageSharp {
-            fluid(maxWidth: 400, quality: 100) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
         }
         fields {
           slug
