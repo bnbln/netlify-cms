@@ -2,7 +2,7 @@
 templateKey: deck-page
 title: 5 Kelche
 image: /img/5-kelche.png
-id: 34
+id: 40
 number: 5
 arkana: Kleine Arkana
 color: Wasser
