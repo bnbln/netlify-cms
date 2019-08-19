@@ -22,6 +22,7 @@ $body-color: #333
 
 *
   font-family: "Roboto", sans-serif;
+  box-sizing: border-box
   margin: 0px;
   padding: 0px;
   overflow-wrap: break-word
@@ -114,6 +115,24 @@ a
   @media only screen and (max-width: 600px) 
     margin-top: 50px
 
+.deckAnimationContainer
+  position: absolute;
+  will-change: transform;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  div
+    background-color: white;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 45vh;
+    max-width: 300px;
+    height: 85vh;
+    max-height: 570px;
+    will-change: transform;
+    border-radius: 10px;
+    box-shadow: -3px 3px 16px -3px rgba(50, 50, 73, 0.4), 0 10px 10px -10px rgba(50, 50, 73, 0.3)
 
 svg path
   fill: $black

@@ -13,6 +13,7 @@
     "gatsby-plugin-material-ui": "^2.1.5",
     "gatsby-plugin-netlify": "^2.0.6",
     "gatsby-plugin-netlify-cms": "^4.1.6",
+    "gatsby-plugin-page-transitions": "^1.0.8",
     "gatsby-plugin-purgecss": "^4.0.0",
     "gatsby-plugin-react-helmet": "^3.0.4",
     "gatsby-plugin-react-svg": "^2.1.2",
@@ -36,6 +37,9 @@
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-helmet": "^5.2.0",
+    "react-lottie": "^1.2.3",
+    "react-spring": "^8.0.27",
+    "react-use-gesture": "^5.2.4",
     "styled-components": "^4.3.2",
     "uuid": "^3.2.1"
   },

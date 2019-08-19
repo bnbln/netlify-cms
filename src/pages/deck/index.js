@@ -5,6 +5,8 @@ import { Link, graphql } from 'gatsby'
 import Layout from '../../components/Layout'
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
+import PageTransition from 'gatsby-plugin-page-transitions';
+
 
 function elementsQuery(values) {
   var Wasser = values.filter((card) => card.frontmatter.color === "Wasser");
@@ -23,6 +25,19 @@ const TagsPage = ({
     },
   },
 }) => (
+    <PageTransition
+      defaultStyle={{
+        transition: 'top 200ms cubic-bezier(0.47, 0, 0.75, 0.72)',
+        position: 'absolute',
+        width: '100%',
+      }}
+      transitionStyles={{
+        entering: { top: '100vh' },
+        entered: { top: '0vh' },
+        exiting: { top: '0vh' },
+      }}
+      transitionTime={5}
+    >
     <Layout>
       <Helmet title={`Deck | ${title}`} />
       <Grid container
@@ -107,7 +122,8 @@ const TagsPage = ({
           </Grid>
         </Grid>
         </Grid>
-    </Layout>
+      </Layout>
+    </PageTransition>
   )
 
 export default TagsPage

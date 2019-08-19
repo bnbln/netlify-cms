@@ -60,6 +60,12 @@ module.exports = {
               destinationDir: 'static',
             },
           },
+          {
+            resolve: 'gatsby-plugin-page-transitions',
+            options: {
+              transitionTime: 500
+            }
+          },
         ],
       },
     },

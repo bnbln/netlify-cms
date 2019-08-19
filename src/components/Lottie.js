@@ -1,44 +1,63 @@
 import React, { Component } from 'react';
-import lottie from "lottie-web";
+import ReactLottie from 'react-lottie';
+// import lottie from "lottie-web";
 
+export default class LottieControl extends React.Component {
 
-class Lottie extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      complete: false
-    }
+      isStopped: false,
+      isPaused: false,
+      isMounted: false,
+    };
+    this.onComplete = this.onComplete.bind(this)
   }
-  componentDidMount() {
-   this.animation = lottie.loadAnimation({
-      container: document.getElementById('animationContainer1'), // the dom element that will contain the animation
-      renderer: 'svg',
-      rendererSettings: {
-        preserveAspectRatio: "xMinYMid slice",
 
-        clearCanvas: false,
-        progressiveLoad: true, // Boolean, only svg renderer, loads dom elements when needed. Might speed up initialization for large number of elements.
-        hideOnTransparent: true //Boolean, only svg renderer, hides elements when opacity reaches 0 (defaults to true)
-      },
+  componentDidMount() {
+    this.setState({ isMounted: true })
+    this.setState({ isStopped: false })
+  }
+
+  onComplete() {
+    this.props.onComplete(false)
+  }
+  render() {
+
+
+
+    const buttonStyle = {
+      display: 'block',
+      margin: '10px auto'
+    };
+
+    const defaultOptions = {
       loop: false,
       autoplay: false,
       animationData: this.props.data ? this.props.data : null,
-   });
-    this.animation.setSpeed(0.8)
-    this.animation.play()
-    // this.animation.onComplete = () => this.setState({complete: true})
-    // this.animation.onComplete = () => this.props.onComplete(true)
+      rendererSettings: {
+        preserveAspectRatio: 'xMidYMid slice',
+        clearCanvas: false,
+        progressiveLoad: true,
+      }
+    };
 
-  }
-  componentWillUnmount() {
-    // this.animation.destroy()
-  }
+    return <div>
+      <ReactLottie options={defaultOptions}
+        isStopped={this.state.isStopped}
+        isPaused={this.state.isPaused}
+        eventListeners={
+          [
+            {
+          eventName: 'complete',
+              callback: () => null  //this.props.onComplete(false)
 
-  render() {
-    return (
-        <div id="animationContainer1" style={{ width: "100%" }} />
-    )
+            }
+          ]
+         }
+        />
+    </div>
   }
 }
 
-export default Lottie;
+
