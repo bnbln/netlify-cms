@@ -32,7 +32,9 @@ upsidedown:
   - unerwiderte Liebe oder ungerechte Behandlung
   - Untreue
 related:
-  - Ass der Kelche
+  - 3 Kelche
+  - 4 Kelche
+  - 5 Kelche
   - 6 Kelche
 ---
 _
