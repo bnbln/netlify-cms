@@ -27,7 +27,7 @@ collections:
       - {label: "Zeit", name: "time", widget: "string", required: false}
       - {label: "Natürliche Stellung", name: "natural", widget: "list"}
       - {label: "Umgekehrt", name: "upsidedown", widget: "list"}
-      - {label: "Inhalt", name: "body", widget: "markdown"}
+      - {label: "Inhalt", name: "body", widget: "markdown", required: false}
       - {label: "Verwandte Karten", name: "related", widget: "relation", collection: "deck", searchFields: ["title", "arkana", "color"], valueField: "title", displayFields: ["title"], multiple: true, required: false}
   - name: "blog"
     label: "Blog"

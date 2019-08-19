@@ -252,9 +252,16 @@ const [mounted, setMounted] = useState(false)
           <Grid item xs={12}>
             <PostContent content={content} />
           </Grid>
-          {related !== null ?
+          {related !== undefined && related !== null ?
             <Grid item xs={12}>
-              {related.map((item) => console.log(item))}
+              <Typography variant="h2">
+                Verwandte Karten
+              </Typography>
+              {related.map((item, i) => 
+                <Typography variant="h5" key={item+i}>
+                  {item}
+                </Typography>
+                )}
             </Grid>
           : null}
           </Grid>

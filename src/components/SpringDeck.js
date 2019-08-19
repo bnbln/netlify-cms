@@ -40,7 +40,7 @@ const DeckAnimation = (myprops) => {
   return props.map(({ x, y, rot, scale }, i) => (
     <animated.div key={i} className="deckAnimationContainer" style={{ transform: interpolate([x, y], (x, y) => `translate3d(${x}px,${y}px,0)`) }}>
       {myprops.data[i].node.frontmatter.image ?
-        <animated.div {...bind(i)} style={{ transform: interpolate([rot, scale], trans), backgroundImage: `url(${myprops.data[i].node.frontmatter.image.childImageSharp.fluid.src})` }} />
+        <animated.div {...bind(i)} onClick={()=>console.log("ok")} style={{ transform: interpolate([rot, scale], trans), backgroundImage: `url(${myprops.data[i].node.frontmatter.image.childImageSharp.fluid.src})` }} />
         : null}
     </animated.div>
   ))
