@@ -19,15 +19,8 @@ class Slider extends Component {
   }
 
   componentDidMount() {
-    this._isMounted = true;
-    if (this._isMounted) {
-        window.addEventListener('scroll', (e) => {
-          this.scroll(e)
-        });
-        window.addEventListener('resize', (e) => {
-          this.scroll(e)
-        }); 
-    }
+        window.addEventListener('scroll',this.scroll, false);
+        window.addEventListener('resize',this.scroll, false); 
 
   }
 
@@ -38,7 +31,9 @@ class Slider extends Component {
   }
 
   componentWillUnmount() {
-    this._isMounted = false;
+    window.removeEventListener("scroll",
+      this.scroll, false);
+    window.removeEventListener("resize", this.scroll , false);
   }
 
   render() {

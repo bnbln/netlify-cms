@@ -43,7 +43,6 @@ const transitionStyles = {
 
 const TemplateWrapper = ({ children, location }) => {
   const { title, description } = useSiteMetadata()
-  const [inProp, setInProp] = useState(false);
   return (
     <MuiThemeProvider theme={theme}>
       <Helmet>
@@ -95,9 +94,6 @@ const TemplateWrapper = ({ children, location }) => {
           </Transition>
           
         </Grid>
-        <button type="button" onClick={() => setInProp(true)}>
-          Click to Enter
-                </button>
         <Navbar />
 
       </Grid>
