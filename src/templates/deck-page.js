@@ -55,6 +55,7 @@ export const DeckPageTemplate = ({
   arkana,
   planets,
   zodiac,
+  related,
   title,
   upsidedown,
   natural,
@@ -251,7 +252,11 @@ const [mounted, setMounted] = useState(false)
           <Grid item xs={12}>
             <PostContent content={content} />
           </Grid>
-            
+          {related !== null ?
+            <Grid item xs={12}>
+              {related.map((item) => console.log(item))}
+            </Grid>
+          : null}
           </Grid>
         </Grid>
 
@@ -278,7 +283,8 @@ const DeckPage = ({ data }) => {
         image={post.frontmatter.image ? post.frontmatter.image.childImageSharp.fluid.src : post.frontmatter.image }
         arkana={post.frontmatter.arkana}
         planets={post.frontmatter.planets}
-        zodiac={post.frontmatter.zodiac}
+      zodiac={post.frontmatter.zodiac}
+      related={post.frontmatter.related}
         title={post.frontmatter.title}
         natural={post.frontmatter.natural}
         upsidedown={post.frontmatter.upsidedown}
@@ -322,6 +328,7 @@ export const pageQuery = graphql`
           planets
           zodiac
           color
+          related
           templateKey
           description
           time

@@ -84,6 +84,10 @@ module.exports = {
     }, // must be after other CSS plugins
     'gatsby-plugin-netlify', // make sure to keep it last in the array
   ],
+  mapping: {
+    "MarkdownRemark.fields.relation": "MarkdownRemark",
+    "MarkdownRemark.fields.posts": "MarkdownRemark",
+  },
   // for avoiding CORS while developing Netlify Functions locally
   // read more: https://www.gatsbyjs.org/docs/api-proxy/#advanced-proxying
   developMiddleware: app => {

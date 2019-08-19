@@ -86,3 +86,48 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     })
   }
 }
+
+
+
+
+exports.sourceNodes = ({ actions, getNodes, getNode }) => {
+  const { createNodeField } = actions;
+
+  const postsOfAuthors = {};
+  // iterate thorugh all markdown nodes to link books to author
+  // and build author index
+  const markdownNodes = getNodes()
+    .filter(node => node.internal.type === "MarkdownRemark")
+    .forEach(node => {
+      if (node.frontmatter.relation) {
+        const authorNode = getNodes().find(
+          node2 =>
+            node2.internal.type === "MarkdownRemark" &&
+            node2.frontmatter.title === node.frontmatter.relation
+        );
+
+        if (authorNode) {
+          createNodeField({
+            node,
+            name: "relation",
+            value: authorNode.id,
+          });
+
+          // if it's first time for this author init empty array for his posts
+          if (!(authorNode.id in postsOfAuthors)) {
+            postsOfAuthors[authorNode.id] = [];
+          }
+          // add book to this author
+          postsOfAuthors[authorNode.id].push(node.id);
+        }
+      }
+    });
+
+  Object.entries(postsOfAuthors).forEach(([authorNodeId, postIds]) => {
+    createNodeField({
+      node: getNode(authorNodeId),
+      name: "posts",
+      value: postIds,
+    });
+  });
+};
