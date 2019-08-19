@@ -31,5 +31,8 @@ upsidedown:
   - Scheidung
   - unerwiderte Liebe oder ungerechte Behandlung
   - Untreue
+related:
+  - Ass der Kelche
+  - 6 Kelche
 ---
 _
