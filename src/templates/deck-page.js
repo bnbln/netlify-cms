@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
+import PageTransition from 'gatsby-plugin-page-transitions';
+
 import Layout from '../components/Layout'
 import Content, { HTMLContent } from '../components/Content'
 import Grid from '@material-ui/core/Grid';
@@ -245,7 +247,7 @@ const DeckPage = ({ data }) => {
         }
         tags={post.frontmatter.tags}
       />
-    </Layout>
+      </Layout>
   )
 }
 

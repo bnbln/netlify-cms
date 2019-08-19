@@ -1,7 +1,6 @@
 import React, { useState }  from 'react'
 import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
-import PageTransition from 'gatsby-plugin-page-transitions';
 
 import Grid from '@material-ui/core/Grid';
 import Hidden from '@material-ui/core/Hidden';
@@ -220,19 +219,6 @@ const IndexPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
 
   return (
-    <PageTransition
-      defaultStyle={{
-        transition: 'opacity 300ms cubic-bezier(0.47, 0, 0.75, 0.72)',
-        position: 'absolute',
-        width: '100%',
-      }}
-      transitionStyles={{
-        entering: { opacity: '0' },
-        entered: { opacity: '1' },
-        exiting: { opacity: '0' },
-      }}
-      transitionTime={300}
-    >
     <Layout>
 
       <IndexPageTemplate
@@ -246,7 +232,6 @@ const IndexPage = ({ data }) => {
         all={data.allMarkdownRemark.edges}
       />
       </Layout>
-      </PageTransition>
   )
 }
 

@@ -1,7 +1,8 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Helmet } from 'react-helmet'
 import Grid from '@material-ui/core/Grid';
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
+import { CSSTransition } from 'react-transition-group';
 
 
 
@@ -26,8 +27,23 @@ const theme = createMuiTheme({
   },
 });
 
+
+const duration = 400;
+
+const defaultStyle = {
+  transition: `opacity ${duration}ms ease-in-out`,
+  opacity: 0,
+}
+const transitionStyles = {
+  entering: { opacity: 1 },
+  entered: { opacity: 1 },
+  exiting: { opacity: 0 },
+  exited: { opacity: 0 },
+};
+
 const TemplateWrapper = ({ children }) => {
   const { title, description } = useSiteMetadata()
+  const [inProp, setInProp] = useState(false);
   return (
     <MuiThemeProvider theme={theme}>
       <Helmet>
@@ -74,7 +90,12 @@ const TemplateWrapper = ({ children }) => {
           transition: "all 0.5s ease-in-out",
         }}>
         <Grid item xs={12}>
-          {children}
+          <CSSTransition in={inProp} timeout={duration} classNames="my-node">
+                {children}
+          </CSSTransition>
+          <button type="button" onClick={() => setInProp(true)}>
+            Click to Enter
+                </button>
         </Grid>
 
         <Navbar />
