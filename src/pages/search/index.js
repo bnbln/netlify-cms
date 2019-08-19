@@ -1,12 +1,11 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import Layout from '../../components/Layout'
 import Search from '../../components/Search'
 import Grid from '@material-ui/core/Grid';
 
 
-const SearchPage = () =>(
-      <Layout>
+const SearchPage = () => (
+  <div>
         <Helmet title={'Suche'} />
       <Grid container justify="center"
         alignItems="center" style={{
@@ -17,8 +16,8 @@ const SearchPage = () =>(
         <Search />
         <div style={{height: "20vh"}} />
         </Grid>
-        </Grid>
-    </Layout>
+  </Grid>
+  </div >
   )
 
 export default SearchPage

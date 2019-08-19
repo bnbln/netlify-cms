@@ -2,14 +2,14 @@ import React, {useState} from 'react'
 import { Helmet } from 'react-helmet'
 import Grid from '@material-ui/core/Grid';
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
-import { CSSTransition } from 'react-transition-group';
+import Transition from '../components/transition'
 
 
 
 // import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
-import './all.sass'
-import useSiteMetadata from './SiteMetadata'
+import '../components/all.sass'
+import useSiteMetadata from '../components/SiteMetadata'
 import { withPrefix } from "gatsby"
 
 
@@ -41,7 +41,7 @@ const transitionStyles = {
   exited: { opacity: 0 },
 };
 
-const TemplateWrapper = ({ children }) => {
+const TemplateWrapper = ({ children, location }) => {
   const { title, description } = useSiteMetadata()
   const [inProp, setInProp] = useState(false);
   return (
@@ -90,9 +90,9 @@ const TemplateWrapper = ({ children }) => {
           transition: "all 0.5s ease-in-out",
         }}>
         <Grid item xs={12}>
-          <CSSTransition in={inProp} timeout={duration} classNames="my-node">
+          <Transition location={location}>
             <div>{children}</div>
-          </CSSTransition>
+          </Transition>
           
         </Grid>
         <button type="button" onClick={() => setInProp(true)}>

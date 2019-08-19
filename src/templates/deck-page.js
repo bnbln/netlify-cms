@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 
-import Layout from '../components/Layout'
 import Content, { HTMLContent } from '../components/Content'
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
@@ -219,7 +218,6 @@ const DeckPage = ({ data }) => {
   const { markdownRemark: post } = data
 
   return (
-    <Layout>
       <DeckPageTemplate
         content={post.html}
         contentComponent={HTMLContent}
@@ -246,7 +244,6 @@ const DeckPage = ({ data }) => {
         }
         tags={post.frontmatter.tags}
       />
-      </Layout>
   )
 }
 

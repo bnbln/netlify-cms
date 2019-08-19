@@ -7,7 +7,6 @@ import Hidden from '@material-ui/core/Hidden';
 import Typography from '@material-ui/core/Typography';
 
 import Lottie from '../components/Lottie'
-import Layout from '../components/Layout'
 import Search from '../components/Search'
 import Slider from '../components/Slider'
 
@@ -219,7 +218,6 @@ const IndexPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
 
   return (
-    <Layout>
 
       <IndexPageTemplate
         image={frontmatter.image}
@@ -231,7 +229,6 @@ const IndexPage = ({ data }) => {
         intro={frontmatter.intro}
         all={data.allMarkdownRemark.edges}
       />
-      </Layout>
   )
 }
 
