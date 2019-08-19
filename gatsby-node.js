@@ -78,7 +78,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   fmImagesToRelative(node) // convert image paths for gatsby images
 
   if (node.internal.type === `MarkdownRemark`) {
-    const value = createFilePath({ node, getNode })
+    const value = createFilePath({ node, getNode })    
     createNodeField({
       name: `slug`,
       node,
@@ -99,26 +99,32 @@ exports.sourceNodes = ({ actions, getNodes, getNode }) => {
   const markdownNodes = getNodes()
     .filter(node => node.internal.type === "MarkdownRemark")
     .forEach(node => {
-      if (node.frontmatter.relation) {
-        const authorNode = getNodes().find(
-          node2 =>
-            node2.internal.type === "MarkdownRemark" &&
-            node2.frontmatter.title === node.frontmatter.relation
-        );
-
+      if (node.frontmatter.related) {
+        
+        const authorNode = node.frontmatter.related.map((item, i) => 
+          getNodes().find(
+            node2 =>
+              node2.internal.type === "MarkdownRemark" &&
+              node2.frontmatter.title === item
+          )
+        )
         if (authorNode) {
+          console.log(authorNode)
+
+
           createNodeField({
             node,
             name: "relation",
-            value: authorNode.id,
+            value: authorNode,
           });
 
           // if it's first time for this author init empty array for his posts
-          if (!(authorNode.id in postsOfAuthors)) {
-            postsOfAuthors[authorNode.id] = [];
-          }
-          // add book to this author
-          postsOfAuthors[authorNode.id].push(node.id);
+          
+          // if (!(authorNode.id in postsOfAuthors)) {
+          //   postsOfAuthors[authorNode.id] = [];
+          // }
+          // // add book to this author
+          // postsOfAuthors[authorNode.id].push(node.id);
         }
       }
     });

@@ -75,7 +75,7 @@ class DeckPostPreview extends React.Component{
                     arkana={entry.getIn(['data', 'arkana'])}
                     planets={entry.getIn(['data', 'planets'])}
                     zodiac={entry.getIn(['data', 'zodiac'])}
-                    related={entry.getIn(['data', 'related'])}
+                    related={entry.getIn(['data', 'relation'])}
                     title={entry.getIn(['data', 'title'])}
                     id={entry.getIn(['data', 'id'])}
                     upsidedown={entry.getIn(['data', 'upsidedown'])}
@@ -86,7 +86,7 @@ class DeckPostPreview extends React.Component{
 
 
                   >
-                    {/* {console.log("data: ", entry.getIn(['data', 'natural']))} */}
+                    {console.log("data: ", entry.getIn(['data', 'relation']))}
                   </DeckPageTemplate>
 
                 </Grid>

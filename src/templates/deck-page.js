@@ -1,7 +1,7 @@
 import React, { useState} from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 
 import Content, { HTMLContent } from '../components/Content'
 import Grid from '@material-ui/core/Grid';
@@ -254,14 +254,26 @@ const [mounted, setMounted] = useState(false)
           </Grid>
           {related !== undefined && related !== null ?
             <Grid item xs={12}>
-              <Typography variant="h2">
+              <Typography variant="h2" gutterBottom>
                 Verwandte Karten
               </Typography>
-              {related.map((item, i) => 
-                <Typography variant="h5" key={item+i}>
-                  {item}
-                </Typography>
+              <Grid container justify="center"
+                alignItems="center" spacing={2}>
+                {related.map((card, i) => 
+                <Grid key={card.fields.slug} item xs={6} sm={4} md={3} lg={2} xl={1}>
+                  <Link to={card.fields.slug}>
+                    <img
+                      alt={card.frontmatter.title}
+                      style={{
+                        width: "100%",
+                        marginBottom: -8
+                      }}
+                      src={card.frontmatter.image !== null ? card.frontmatter.image.childImageSharp.fluid.src : card.frontmatter.image}
+                    ></img>
+                  </Link>
+                </Grid>
                 )}
+              </Grid>
             </Grid>
           : null}
           </Grid>
@@ -281,7 +293,8 @@ DeckPageTemplate.propTypes = {
 
 const DeckPage = ({ data }) => {
   const { markdownRemark: post } = data
-
+  console.log(post.fields.relation)
+  console.log(post.frontmatter.related)
   return (
       <DeckPageTemplate
         content={post.html}
@@ -291,7 +304,7 @@ const DeckPage = ({ data }) => {
         arkana={post.frontmatter.arkana}
         planets={post.frontmatter.planets}
       zodiac={post.frontmatter.zodiac}
-      related={post.frontmatter.related}
+      related={post.fields.relation}
         title={post.frontmatter.title}
         natural={post.frontmatter.natural}
         upsidedown={post.frontmatter.upsidedown}
@@ -324,6 +337,23 @@ export default DeckPage
 export const pageQuery = graphql`
   query CardsByID($id: String!) {
     markdownRemark(id: { eq: $id }) {
+      fields {
+        relation {
+          fields {
+            slug
+          }
+          frontmatter {
+            title
+            image {
+          childImageSharp {
+            fluid(maxWidth: 400, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+          }
+        }
+      }
       id
         html
         frontmatter {
