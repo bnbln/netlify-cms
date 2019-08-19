@@ -91,13 +91,13 @@ const TemplateWrapper = ({ children }) => {
         }}>
         <Grid item xs={12}>
           <CSSTransition in={inProp} timeout={duration} classNames="my-node">
-                {children}
+            <div>{children}</div>
           </CSSTransition>
-          <button type="button" onClick={() => setInProp(true)}>
-            Click to Enter
-                </button>
+          
         </Grid>
-
+        <button type="button" onClick={() => setInProp(true)}>
+          Click to Enter
+                </button>
         <Navbar />
 
       </Grid>
