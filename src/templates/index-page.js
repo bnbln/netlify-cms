@@ -96,6 +96,7 @@ class App extends React.Component {
         </Grid>
         <Grid item xs={12} style={{
         }}>
+          <Hidden>
           <Grid container justify="center"
             className="withSecondaryBackgroundColor panelShadow"
             alignItems="center" style={{
@@ -110,7 +111,8 @@ class App extends React.Component {
             <Grid item xs={9}>
               <Slider />
             </Grid>
-          </Grid>
+            </Grid>
+          </Hidden>
         </Grid>
 
 

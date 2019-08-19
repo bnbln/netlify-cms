@@ -68,7 +68,7 @@ const Navbar = class extends React.Component {
             }
             }
           >
-            <Tab icon={<IconMenu style={{ color: "#fff" }} />} aria-label="home" onClick={() => navigate("/")} />
+            <Tab icon={<IconHome style={{ color: "#fff" }} />} aria-label="home" onClick={() => navigate("/")} />
             <Tab icon={<IconSearch style={{ color: "#fff" }} />} aria-label="search" onClick={() => navigate("/search/")} />
             <Tab icon={<CardIcon style={{ color: "#fff" }} />} aria-label="deck" onClick={() => navigate("/deck/")} />
 
@@ -102,15 +102,15 @@ const Navbar = class extends React.Component {
                     </IconButton>
 
                     <IconButton style={{ color: "#fff" }}
-                      onClick={() => navigate("/deck/")}
-                    >
-                      <CardIcon />
-                    </IconButton>
-                    <IconButton style={{ color: "#fff" }}
                       // onClick={() => navigate("/search/")}
                       onClick={() => this.handleMenu(this.state.menu)}
                     >
                       <IconSearch />
+                    </IconButton>
+                    <IconButton style={{ color: "#fff" }}
+                      onClick={() => navigate("/deck/")}
+                    >
+                      <CardIcon />
                     </IconButton>
                   </Grid>
                   <Grid item xs={1}>

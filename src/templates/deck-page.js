@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState} from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
@@ -7,6 +7,8 @@ import Content, { HTMLContent } from '../components/Content'
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 
+import { Transition} from "react-transition-group"
+
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -14,8 +16,37 @@ import TimeIcon from "@material-ui/icons/AccessTime"
 import LoveIcon from "@material-ui/icons/Favorite"
 import JobIcon from "@material-ui/icons/Business"
 // import { relative } from 'path';
+const duration = 500;
 
+const defaultStyle = {
+  transition: `all ${duration}ms cubic-bezier(0.46, 0.03, 0.52, 0.96)`,
+  top: "0px",
+  transform: "rotate(0deg)",
+  transformOrigin: "top left",
+  opacity: 1,
+  position: "relative"
+}
 
+const transitionStyles = {
+  entering: { top: "0vh", opacity: 1, transform: "rotate(0deg)" },
+  entered: { top: "0px", opacity: 1, transform: "rotate(0deg)" },
+  exiting: { top: "-100vh", opacity: 0, transform: "rotate(20deg)"  },
+  exited: { top: "-100vh", opacity: 0, transform: "rotate(20deg)" },
+};
+
+const defaultStyle2 = {
+  transition: `all ${duration / 0.5}ms cubic-bezier(0.46, 0.03, 0.52, 0.96)`,
+  top: "0px",
+  opacity: 1,
+  transform: "scale(1)",
+  position: "relative"
+}
+const transitionStyles2 = {
+  entering: { top: "0vh", opacity: 1, transform: "scale(1)" },
+  entered: { top: "0px", opacity: 1, transform: "scale(1)" },
+  exiting: { top: "-100vh", opacity: 0, transform: "scale(0)" },
+  exited: { top: "-100vh", opacity: 0, transform: "scale(0)" },
+};
 export const DeckPageTemplate = ({
   content,
   contentComponent,
@@ -34,7 +65,7 @@ export const DeckPageTemplate = ({
   helmet,
 }) => {
   const PostContent = contentComponent || Content
-
+const [mounted, setMounted] = useState(false)
   return (
       <Grid container
         direction="row"
@@ -43,7 +74,17 @@ export const DeckPageTemplate = ({
       style={{ color: "white", width: "100%", overflow: "hidden" }}>
       {helmet || ''}
       <div className="backgroundBlur">
-        <img src={image} alt={title} />
+        <Transition in={mounted} timeout={duration / 2}>
+          {state => (
+            <div style={{
+              ...defaultStyle2,
+              ...transitionStyles2[state]
+            }}>
+              <img src={image} alt={title} />
+            </div>
+          )}
+        </Transition>
+        
       </div>
         <Grid item xs={12} style={{zIndex: 1}}>
           <Grid container
@@ -56,12 +97,24 @@ export const DeckPageTemplate = ({
               minHeight: "100vh"
             }}
         >
-            <Grid item xs={8} sm={5} md={3}>
-            <img alt={title} src={image} style={{
-                width: "100%",
-                height: "auto",
-                maxHeight: "100%"
-              }}></img>
+          <Grid item xs={8} sm={5} md={3}>
+            <Transition in={mounted} timeout={duration}>
+              {state => (
+                <div style={{
+                  ...defaultStyle,
+                  ...transitionStyles[state]
+                }}>
+                  <img alt={title} src={image}
+                    onLoad={() => setMounted(true)}
+                    style={{
+                      width: "100%",
+                      height: "auto",
+                      maxHeight: "100%"
+                    }}></img>
+             </div>
+              )}
+            </Transition>
+
             </Grid>
 
           <Grid item xs={10} sm={5} md={5} lg={4}>

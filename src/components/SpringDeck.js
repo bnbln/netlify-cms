@@ -1,7 +1,12 @@
 import React, { useState } from 'react'
 import { useSprings, animated, interpolate } from 'react-spring'
 import { useGesture } from 'react-use-gesture'
-
+import {
+  navigate,
+  graphql,
+  StaticQuery
+} from "gatsby";
+import PropTypes from "prop-types"
 // const gatsbycards = props
 // console.log(gatsbycards)
 
@@ -12,7 +17,6 @@ const from = i => ({ x: 0, rot: 0, scale: 1.5, y: -1000 })
 const trans = (r, s) => `perspective(1500px) rotateX(30deg) rotateY(${r / 10}deg) rotateZ(${r}deg) scale(${s})`
 
 const DeckAnimation = (myprops) => {
-  console.log();
   
   const [gone] = useState(() => new Set()) // The set flags all the cards that are flicked out
   const [props, set] = useSprings(myprops.data.length, i => ({ ...to(i), from: from(i) })) // Create a bunch of springs using the helpers above
@@ -41,4 +45,37 @@ const DeckAnimation = (myprops) => {
     </animated.div>
   ))
 }
-export default DeckAnimation
+
+export default props => (
+  <StaticQuery
+    query={graphql`
+      query SpringQuery {
+        allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "deck-page"}}}, sort: {fields: frontmatter___id, order: ASC}, limit: 10) {
+            edges {
+              node {
+                frontmatter {
+                  title
+                  id
+                  color
+                  image {
+                      childImageSharp {
+                        fluid(maxWidth: 400, quality: 100) {
+                          ...GatsbyImageSharpFluid
+                        }
+                      }
+                    }
+                }
+                fields {
+                  slug
+                }
+              }
+            }
+          }
+        }
+    `}
+    render={data => <DeckAnimation data={data.allMarkdownRemark.edges} />}
+  />
+)
+DeckAnimation.propTypes = {
+  data: PropTypes.array.isRequired,
+}

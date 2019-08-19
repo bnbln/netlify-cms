@@ -8,9 +8,9 @@ import Transition from '../components/Transition'
 
 // import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
-import '../components/all.sass'
 import useSiteMetadata from '../components/SiteMetadata'
 import { withPrefix } from "gatsby"
+import '../components/all.sass'
 
 
 const theme = createMuiTheme({
