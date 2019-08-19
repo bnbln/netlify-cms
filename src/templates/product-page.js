@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
-import Layout from '../components/Layout'
 import Features from '../components/Features'
 import Testimonials from '../components/Testimonials'
 import Pricing from '../components/Pricing'
@@ -132,7 +131,6 @@ const ProductPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
 
   return (
-    <Layout>
       <ProductPageTemplate
         image={frontmatter.image}
         title={frontmatter.title}
@@ -144,7 +142,6 @@ const ProductPage = ({ data }) => {
         fullImage={frontmatter.full_image}
         pricing={frontmatter.pricing}
       />
-    </Layout>
   )
 }
 

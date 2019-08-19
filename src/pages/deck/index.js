@@ -2,9 +2,9 @@ import React from 'react'
 import { kebabCase } from 'lodash'
 import Helmet from 'react-helmet'
 import { Link, graphql } from 'gatsby'
-import Layout from '../../components/Layout'
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
+
 
 function elementsQuery(values) {
   var Wasser = values.filter((card) => card.frontmatter.color === "Wasser");
@@ -23,7 +23,7 @@ const TagsPage = ({
     },
   },
 }) => (
-    <Layout>
+    <div>
       <Helmet title={`Deck | ${title}`} />
       <Grid container
         direction="row"
@@ -106,8 +106,8 @@ const TagsPage = ({
 
           </Grid>
         </Grid>
-        </Grid>
-    </Layout>
+      </Grid>
+    </div>
   )
 
 export default TagsPage

@@ -1,12 +1,12 @@
-import React from 'react'
+import React, { useState }  from 'react'
 import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
+
 import Grid from '@material-ui/core/Grid';
 import Hidden from '@material-ui/core/Hidden';
 import Typography from '@material-ui/core/Typography';
 
 import Lottie from '../components/Lottie'
-import Layout from '../components/Layout'
 import Search from '../components/Search'
 import Slider from '../components/Slider'
 
@@ -14,72 +14,90 @@ import Slider from '../components/Slider'
 import logo from "../components/logo.json";
 
 
+import { useSprings, animated, interpolate } from 'react-spring'
+import { useGesture } from 'react-use-gesture'
 
-// import Features from '../components/Features'
-// import BlogRoll from '../components/BlogRoll'
+import Deck from '../components/SpringDeck'
 
 
-export const IndexPageTemplate = ({
-  image,
-  title,
-  heading,
-  subheading,
-  links,
-  description,
-  intro,
-  all,
-}) => (
-    <Grid container
-      direction="row"
-      justify="center"
-      alignItems="center" style={{
-        paddingRight: 0
-      }}>
-      <Grid item xs={12}>
-        <Hidden smUp>
-          <Grid container
-            direction="row"
-            justify="center"
-            alignItems="flex-start"
-            className="panelShadow"
-            style={{
-              zIndex: 100,
-              position: "relative"
-            }}>
-            <Grid item xs={11} md={4} style={{ textAlign: "center" }}>
-              <Lottie data={logo} />
-              <Search />
+
+class App extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      loading: true,
+      isMounted: false
+    }
+    this.onComplete = this.onComplete.bind(this)
+  }
+  componentDidMount() {
+  this.setState({isMounted: true})
+  }
+  onComplete(e) {
+    this.setState({
+      loading: e
+    })
+    console.log("it works", e)
+  }
+  render() {
+    return (
+      <Grid container
+        direction="row"
+        justify="center"
+        alignItems="center" style={{
+          paddingRight: 0
+        }}>
+        <Grid item xs={12}>
+          <Hidden mdUp>
+            <Grid container
+              direction="row"
+              justify="center"
+              alignItems="flex-start"
+              className="panelShadow"
+              style={{
+                zIndex: 100,
+                position: "relative"
+              }}>
+              <Grid item xs={11} md={4} style={{ textAlign: "center" }}>
+                <Lottie data={logo} onComplete={this.onComplete} />
+                <Search />
+              </Grid>
             </Grid>
-          </Grid>
-        </Hidden>
+          </Hidden>
 
-        <Hidden xsDown >
-          <Grid container
-          direction="row"
-          justify="center"
-            alignItems="center"
-            className="panelShadow"
-            style={{
-            zIndex: 100,
-            position: "relative"
-          }}>
-          <Grid item xs={11} md={4} style={{ textAlign: "center" }}>
-            <Lottie data={logo} />
-          </Grid>
-          <Grid item xs={11} sm={6} md={4} >
-            {/* <div style={{display: "none"}}>
+          <Hidden smDown >
+            <Grid container
+              direction="row"
+              justify="center"
+              alignItems="center"
+              className="panelShadow"
+              style={{
+                zIndex: 100,
+                position: "relative",
+                overflowX: "hidden"
+              }}>
+              <Grid item xs={11} md={4} style={{ textAlign: "center" }}>
+                <Lottie data={logo} onComplete={this.onComplete} />
+              </Grid>
+              <Grid item xs={11} sm={6} md={4} >
+                <div style={{
+                  width: "100%",
+                  height: "75vh",
+                  position: "relative",
+                }}><Deck data={this.props.all} /></div>
+                {/* <div style={{display: "none"}}>
               <h1>{title}</h1>
               <b>{subheading}</b>
             </div> */}
-            <Search/>
-          </Grid>
+                {/* <Search /> */}
+              </Grid>
+            </Grid>
+          </Hidden>
         </Grid>
-        </Hidden>
-      </Grid>
         <Grid item xs={12} style={{
         }}>
-        <Grid container justify="center"
-          className="withSecondaryBackgroundColor panelShadow"
+          <Grid container justify="center"
+            className="withSecondaryBackgroundColor panelShadow"
             alignItems="center" style={{
               width: "100%",
               overflow: "hidden",
@@ -96,38 +114,38 @@ export const IndexPageTemplate = ({
         </Grid>
 
 
-      <Grid item xs={12}
-        className="withColor panelShadow"
-        style={{
-        zIndex: 50,
-      }}>
-        <Grid container justify="center"
-          alignItems="center" style={{
-            padding: "10rem 0px"
+        <Grid item xs={12}
+          className="withColor panelShadow"
+          style={{
+            zIndex: 50,
           }}>
-          <Grid item xs={10} md={7} >
-            {links.map((item, i) =>
-              <Link key={"links-" + i} to={"/" + item.url + "/"} className="withColor">
-                <Typography variant="h3" gutterBottom>
-                  {item.title}
-                </Typography>
-              </Link>
-            )}
+          <Grid container justify="center"
+            alignItems="center" style={{
+              padding: "10rem 0px"
+            }}>
+            <Grid item xs={10} md={7} >
+              {this.props.links.map((item, i) =>
+                <Link key={"links-" + i} to={"/" + item.url + "/"} className="withColor">
+                  <Typography variant="h3" gutterBottom>
+                    {item.title}
+                  </Typography>
+                </Link>
+              )}
+            </Grid>
           </Grid>
         </Grid>
-      </Grid>
-      <Grid item xs={12}
-        className="withSecondaryBackgroundColor panelShadow"
-        style={{
-        backgroundImage: `url(${
-          !!image.childImageSharp ? image.childImageSharp.fluid.src : image
-          })`,
-        backgroundPosition: `top left`,
-          backgroundAttachment: `fixed`,
-        backgroundSize: "cover"
-      }} />
+        <Grid item xs={12}
+          className="withSecondaryBackgroundColor panelShadow"
+          style={{
+            backgroundImage: `url(${
+              !!this.props.image.childImageSharp ? this.props.image.childImageSharp.fluid.src : this.props.image
+              })`,
+            backgroundPosition: `top left`,
+            backgroundAttachment: `fixed`,
+            backgroundSize: "cover"
+          }} />
 
-      {/* <Grid item xs={12}>
+        {/* <Grid item xs={12}>
         <Grid container justify="center"
           alignItems="center">
           <Grid item xs={10}>
@@ -142,7 +160,45 @@ export const IndexPageTemplate = ({
         </Grid>
       </Grid> */}
 
-  </Grid>
+      </Grid>
+    )
+  }
+
+
+}
+
+
+// import Features from '../components/Features'
+// import BlogRoll from '../components/BlogRoll'
+var loading = true
+
+function onComplete (e) {
+  return e
+  console.log(e)
+}
+
+onComplete("a")
+export const IndexPageTemplate = ({
+  image,
+  title,
+  heading,
+  subheading,
+  links,
+  description,
+  intro,
+  all
+}) => (
+
+    <App
+      image={image}
+      title={title}
+      heading={heading}
+      subheading={subheading}
+      links={links}
+      description={description}
+      intro={intro}
+      all={all}
+      />
 )
 
 IndexPageTemplate.propTypes = {
@@ -162,7 +218,6 @@ const IndexPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
 
   return (
-    <Layout>
 
       <IndexPageTemplate
         image={frontmatter.image}
@@ -174,7 +229,6 @@ const IndexPage = ({ data }) => {
         intro={frontmatter.intro}
         all={data.allMarkdownRemark.edges}
       />
-    </Layout>
   )
 }
 

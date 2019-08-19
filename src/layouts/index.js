@@ -1,14 +1,15 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Helmet } from 'react-helmet'
 import Grid from '@material-ui/core/Grid';
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
+import Transition from '../components/Transition'
 
 
 
 // import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
-import './all.sass'
-import useSiteMetadata from './SiteMetadata'
+import '../components/all.sass'
+import useSiteMetadata from '../components/SiteMetadata'
 import { withPrefix } from "gatsby"
 
 
@@ -26,7 +27,21 @@ const theme = createMuiTheme({
   },
 });
 
-const TemplateWrapper = ({ children }) => {
+
+const duration = 400;
+
+const defaultStyle = {
+  transition: `opacity ${duration}ms ease-in-out`,
+  opacity: 0,
+}
+const transitionStyles = {
+  entering: { opacity: 1 },
+  entered: { opacity: 1 },
+  exiting: { opacity: 0 },
+  exited: { opacity: 0 },
+};
+
+const TemplateWrapper = ({ children, location }) => {
   const { title, description } = useSiteMetadata()
   return (
     <MuiThemeProvider theme={theme}>
@@ -74,9 +89,11 @@ const TemplateWrapper = ({ children }) => {
           transition: "all 0.5s ease-in-out",
         }}>
         <Grid item xs={12}>
-          {children}
+          <Transition location={location}>
+            <div>{children}</div>
+          </Transition>
+          
         </Grid>
-
         <Navbar />
 
       </Grid>
