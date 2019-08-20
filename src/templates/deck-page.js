@@ -1,4 +1,4 @@
-import React, { useState} from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { graphql, Link } from 'gatsby'
@@ -7,7 +7,11 @@ import Content, { HTMLContent } from '../components/Content'
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 
-import { Transition} from "react-transition-group"
+import { Transition } from "react-transition-group"
+
+import GridList from '@material-ui/core/GridList';
+import GridListTile from '@material-ui/core/GridListTile';
+import GridListTileBar from '@material-ui/core/GridListTileBar';
 
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -30,7 +34,7 @@ const defaultStyle = {
 const transitionStyles = {
   entering: { top: "0vh", opacity: 1, transform: "rotate(0deg)" },
   entered: { top: "0px", opacity: 1, transform: "rotate(0deg)" },
-  exiting: { top: "-100vh", opacity: 0, transform: "rotate(20deg)"  },
+  exiting: { top: "-100vh", opacity: 0, transform: "rotate(20deg)" },
   exited: { top: "-100vh", opacity: 0, transform: "rotate(20deg)" },
 };
 
@@ -66,12 +70,12 @@ export const DeckPageTemplate = ({
   helmet,
 }) => {
   const PostContent = contentComponent || Content
-const [mounted, setMounted] = useState(false)
+  const [mounted, setMounted] = useState(false)
   return (
-      <Grid container
-        direction="row"
-        justify="center"
-        alignItems="center"
+    <Grid container
+      direction="row"
+      justify="center"
+      alignItems="center"
       style={{ color: "white", width: "100%", overflow: "hidden" }}>
       {helmet || ''}
       <div className="backgroundBlur">
@@ -85,18 +89,18 @@ const [mounted, setMounted] = useState(false)
             </div>
           )}
         </Transition>
-        
+
       </div>
-        <Grid item xs={12} style={{zIndex: 1}}>
-          <Grid container
-            direction="row"
-            justify="center"
-            alignItems="center"
-            spacing={5}
-            style={{
-              paddingTop: 40,
-              minHeight: "100vh"
-            }}
+      <Grid item xs={12} style={{ zIndex: 1 }}>
+        <Grid container
+          direction="row"
+          justify="center"
+          alignItems="center"
+          spacing={5}
+          style={{
+            paddingTop: 40,
+            minHeight: "100vh"
+          }}
         >
           <Grid item xs={8} sm={5} md={3}>
             <Transition in={mounted} timeout={duration}>
@@ -112,27 +116,27 @@ const [mounted, setMounted] = useState(false)
                       height: "auto",
                       maxHeight: "100%"
                     }}></img>
-             </div>
+                </div>
               )}
             </Transition>
 
-            </Grid>
+          </Grid>
 
           <Grid item xs={10} sm={5} md={5} lg={4}>
             {console.log(color ? "true" : "false")}
-              <Typography variant="overline" display="block" gutterBottom>
+            <Typography variant="overline" display="block" gutterBottom>
               {id}
               {arkana ? " | " + arkana : null}
-              {color && color !== "" ? " | " + color : null} 
+              {color && color !== "" ? " | " + color : null}
               {zodiac && zodiac !== "" ? " | " + zodiac : null}
               {planets && planets !== "" ? " | " + planets : null}
-              </Typography>
-            <Typography variant="h2" gutterBottom style={{ letterSpacing: -1.3}}>
-                {title}
-              </Typography>
-              <Typography variant="h6" gutterBottom>
-                {description}
-              </Typography>
+            </Typography>
+            <Typography variant="h2" gutterBottom style={{ letterSpacing: -1.3 }}>
+              {title}
+            </Typography>
+            <Typography variant="h6" gutterBottom>
+              {description}
+            </Typography>
 
             {time ?
               <Grid container
@@ -150,13 +154,13 @@ const [mounted, setMounted] = useState(false)
                 </Grid>
               </Grid>
               : null}
-            
-            {short && short.common ? 
-            <Typography variant="body1" gutterBottom>
+
+            {short && short.common ?
+              <Typography variant="body1" gutterBottom>
                 {short.common}
               </Typography> : null}
-            
-            <br/>
+
+            <br />
             {short && short.love ?
               <Grid container
                 direction="row"
@@ -172,7 +176,7 @@ const [mounted, setMounted] = useState(false)
                   </Typography>
                 </Grid>
               </Grid>
-            : null}
+              : null}
             {short && short.job ?
               <Grid container
                 direction="row"
@@ -188,56 +192,56 @@ const [mounted, setMounted] = useState(false)
                   </Typography>
                 </Grid>
               </Grid>
-            : null}
-              <br/>
-            </Grid>
+              : null}
+            <br />
           </Grid>
+        </Grid>
       </Grid>
-      
+
       <Grid item xs={11} style={{ zIndex: 1 }}>
-          <Grid container
-            direction="row"
-            justify="center"
-            alignItems="flex-start"
-            spacing={5}
-            style={{
-              marginTop: 50,
-              padding: "50px 0px",
-            }}
+        <Grid container
+          direction="row"
+          justify="center"
+          alignItems="flex-start"
+          spacing={5}
+          style={{
+            marginTop: 50,
+            padding: "50px 0px",
+          }}
         >
           {/* {console.log("natural", natural.map( i => i))} */}
           {natural && natural !== undefined ?
-              <Grid item xs={11} sm={6} md={4}>
+            <Grid item xs={11} sm={6} md={4}>
               <Typography variant="h5" gutterBottom align="center">
-                  Natürliche Stellung
+                Natürliche Stellung
               </Typography>
               <List component="ul" aria-label="positiv" className="proList">
-                  {natural.map((item, i) =>
-                    <ListItem key={"natural-" + i}>
-                      <ListItemText primary={item} />
-                    </ListItem>
-                  )}
-                </List>
-              </Grid>
-              : null}
+                {natural.map((item, i) =>
+                  <ListItem key={"natural-" + i}>
+                    <ListItemText primary={item} />
+                  </ListItem>
+                )}
+              </List>
+            </Grid>
+            : null}
           {upsidedown && upsidedown !== undefined ?
-              <Grid item xs={11} sm={6} md={4}>
-                <Typography variant="h5" gutterBottom align="center">
-                  Umgekehrt
+            <Grid item xs={11} sm={6} md={4}>
+              <Typography variant="h5" gutterBottom align="center">
+                Umgekehrt
               </Typography>
               <List component="ul" aria-label="positiv" className="conList">
-                  {upsidedown.map((item, i) =>
-                    <ListItem key={"upsidedown-" + i}>
-                      <ListItemText primary={item} />
-                    </ListItem>
-                  )}
-                </List>
-              </Grid>
-              : null}
+                {upsidedown.map((item, i) =>
+                  <ListItem key={"upsidedown-" + i}>
+                    <ListItemText primary={item} />
+                  </ListItem>
+                )}
+              </List>
             </Grid>
-          </Grid>
-
-      <Grid item xs={10} md={7} xl={5} style={{ zIndex: 1 }}>
+            : null}
+        </Grid>
+      </Grid>
+      {content !== "" ? 
+        <Grid item xs={10} md={7} xl={5} style={{ zIndex: 1 }}>
           <Grid container
             direction="row"
             justify="center"
@@ -246,20 +250,50 @@ const [mounted, setMounted] = useState(false)
             style={{
               marginTop: 50,
               padding: "50px 0px 200px 0px",
-              
+
             }}
-        >
-          <Grid item xs={12}>
-            <PostContent content={content} />
-          </Grid>
-          {related !== undefined && related !== null ?
+          >
             <Grid item xs={12}>
-              <Typography variant="h2" gutterBottom>
-                Verwandte Karten
+              <PostContent content={content} />
+            </Grid>
+          </Grid>
+        </Grid>
+      : null }
+      {related !== undefined && related !== null ?
+        <Grid container justify="center"
+          alignItems="center" spacing={2}>
+        <Grid item xs={10} md={7}>
+          <Typography variant="h3" gutterBottom>
+            Verwandte Karten
               </Typography>
-              <Grid container justify="center"
-                alignItems="center" spacing={2}>
-                {related.map((card, i) => 
+            </Grid>
+            <Grid item xs={12}>
+          <Grid container justify="center"
+            alignItems="flex-start" spacing={2}>
+            <Grid item xs={12} style={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              justifyContent: 'space-around',
+                overflow: 'overlay',
+              marginBottom: 150
+            }}>
+              <GridList cols={1} style={{
+                flexWrap: 'nowrap',
+                // Promote the list into his own layer on Chrome. This cost memory but helps keeping high FPS.
+                transform: 'translateZ(0)',
+              }}>
+                {related.map(card => (
+                  <Link to={card.fields.slug} style={{height: "auto", marginLeft: 10}}>
+                    <img
+                      style={{width: "200px"}}
+                      alt={card.frontmatter.title}
+                      src={card.frontmatter.image !== null ? card.frontmatter.image.childImageSharp.fluid.src : card.frontmatter.image}
+                    ></img>
+                  </Link>
+                ))}
+              </GridList>
+            </Grid>
+            {/* {related.map((card, i) => 
                 <Grid key={card.fields.slug} item xs={6} sm={4} md={3} lg={2} xl={1}>
                   <Link to={card.fields.slug}>
                     <img
@@ -272,14 +306,12 @@ const [mounted, setMounted] = useState(false)
                     ></img>
                   </Link>
                 </Grid>
-                )}
-              </Grid>
-            </Grid>
-          : null}
+                )} */}
           </Grid>
-        </Grid>
-
-      </Grid> 
+          </Grid>
+          </Grid>
+        : null}
+    </Grid>
   )
 }
 
@@ -296,33 +328,33 @@ const DeckPage = ({ data }) => {
   console.log(post.fields.relation)
   console.log(post.frontmatter.related)
   return (
-      <DeckPageTemplate
-        content={post.html}
-        contentComponent={HTMLContent}
-        description={post.frontmatter.description}
-        image={post.frontmatter.image ? post.frontmatter.image.childImageSharp.fluid.src : post.frontmatter.image }
-        arkana={post.frontmatter.arkana}
-        planets={post.frontmatter.planets}
+    <DeckPageTemplate
+      content={post.html}
+      contentComponent={HTMLContent}
+      description={post.frontmatter.description}
+      image={post.frontmatter.image ? post.frontmatter.image.childImageSharp.fluid.src : post.frontmatter.image}
+      arkana={post.frontmatter.arkana}
+      planets={post.frontmatter.planets}
       zodiac={post.frontmatter.zodiac}
       related={post.fields.relation}
-        title={post.frontmatter.title}
-        natural={post.frontmatter.natural}
-        upsidedown={post.frontmatter.upsidedown}
-        color={post.frontmatter.color}
-        id={post.frontmatter.id}
-        time={post.frontmatter.time}
-        short={post.frontmatter.short}
-        helmet={
-          <Helmet titleTemplate="%s | Tarot">
-            <title>{`${post.frontmatter.title}`}</title>
-            <meta
-              name="description"
-              content={`${post.frontmatter.description}`}
-            />
-          </Helmet>
-        }
-        tags={post.frontmatter.tags}
-      />
+      title={post.frontmatter.title}
+      natural={post.frontmatter.natural}
+      upsidedown={post.frontmatter.upsidedown}
+      color={post.frontmatter.color}
+      id={post.frontmatter.id}
+      time={post.frontmatter.time}
+      short={post.frontmatter.short}
+      helmet={
+        <Helmet titleTemplate="%s | Tarot">
+          <title>{`${post.frontmatter.title}`}</title>
+          <meta
+            name="description"
+            content={`${post.frontmatter.description}`}
+          />
+        </Helmet>
+      }
+      tags={post.frontmatter.tags}
+    />
   )
 }
 

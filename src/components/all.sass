@@ -219,24 +219,16 @@ h2
   @media only screen and (max-width: 600px)
     font-size: 2.65rem;
 p
-  margin-bottom: 10px
+  margin-bottom: 15px
+  font-size: 1.1rem
+  line-height: 1.4
   strong
     color: $black 
   code
-    background-color: $dark;
-    color: $white;
-  blockquote
-    position: relative;
-    padding-left: 1em;
-    border-left: 0.2em solid lighten($dark, 40%);
-    font-family: 'Roboto', serif;
-    font-weight: 100;
-    &:before, &:after 
-        content: '\201C';
-        font-family: 'Roboto';
-        color: lighten($dark, 40%);
-    &:after 
-      content: '\201D';
+    color: lighten($black, 20%);
+    font-family: monospace
+    font-size: 20px
+    margin-top: 20px
 a
   color: darken(#fff, 40%)
   &:hover
@@ -250,6 +242,7 @@ ul
     padding-right: 0px
   li
     padding: 15px;
+    font-size: 1.05rem;
 
 
 
@@ -269,3 +262,13 @@ ul
     text-align: center;
     width: 100%;
     display: block;
+
+
+
+
+blockquote
+  p
+    padding-left: 1em;
+    border-left: 0.2em solid lighten($dark, 40%);
+    font-family: 'Roboto', serif;
+    font-weight: 100;

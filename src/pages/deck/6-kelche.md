@@ -32,5 +32,14 @@ upsidedown:
   - Stolz auf Erreichtes erweist sich als Hemmschuh für neue Erfolge
   - Festhalten an überholten Sitten oder Gewohnheiten
   - Mangelndes Mitgefühl für andere
+related:
+  - Ass der Kelche
+  - 2 Kelche
+  - 3 Kelche
+  - 4 Kelche
+  - 5 Kelche
+  - 7 Kelche
+  - Ritter der Kelche
+  - König der Kelche
 ---
 \-

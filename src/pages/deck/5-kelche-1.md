@@ -29,5 +29,14 @@ upsidedown:
   - Neue Verbindungen und Erwartungen
   - Ängste - verursacht durch plötzliche und schnelle Veränderungen
   - Schwierigkeiten aus unerwarteter Richtung
+related:
+  - Ass der Kelche
+  - 2 Kelche
+  - 3 Kelche
+  - 4 Kelche
+  - 6 Kelche
+  - 7 Kelche
+  - Ritter der Kelche
+  - König der Kelche
 ---
 \-

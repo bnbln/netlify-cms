@@ -28,5 +28,13 @@ upsidedown:
   - Sattheit und Ausschweifung
   - Suche nach Abwechslung und Aufregung
   - Schnell gelangweilt
+related:
+  - Ass der Kelche
+  - 2 Kelche
+  - 3 Kelche
+  - 5 Kelche
+  - 6 Kelche
+  - 7 Kelche
+  - Ritter der Kelche
+  - König der Kelche
 ---
-\-

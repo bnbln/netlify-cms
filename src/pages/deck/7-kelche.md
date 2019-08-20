@@ -27,6 +27,7 @@ upsidedown:
   - Vertrauen auf falsche Versprechungen
   - Angst vor Erfolg
 related:
+  - Ass der Kelche
   - 2 Kelche
   - 3 Kelche
   - 4 Kelche

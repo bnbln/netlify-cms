@@ -31,5 +31,14 @@ upsidedown:
   - Promiskuität und hemmungsloser Genuss
   - Selbstzerstörerisches Verhalten
   - Rauchen - Trinken - übermäßiges Essen
+related:
+  - Ass der Kelche
+  - 2 Kelche
+  - 4 Kelche
+  - 5 Kelche
+  - 6 Kelche
+  - 7 Kelche
+  - Ritter der Kelche
+  - König der Kelche
 ---
 \*Geburt bedeutet nicht immer die Geburt im körperlichen Sinne
