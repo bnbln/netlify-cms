@@ -23,8 +23,8 @@ collections:
       - {label: "Sternzeichen", name: "zodiac", widget: "select", required: false, options: ["Widder", "Stier", "Zwillinge", "Krebs", "Löwe", "Jungfrau", "Waage", "Skorpion", "Schütze", "Steinbock", "Wassermann", "Fische"]}
       - {label: "Planeten", name: "planets", required: false, widget: "select", options: ["Sonne", "Mond", "Merkur", "Venus", "Mars", "Jupiter", "Saturn", "Uranus", "Neptun", "Pluto"]}
       - {label: "Beschreibung", name: "description", widget: "text"}
-      - {label: "Zusammenfassung", name: short, widget: "object", fields: [ {label: "Allgemein" , name: common, widget: "text", required: false}, {label: "Liebe" , name: love, widget: "text", required: false}, {label: "Beruf" , name: job, widget: "text", required: false}]}
       - {label: "Zeit", name: "time", widget: "string", required: false}
+      - {label: "Zusammenfassung", name: short, widget: "object", fields: [ {label: "Allgemein" , name: common, widget: "text", required: false}, {label: "Liebe" , name: love, widget: "text", required: false}, {label: "Beruf" , name: job, widget: "text", required: false}]}
       - {label: "Natürliche Stellung", name: "natural", widget: "list"}
       - {label: "Umgekehrt", name: "upsidedown", widget: "list"}
       - {label: "Inhalt", name: "body", widget: "markdown", required: false}

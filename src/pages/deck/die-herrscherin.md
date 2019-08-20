@@ -22,9 +22,11 @@ upsidedown:
   - Unfruchtbarkeit oder unerwünschte Schwangerschaft
   - häusliche Umbruchstimmung
   - manchmal Armut
+related:
+  - Der Herrscher
 ---
-Mythologie
-
-
+## Mythologie
 
 Venus, Aphrodite. Hathor. Freyja. Alle Liebesgöttininen. Alle Göttininen der Ackerbaus. Alle Götter und Göttininen von positiven Kräften, die das Negative anziehen.
+
+<span class="sidenote"><span class="sidenote__toggle">ד</span><span class="sidenote__note">Daleth bedeutet Daleth bedeutet Daleth bedeutet Daleth bedeutet Daleth bedeutet Daleth bedeutet Daleth bedeutet Daleth bedeutet Daleth bedeutet Daleth bedeutet Daleth bedeutet  </span></span>
