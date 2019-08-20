@@ -41,6 +41,7 @@
     "react-spring": "^8.0.27",
     "react-transition-group": "^4.2.2",
     "react-use-gesture": "^5.2.4",
+    "react-youtube": "^7.9.0",
     "styled-components": "^4.3.2",
     "uuid": "^3.2.1"
   },
