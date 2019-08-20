@@ -1,6 +1,7 @@
 ---
 templateKey: deck-page
 title: Rad des Schicksals
+image: /img/10-rad-des-schicksals.png
 id: 10
 number: 12
 arkana: Große Arkana
