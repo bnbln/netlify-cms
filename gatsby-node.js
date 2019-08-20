@@ -109,9 +109,6 @@ exports.sourceNodes = ({ actions, getNodes, getNode }) => {
           )
         )
         if (authorNode) {
-          console.log(authorNode)
-
-
           createNodeField({
             node,
             name: "relation",
