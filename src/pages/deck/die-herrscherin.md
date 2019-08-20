@@ -22,6 +22,8 @@ upsidedown:
   - Unfruchtbarkeit oder unerwünschte Schwangerschaft
   - häusliche Umbruchstimmung
   - manchmal Armut
+related:
+  - Der Herrscher
 ---
 ## Mythologie
 
