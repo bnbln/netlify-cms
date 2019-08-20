@@ -25,6 +25,6 @@ upsidedown:
 ---
 Mythologie
 
-
-
 Venus, Aphrodite. Hathor. Freyja. Alle Liebesgöttininen. Alle Göttininen der Ackerbaus. Alle Götter und Göttininen von positiven Kräften, die das Negative anziehen.
+
+<span class="sidenote"><span class="sidenote__toggle">ד</span><span class="sidenote__note">Daleth</span></span>
