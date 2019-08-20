@@ -117,11 +117,11 @@ exports.sourceNodes = ({ actions, getNodes, getNode }) => {
 
           // if it's first time for this author init empty array for his posts
           
-          // if (!(authorNode.id in postsOfAuthors)) {
-          //   postsOfAuthors[authorNode.id] = [];
-          // }
-          // // add book to this author
-          // postsOfAuthors[authorNode.id].push(node.id);
+          if (!(authorNode in postsOfAuthors)) {
+            postsOfAuthors[authorNode] = [];
+          }
+          // add book to this author
+          postsOfAuthors[authorNode].push(node.id);
         }
       }
     });
