@@ -258,7 +258,9 @@ export const DeckPageTemplate = ({
             </Grid>
           </Grid>
         </Grid>
-      : null }
+        : null}
+      {console.log("rel:", related)
+      }
       {related !== undefined && related !== null ?
         <Grid container justify="center"
           alignItems="center" spacing={2}>
@@ -282,15 +284,15 @@ export const DeckPageTemplate = ({
                 // Promote the list into his own layer on Chrome. This cost memory but helps keeping high FPS.
                 transform: 'translateZ(0)',
               }}>
-                {related.map(card => (
-                  <Link to={card.fields.slug} style={{height: "auto", marginLeft: 10}}>
+                {/* {related.map(card => (
+                  <Link to={card.slug} style={{height: "auto", marginLeft: 10}}>
                     <img
                       style={{width: "200px"}}
-                      alt={card.frontmatter.title}
-                      src={card.frontmatter.image !== null ? card.frontmatter.image.childImageSharp.fluid.src : card.frontmatter.image}
+                      alt={card.title}
+                      src={card.image}
                     ></img>
                   </Link>
-                ))}
+                ))} */}
               </GridList>
             </Grid>
             {/* {related.map((card, i) => 

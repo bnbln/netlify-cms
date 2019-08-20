@@ -109,19 +109,25 @@ exports.sourceNodes = ({ actions, getNodes, getNode }) => {
           )
         )
         if (authorNode) {
-          createNodeField({
-            node,
-            name: "relation",
-            value: authorNode,
-          });
+          // console.log(authorNode[0].frontmatter.image, authorNode[0].frontmatter.title, authorNode[0].fields.slug);
+          const items = authorNode.map((item, i) => 
+            ({image: item.frontmatter.image,
+            title: item.frontmatter.title,
+            slug: item.fields.slug})
+          )
+          console.log(items)
+              if (items) {
+                createNodeField({
+                  node,
+                  name: "relation",
+                  value: items,
+                });
+              }
+          
 
           // if it's first time for this author init empty array for his posts
-          
-          if (!(authorNode in postsOfAuthors)) {
-            postsOfAuthors[authorNode] = [];
-          }
+     
           // add book to this author
-          postsOfAuthors[authorNode].push(node.id);
         }
       }
     });
