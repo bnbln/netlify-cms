@@ -1,4 +1,4 @@
-import React, { useState }  from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
 
@@ -12,10 +12,6 @@ import Slider from '../components/Slider'
 
 
 import logo from "../components/logo.json";
-
-
-import { useSprings, animated, interpolate } from 'react-spring'
-import { useGesture } from 'react-use-gesture'
 
 import Deck from '../components/SpringDeck'
 
@@ -48,24 +44,6 @@ class App extends React.Component {
           paddingRight: 0
         }}>
         <Grid item xs={12}>
-          <Hidden mdUp>
-            <Grid container
-              direction="row"
-              justify="center"
-              alignItems="flex-start"
-              className="panelShadow"
-              style={{
-                zIndex: 100,
-                position: "relative"
-              }}>
-              <Grid item xs={11} md={4} style={{ textAlign: "center" }}>
-                <Lottie data={logo} onComplete={this.onComplete} />
-                <Search />
-              </Grid>
-            </Grid>
-          </Hidden>
-
-          <Hidden smDown >
             <Grid container
               direction="row"
               justify="center"
@@ -84,7 +62,7 @@ class App extends React.Component {
                   width: "100%",
                   height: "75vh",
                   position: "relative",
-                }}><Deck data={this.props.all} /></div>
+                }}><Deck /></div>
                 {/* <div style={{display: "none"}}>
               <h1>{title}</h1>
               <b>{subheading}</b>
@@ -92,11 +70,9 @@ class App extends React.Component {
                 {/* <Search /> */}
               </Grid>
             </Grid>
-          </Hidden>
         </Grid>
         <Grid item xs={12} style={{
         }}>
-          <Hidden>
           <Grid container justify="center"
             className="withSecondaryBackgroundColor panelShadow"
             alignItems="center" style={{
@@ -112,7 +88,6 @@ class App extends React.Component {
               <Slider />
             </Grid>
             </Grid>
-          </Hidden>
         </Grid>
 
 
