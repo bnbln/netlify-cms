@@ -52,15 +52,46 @@ CMS.registerEditorComponent({
         autoplay: 1
       }
     };
-    console.log(<YouTube
-        videoId={obj.id}
-        opts={opts}
-        // onReady={this._onReady}
-      />);
+    // console.log(<YouTube
+    //     videoId={obj.id}
+    //     opts={opts}
+    //     // onReady={this._onReady}
+    //   />);
     
     return (
       '<img src="http://img.youtube.com/vi/' + obj.id + '/maxresdefault.jpg" alt="Youtube Video"/>'
 
     );
   }
+});
+
+CMS.registerEditorComponent({
+  id: "hebrew",
+  label: "Hebräisch",
+  fields: [{
+    name: 'element',
+    label: 'Buchstabe',
+    widget: 'string'
+  }, {
+    name: 'text',
+    label: 'Beschreibung',
+    widget: 'text'
+  }],
+  pattern: /^<span class="sidenote"><span class="sidenote__toggle">(.*)<\/span><span class="sidenote__note">(.*)<\/span><\/span>/,
+  fromBlock: function (match) {
+    return {
+      element: match[1],
+      text: match[2],
+    };
+  },
+  toBlock: function (obj) {
+    return (
+      '<span class="sidenote"><span class="sidenote__toggle">' + obj.element + '</span><span class="sidenote__note">' + obj.text + '</span></span>'
+    );
+  },
+  toPreview: function (obj) {
+    return (
+      '<span class="sidenote"><span class="sidenote__toggle">' + obj.element + '</span><span class="sidenote__note">' + obj.text + '</span></span>'
+    );
+  },
 });
