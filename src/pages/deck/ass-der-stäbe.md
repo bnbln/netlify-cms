@@ -13,7 +13,7 @@ short:
   common: >+
     Jahreszeit: Frühling
 
-    Himmelsrichtung: Süden
+    Himmelsrichtung: Süden    
 
 
     Die Chance etwas zu unternehmen und sich zu entfalten, zu wachsen, Voller
