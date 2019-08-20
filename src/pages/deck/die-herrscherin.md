@@ -23,7 +23,7 @@ upsidedown:
   - häusliche Umbruchstimmung
   - manchmal Armut
 ---
-Mythologie
+## Mythologie
 
 Venus, Aphrodite. Hathor. Freyja. Alle Liebesgöttininen. Alle Göttininen der Ackerbaus. Alle Götter und Göttininen von positiven Kräften, die das Negative anziehen.
 
