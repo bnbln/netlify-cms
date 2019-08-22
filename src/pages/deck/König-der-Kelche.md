@@ -31,9 +31,14 @@ upsidedown:
   - Doppeltes Spiel
   - Gewalttätig und hinterhältig
 related:
-  - Ritter der Kelche
   - Ass der Kelche
   - 2 Kelche
+  - 3 Kelche
+  - 4 Kelche
+  - 5 Kelche
+  - 6 Kelche
+  - 7 Kelche
+  - Ritter der Kelche
 ---
 **We expect the shipment of a limited quantity** of green beans next Monday. We’ll be offering the roasted beans from Tuesday, but quantities are limited, so be quick.
 

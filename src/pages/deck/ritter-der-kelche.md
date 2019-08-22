@@ -25,6 +25,15 @@ natural:
 upsidedown:
   - fauler Mensch
   - genialer Lügner
+related:
+  - Ass der Kelche
+  - 2 Kelche
+  - 3 Kelche
+  - 4 Kelche
+  - 5 Kelche
+  - 6 Kelche
+  - 7 Kelche
+  - König der Kelche
 ---
 Der Herr der Wellen und des Wassers
 

@@ -36,6 +36,10 @@ related:
   - Ass der Kelche
   - 2 Kelche
   - 3 Kelche
-
+  - 4 Kelche
+  - 5 Kelche
+  - 7 Kelche
+  - Ritter der Kelche
+  - König der Kelche
 ---
 \-

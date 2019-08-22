@@ -34,6 +34,8 @@ related:
   - 2 Kelche
   - 3 Kelche
   - 4 Kelche
-
+  - 6 Kelche
+  - 7 Kelche
+  - Ritter der Kelche
+  - König der Kelche
 ---
-\-

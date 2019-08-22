@@ -100,43 +100,56 @@ exports.sourceNodes = ({ actions, getNodes, getNode }) => {
     .filter(node => node.internal.type === "MarkdownRemark")
     .forEach(node => {
       if (node.frontmatter.related) {
-        
-        const authorNode = node.frontmatter.related.map((item, i) => 
+        const authorNode = node.frontmatter.related.map((item, i) =>
           getNodes().find(
-            node2 =>
+            node2 => 
               node2.internal.type === "MarkdownRemark" &&
-              node2.frontmatter.title === item
+                node2.frontmatter.title === item
           )
         )
         if (authorNode) {
-          // console.log(authorNode[0].frontmatter.image, authorNode[0].frontmatter.title, authorNode[0].fields.slug);
-          const items = authorNode.map((item, i) => 
-            ({image: item.frontmatter.image,
-            title: item.frontmatter.title,
-            slug: item.fields.slug})
-          )
-          console.log(items)
-              if (items) {
-                createNodeField({
-                  node,
-                  name: "relation",
-                  value: items,
-                });
+          function filterMyNodes(item) {
+            const fields = {
+              id: item.id,
+              fields: {
+                slug: item.fields.slug,
+              },
+              frontmatter: {
+                image: item.frontmatter.image,
+                title: item.frontmatter.title
               }
-          
+              
+            }
+            return fields
+          }
+          var items = [];
+          authorNode.forEach((item, i) => {
+            items.push(filterMyNodes(item))
+          })
+          console.log(items)
 
-          // if it's first time for this author init empty array for his posts
-     
-          // add book to this author
+          
+          // console.log(authorNode[0].frontmatter.image, authorNode[0].frontmatter.title, authorNode[0].fields.slug);
+          // const items = authorNode.map((item, i) => 
+          //   ({"image": item.frontmatter.image,
+          //   "title": item.frontmatter.title,
+          //   "slug": item.fields.slug})
+          // )
+          
+          createNodeField({
+            node,
+            name: "relation",
+            value: items
+          });
         }
       }
     });
 
-  Object.entries(postsOfAuthors).forEach(([authorNodeId, postIds]) => {
-    createNodeField({
-      node: getNode(authorNodeId),
-      name: "posts",
-      value: postIds,
-    });
-  });
+  // Object.entries(postsOfAuthors).forEach(([authorNodeId, postIds]) => {
+  //   createNodeField({
+  //     node: getNode(authorNodeId),
+  //     name: "posts",
+  //     value: postIds,
+  //   });
+  // });
 };

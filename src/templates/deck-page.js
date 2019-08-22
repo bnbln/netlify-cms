@@ -122,7 +122,7 @@ export const DeckPageTemplate = ({
 
           </Grid>
 
-          <Grid item xs={10} sm={5} md={5} lg={4}>
+          <Grid item xs={10} sm={5} md={5} lg={4} className="imageBlocker">
             {console.log(color ? "true" : "false")}
             <Typography variant="overline" display="block" gutterBottom>
               {id}
@@ -284,15 +284,15 @@ export const DeckPageTemplate = ({
                 // Promote the list into his own layer on Chrome. This cost memory but helps keeping high FPS.
                 transform: 'translateZ(0)',
               }}>
-                {/* {related.map(card => (
-                  <Link to={card.slug} style={{height: "auto", marginLeft: 10}}>
+                {related.map(card => (
+                  <Link to={card.fields.slug} style={{ height: "auto", marginLeft: 10 }} key={"link-" + card.frontmatter.title}>
                     <img
                       style={{width: "200px"}}
-                      alt={card.title}
-                      src={card.image}
+                      alt={card.frontmatter.title}
+                      src={card.frontmatter.image !== null ? card.frontmatter.image.childImageSharp.fluid.src : card.frontmatter.image}
                     ></img>
                   </Link>
-                ))} */}
+                ))}
               </GridList>
             </Grid>
             {/* {related.map((card, i) => 

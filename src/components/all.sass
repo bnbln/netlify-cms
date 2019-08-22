@@ -264,7 +264,25 @@ ul
     display: block;
 
 
-
+.imageBlocker
+  text-shadow: -3px 0px 6px $light;
+  &::after
+    position: absolute;
+    display: flex;
+    width: 60%;
+    background-color: $light;
+    height: 283px;
+    z-index: -1;
+    content: "";
+    filter: blur(100px);
+    transform: translate(-202px,-470px) scale(1.2);  
+    border-radius: 333px;
+    opacity: 0.7;
+  @media (prefers-color-scheme: dark)
+    text-shadow: -3px 0px 6px #edece800;
+    &::after
+      background-color: $dark; 
+  
 
 blockquote
   p
