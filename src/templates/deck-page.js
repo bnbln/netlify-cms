@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { graphql, Link } from 'gatsby'
+import Img from "gatsby-image"
+
 
 import Content, { HTMLContent } from '../components/Content'
 import Grid from '@material-ui/core/Grid';
@@ -10,8 +12,6 @@ import Typography from '@material-ui/core/Typography';
 import { Transition } from "react-transition-group"
 
 import GridList from '@material-ui/core/GridList';
-import GridListTile from '@material-ui/core/GridListTile';
-import GridListTileBar from '@material-ui/core/GridListTileBar';
 
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -85,7 +85,7 @@ export const DeckPageTemplate = ({
               ...defaultStyle2,
               ...transitionStyles2[state]
             }}>
-              <img src={image} alt={title} />
+              <img onLoad={() => setMounted(true)} src={image.childImageSharp.fluid.src} alt={title} />
             </div>
           )}
         </Transition>
@@ -109,13 +109,16 @@ export const DeckPageTemplate = ({
                   ...defaultStyle,
                   ...transitionStyles[state]
                 }}>
-                  <img alt={title} src={image}
-                    onLoad={() => setMounted(true)}
+                  <Img
+                    fluid={image.childImageSharp.fluid}
+                    alt={title}
                     style={{
                       width: "100%",
                       height: "auto",
                       maxHeight: "100%"
-                    }}></img>
+                    }}
+                    
+                  />
                 </div>
               )}
             </Transition>
@@ -284,15 +287,17 @@ export const DeckPageTemplate = ({
                 // Promote the list into his own layer on Chrome. This cost memory but helps keeping high FPS.
                 transform: 'translateZ(0)',
               }}>
-                {related.map(card => (
+                  {related.map(card => 
+                    card.frontmatter.image ?
                   <Link to={card.fields.slug} style={{ height: "auto", marginLeft: 10 }} key={"link-" + card.frontmatter.title}>
-                    <img
+                    <Img
                       style={{width: "200px"}}
                       alt={card.frontmatter.title}
-                      src={card.frontmatter.image !== null ? card.frontmatter.image.childImageSharp.fluid.src : card.frontmatter.image}
-                    ></img>
-                  </Link>
-                ))}
+                      fluid={card.frontmatter.image.childImageSharp.fluid}
+                    />
+                      </Link>
+                      :null
+                )}
               </GridList>
             </Grid>
             {/* {related.map((card, i) => 
@@ -334,7 +339,7 @@ const DeckPage = ({ data }) => {
       content={post.html}
       contentComponent={HTMLContent}
       description={post.frontmatter.description}
-      image={post.frontmatter.image ? post.frontmatter.image.childImageSharp.fluid.src : post.frontmatter.image}
+      image={post.frontmatter.image}
       arkana={post.frontmatter.arkana}
       planets={post.frontmatter.planets}
       zodiac={post.frontmatter.zodiac}

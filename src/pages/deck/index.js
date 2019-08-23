@@ -2,6 +2,7 @@ import React from 'react'
 import { kebabCase } from 'lodash'
 import Helmet from 'react-helmet'
 import { Link, graphql } from 'gatsby'
+import Img from "gatsby-image"
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 
@@ -60,27 +61,28 @@ const TagsPage = ({
                     {tag.fieldValue === "Kleine Arkana" ?
                       elementsQuery(tag.nodes).map((item, i) => 
                         item.length !== 0 ?
-                          <Grid item xs={12} id={item[0].frontmatter.color}>
+                          <Grid item xs={12} id={item[0].frontmatter.color} key={i +"-"}>
                             <Link to={`/colors/${kebabCase(item[0].frontmatter.color)}/`} style={{ display: "block" }}>
                             <Typography variant="h6" gutterBottom align="center">
                               {item[0].frontmatter.color}
                               </Typography>
                             </Link>
                           <Grid container justify="center" alignItems="center" spacing={2}>
-                              {item.map((card, i) => (
-                                <Grid key={card.fields.slug} item xs={6} sm={4} md={3} lg={2} xl={1}>
-                                  <Link to={card.fields.slug}>
-                                    <img
-                                      alt={card.frontmatter.title}
-                                      style={{
-                                        width: "100%",
-                                        marginBottom: -8
-                                      }}
-                                      src={card.frontmatter.image !== null ? card.frontmatter.image.childImageSharp.fluid.src : card.frontmatter.image}
-                                    ></img>
-                                  </Link>
-                                </Grid>
-                              )
+                              {item.map((card, i) => 
+                                card.frontmatter.image ?
+                                  <Grid key={card.fields.slug} item xs={6} sm={4} md={3} lg={2} xl={1}>
+                                    <Link to={card.fields.slug}>
+                                      <Img
+                                        alt={card.frontmatter.title}
+                                        style={{
+                                          width: "100%",
+                                          marginBottom: -8
+                                        }}
+                                        fluid={card.frontmatter.image.childImageSharp.fluid}
+                                      />
+                                    </Link>
+                                  </Grid>
+                                : null
                               )}
                           </Grid>
                         </Grid>

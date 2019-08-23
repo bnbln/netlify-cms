@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ReactLottie from 'react-lottie';
 // import lottie from "lottie-web";
 
@@ -23,13 +23,6 @@ export default class LottieControl extends React.Component {
     this.props.onComplete(false)
   }
   render() {
-
-
-
-    const buttonStyle = {
-      display: 'block',
-      margin: '10px auto'
-    };
 
     const defaultOptions = {
       loop: false,

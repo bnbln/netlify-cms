@@ -3,11 +3,9 @@ import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
 
 import Grid from '@material-ui/core/Grid';
-import Hidden from '@material-ui/core/Hidden';
 import Typography from '@material-ui/core/Typography';
 
 import Lottie from '../components/Lottie'
-import Search from '../components/Search'
 import Slider from '../components/Slider'
 
 

@@ -6,6 +6,8 @@ import {
 } from "gatsby";
 import PropTypes from "prop-types"
 import Grid from '@material-ui/core/Grid';
+import Img from "gatsby-image"
+
 
 class Slider extends Component {
   _isMounted = false;
@@ -50,7 +52,9 @@ class Slider extends Component {
             <Grid container direction="column" spacing={3}>
               {item.map((item, i) =>
                 item.node.frontmatter.image !== null ?
-                  <Grid item key={"div-" + item.node.fields.slug} xs={12} onClick={() => navigate(item.node.fields.slug + "/")}>
+                  <Grid item key={"div-" + item.node.fields.slug} xs={12} onClick={() => navigate(item.node.fields.slug + "/")}
+                    style={{height: "fit-content"}}
+                  >
                     <div
                       style={{
                         background: "white",
@@ -60,9 +64,15 @@ class Slider extends Component {
                         backgroundRepeat: "no-repeat",
                         borderRadius: 7,
                         width: "100%",
-                        cursor: "pointer"
+                        height:"fit-content",
+                        cursor: "pointer",
+                        // position: "relative"
+
                       }}>
-                      <img src={item.node.frontmatter.image.childImageSharp.fluid.src} alt={item.name} style={{ width: "100%", height: "auto", opacity: 0 }} onLoad={() => this.setState({ loaded: true })} />
+                      <img src={item.node.frontmatter.image.childImageSharp.fluid.src} alt={item.name} style={{ width: "100%", height: "auto", opacity: 0 }} />
+
+                  {/* <Img fluid={item.node.frontmatter.image.childImageSharp.fluid} alt={item.name}
+                        onLoad={() => this.setState({ loaded: true })} /> */}
                     </div>
                   </Grid>
                   : null
