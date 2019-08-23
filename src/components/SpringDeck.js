@@ -13,7 +13,7 @@ import PropTypes from "prop-types"
 const to = i => ({ x: 0, y: i * -4, scale: 1, rot: -10 + Math.random() * 20, delay: i * 100 })
 const from = i => ({ x: 0, rot: 0, scale: 1.5, y: -1000 })
 // This is being used down there in the view, it interpolates rotation and scale into a css transform
-const trans = (r, s) => `perspective(1500px) rotateX(30deg) rotateY(${r / 10}deg) rotateZ(${r}deg) scale(${s})`
+const trans = (r, s) => `perspective(1500px) rotateX(30deg) rotateY(${r / 10}deg) rotateZ(${r}deg) scale(${s * 0.8})`
 
 const DeckAnimation = (myprops) => {
   
@@ -35,14 +35,22 @@ const DeckAnimation = (myprops) => {
     if (!down && gone.size === myprops.data.length) setTimeout(() => gone.clear() || set(i => to(i)), 600)
   })
 
+  return (
+    <div style={{
+      height: "590px",
+      width: "100%",
+      position: "relative"
+    }}>
+      {props.map(({ x, y, rot, scale }, i) => (
+        <animated.div key={i} className="deckAnimationContainer" style={{ transform: interpolate([x, y], (x, y) => `translate3d(${x}px,${y}px,0)`) }}>
+          {myprops.data[i].node.frontmatter.image ?
+            <animated.div {...bind(i)} onClick={() => console.log("ok")} style={{ transform: interpolate([rot, scale], trans), backgroundImage: `url(${myprops.data[i].node.frontmatter.image.childImageSharp.fluid.src})` }} />
+            : null}
+        </animated.div>
+      ))}
+    </div>
+  )
   // Now we're just mapping the animated values to our view, that's it. Btw, this component only renders once. :-)
-  return props.map(({ x, y, rot, scale }, i) => (
-    <animated.div key={i} className="deckAnimationContainer" style={{ transform: interpolate([x, y], (x, y) => `translate3d(${x}px,${y}px,0)`) }}>
-      {myprops.data[i].node.frontmatter.image ?
-        <animated.div {...bind(i)} onClick={()=>console.log("ok")} style={{ transform: interpolate([rot, scale], trans), backgroundImage: `url(${myprops.data[i].node.frontmatter.image.childImageSharp.fluid.src})` }} />
-        : null}
-    </animated.div>
-  ))
 }
 
 export default props => (

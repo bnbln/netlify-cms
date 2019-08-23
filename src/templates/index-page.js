@@ -55,12 +55,8 @@ class App extends React.Component {
               <Grid item xs={11} md={4} style={{ textAlign: "center" }}>
                 <Lottie data={logo} onComplete={this.onComplete} />
               </Grid>
-              <Grid item xs={11} sm={6} md={4} >
-                <div style={{
-                  width: "100%",
-                  height: "75vh",
-                  position: "relative",
-                }}><Deck /></div>
+            <Grid item xs={11} sm={6} md={4} >
+                <Deck />               
                 {/* <div style={{display: "none"}}>
               <h1>{title}</h1>
               <b>{subheading}</b>
