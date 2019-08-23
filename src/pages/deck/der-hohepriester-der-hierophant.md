@@ -2,6 +2,7 @@
 templateKey: deck-page
 title: Der Hohepriester/ Der Hierophant
 image: /img/5-der-hierophant.png
+background: true
 id: 5
 number: 12
 arkana: Große Arkana
