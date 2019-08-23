@@ -2,6 +2,7 @@
 templateKey: deck-page
 title: Der Herrscher
 image: /img/4-der-herrscher.png
+background: true
 id: 4
 number: 12
 arkana: Große Arkana
