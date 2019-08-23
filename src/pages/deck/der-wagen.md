@@ -2,6 +2,7 @@
 templateKey: deck-page
 title: Der Wagen
 image: /img/7-der-wagen.png
+background: true
 id: 7
 number: 12
 arkana: Große Arkana
