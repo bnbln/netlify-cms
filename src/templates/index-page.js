@@ -25,7 +25,7 @@ class App extends React.Component {
     this.onComplete = this.onComplete.bind(this)
   }
   componentDidMount() {
-  this.setState({isMounted: true})
+    this.setState({ isMounted: true })
   }
   onComplete(e) {
     this.setState({
@@ -41,30 +41,30 @@ class App extends React.Component {
         alignItems="center" style={{
           paddingRight: 0
         }}>
+        
         <Grid item xs={12}>
-            <Grid container
-              direction="row"
-              justify="center"
-              alignItems="center"
-              className="panelShadow"
-              style={{
-                zIndex: 100,
-                position: "relative",
-                overflowX: "hidden"
-              }}>
-              <Grid item xs={11} md={4} style={{ textAlign: "center" }}>
-                <Lottie data={logo} onComplete={this.onComplete} />
-              </Grid>
-            <Grid item xs={11} sm={6} md={4} >
-                <Deck />               
-                {/* <div style={{display: "none"}}>
-              <h1>{title}</h1>
-              <b>{subheading}</b>
-            </div> */}
-                {/* <Search /> */}
-              </Grid>
+
+          <Grid container
+            direction="row"
+            wrap='wrap-reverse'
+            justify="center"
+            alignItems="center"
+            className="panelShadow"
+            style={{
+              zIndex: 100,
+              position: "relative",
+              overflowX: "hidden"
+            }}>
+            <Grid item xs={11} md={4} style={{ textAlign: "center" }}>
+              <Lottie data={logo} onComplete={this.onComplete} />
             </Grid>
+            <Grid item xs={11} sm={6} md={4} >
+              <Deck />
+            </Grid>
+          </Grid>
+
         </Grid>
+
         <Grid item xs={12} style={{
         }}>
           <Grid container justify="center"
@@ -81,7 +81,7 @@ class App extends React.Component {
             <Grid item xs={9}>
               <Slider />
             </Grid>
-            </Grid>
+          </Grid>
         </Grid>
 
 
@@ -143,7 +143,7 @@ class App extends React.Component {
 // import BlogRoll from '../components/BlogRoll'
 var loading = true
 
-function onComplete (e) {
+function onComplete(e) {
   return e
   console.log(e)
 }
@@ -169,8 +169,8 @@ export const IndexPageTemplate = ({
       description={description}
       intro={intro}
       all={all}
-      />
-)
+    />
+  )
 
 IndexPageTemplate.propTypes = {
   image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
@@ -190,16 +190,16 @@ const IndexPage = ({ data }) => {
 
   return (
 
-      <IndexPageTemplate
-        image={frontmatter.image}
-        title={frontmatter.title}
-        links={frontmatter.links}
-        heading={frontmatter.heading}
-        subheading={frontmatter.subheading}
-        description={frontmatter.description}
-        intro={frontmatter.intro}
-        all={data.allMarkdownRemark.edges}
-      />
+    <IndexPageTemplate
+      image={frontmatter.image}
+      title={frontmatter.title}
+      links={frontmatter.links}
+      heading={frontmatter.heading}
+      subheading={frontmatter.subheading}
+      description={frontmatter.description}
+      intro={frontmatter.intro}
+      all={data.allMarkdownRemark.edges}
+    />
   )
 }
 
