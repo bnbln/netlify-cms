@@ -86,7 +86,7 @@ class DeckPostPreview extends React.Component{
 
 
                   >
-                    {console.log("data: ", entry.getIn(['data', 'relation']))}
+                    {console.log("data: ", entry.getIn(['data', 'image']))}
                   </DeckPageTemplate>
 
                 </Grid>
