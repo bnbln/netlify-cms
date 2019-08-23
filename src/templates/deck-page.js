@@ -87,7 +87,15 @@ export const DeckPageTemplate = ({
               ...defaultStyle2,
               ...transitionStyles2[state]
             }}>
-              <img onLoad={() => setMounted(true)} src={image.childImageSharp ? image.childImageSharp.fluid.src : image} alt={title} />
+              <img onLoad={() => setMounted(true)} src={
+                image ?
+                  image.childImageSharp ?
+                    image.childImageSharp.fluid ?
+                      image.childImageSharp.fluid.src
+                      :image
+                    : image
+                  : null}
+                alt={title} />
             </div>
           )}
         </Transition>
@@ -301,7 +309,7 @@ export const DeckPageTemplate = ({
                     <Img
                       style={{width: "200px"}}
                       alt={card.frontmatter.title}
-                          fluid={card.frontmatter.image.childImageSharp.fluid ? card.frontmatter.image.childImageSharp.fluid : card.frontmatter.image }
+                      fluid={card.frontmatter.image.childImageSharp ? card.frontmatter.image.childImageSharp.fluid : card.frontmatter.image }
                     />
                       </Link>
                       :null
