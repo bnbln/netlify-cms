@@ -7,7 +7,9 @@ id: 77
 number: 4
 arkana: Kleine Arkana
 color: Luft
-description: 'Ex-Partner, schwierige Person, Witwer, Selbstständiger, Experte'
+description: >-
+  Der Prinz des Windwagens, Ex-Partner, schwierige Person, Witwer,
+  Selbstständiger, Experte
 time: 'Zwilling (Juni), Waage (Oktober), Wassermann (Februar)'
 short:
   common: >-
