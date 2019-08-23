@@ -69,6 +69,7 @@ class DeckPostPreview extends React.Component{
                 <CssBaseline />
                 <Grid container className="withBackgroundColor" >
                   <DeckPageTemplate
+                    preview={true}
                     content={widgetFor('body')}
                     description={entry.getIn(['data', 'description'])}
                     image={entry.getIn(['data', 'image'])}

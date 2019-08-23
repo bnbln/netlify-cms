@@ -52,6 +52,7 @@ const transitionStyles2 = {
   exited: { top: "-100vh", opacity: 0, transform: "scale(0)" },
 };
 export const DeckPageTemplate = ({
+  preview,
   content,
   contentComponent,
   description,
@@ -110,16 +111,22 @@ export const DeckPageTemplate = ({
                   ...defaultStyle,
                   ...transitionStyles[state]
                 }}>
-                  <Img
-                    fluid={image.childImageSharp ? image.childImageSharp.fluid : image}
-                    alt={title}
-                    style={{
-                      width: "100%",
-                      height: "auto",
-                      maxHeight: "100%"
-                    }}
-                    
-                  />
+                  {preview ?
+                    <img alt={title} src={image}
+                      style={{ width: "100%", height: "auto", maxHeight: "100%" }}/>
+                    :
+                    <Img
+                      fluid={image.childImageSharp ? image.childImageSharp.fluid : image}
+                      alt={title}
+                      style={{
+                        width: "100%",
+                        height: "auto",
+                        maxHeight: "100%"
+                      }}
+
+                    />
+                  }
+                  
                 </div>
               )}
             </Transition>
@@ -337,6 +344,7 @@ const DeckPage = ({ data }) => {
   console.log(post.frontmatter.related)
   return (
     <DeckPageTemplate
+      preview={false}
       content={post.html}
       contentComponent={HTMLContent}
       description={post.frontmatter.description}
