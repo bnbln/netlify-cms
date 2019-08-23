@@ -56,6 +56,7 @@ export const DeckPageTemplate = ({
   contentComponent,
   description,
   image,
+  background,
   arkana,
   planets,
   zodiac,
@@ -125,7 +126,7 @@ export const DeckPageTemplate = ({
 
           </Grid>
 
-          <Grid item xs={10} sm={5} md={5} lg={4} className="imageBlocker">
+          <Grid item xs={10} sm={5} md={5} lg={4} className={background === true ? "imageBlocker" : null}>
             {console.log(color ? "true" : "false")}
             <Typography variant="overline" display="block" gutterBottom>
               {id}
@@ -340,6 +341,7 @@ const DeckPage = ({ data }) => {
       contentComponent={HTMLContent}
       description={post.frontmatter.description}
       image={post.frontmatter.image}
+      background={post.frontmatter.background}
       arkana={post.frontmatter.arkana}
       planets={post.frontmatter.planets}
       zodiac={post.frontmatter.zodiac}
@@ -408,6 +410,7 @@ export const pageQuery = graphql`
           templateKey
           description
           time
+          background
           short {
             common
             job

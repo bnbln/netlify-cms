@@ -72,6 +72,7 @@ class DeckPostPreview extends React.Component{
                     content={widgetFor('body')}
                     description={entry.getIn(['data', 'description'])}
                     image={entry.getIn(['data', 'image'])}
+                    background={entry.getIn(['data', 'background'])}
                     arkana={entry.getIn(['data', 'arkana'])}
                     planets={entry.getIn(['data', 'planets'])}
                     zodiac={entry.getIn(['data', 'zodiac'])}
