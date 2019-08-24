@@ -66,7 +66,7 @@ export default props => (
                   color
                   image {
                       childImageSharp {
-                        fluid(maxWidth: 400, quality: 100) {
+                        fluid(maxWidth: 250, quality: 35) {
                           ...GatsbyImageSharpFluid
                         }
                       }
